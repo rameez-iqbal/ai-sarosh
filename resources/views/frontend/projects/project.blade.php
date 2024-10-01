@@ -1,0 +1,151 @@
+@extends('frontend.layout.master')
+@section('page-title', 'Projects')
+@section('content')
+<div class="container">
+    {{view('frontend.components.social-links')}}
+    <x-breadcrumb
+    :backLink="$backLink"
+    homeText="Home"
+    :breadcrumbItems="$breadcrumbItems"
+/>
+    {{view('frontend.components.banner')}}
+</div>
+{{view('frontend.projects.project-list')}}
+    <x-project-detail
+    bgColor="#FFDADB"
+    logo="app-assets/images/frontend/cmed_logo.svg"
+    title="Development SuSastho AI: An enabled solution to improve the health and well-being of the adolescent population in Bangladesh"
+    piName="Dr. Khondaker A. Mamun"
+    coPiName="Dr. Moinul Haque Chowdhury"
+    projectTimeline="Oct-23 – Mar-25"
+    projectTeam="Farhana Sarker | Rifat Shariyar | Rifat Rahman | Mohammad Masudur Rahman | Anu Ubaida Akash | Abu Sadat Mohammad sayem | Sameena Chowdhury | Marzia Zaman | Helal Uddin Ahmed | Chiranjeeb Biswas | Abdul Owares | Anjarul Hoque | Mahfuz Ibne Alam | Ashiquzzaman Khondaker | Tariqul Islam | Toufa Rani Saha | Sayma Yadnin"
+    country="Bangladesh"
+    organization="CMED Health Limited"
+    website="https://cmed.com.bd/"
+    profileImage="app-assets/images/frontend/moinul.png"
+    countryFlag="app-assets/images/frontend/bangladesh.svg"
+    userName="Dr. Moinul Haque Chowdhury"
+    aboutProject='The project aims to address adolescent Sexual, Reproductive, and mental Health (ASRMH) challenges in Bangladesh by overcoming societal taboos and limited access to information and care. The solution involves an open-source AI engine integrated into the existing digital healthcare platform "SuSastho", providing health education, screening, doctor consultation, referral, and data analytics through a chatbot, referral engine, and stakeholder dashboard. Partnering with UNICEF and government entities, the project plans to conduct beta testing, seek clinical validations, and ensure cultural appropriateness through consultative workshops.'
+    type="text"
+    />
+    <x-project-detail
+    bgColor="#FFDADB"
+    logo="app-assets/images/frontend/eminance_logo.svg"
+    title="Ma (Mother) Mental Health: Artificial Intelligence-Enabled Detection of Perinatal Depression"
+    piName="Dr. Md Shamim Hayder Talukder"
+    coPiName="Dr. Sejuti Rahman"
+    projectTimeline="Oct-23 - Oct-24"
+    projectTeam="Prof. Ferdousi Begum | Dr. Helal Uddin Ahmed | Dr. Shahih Akter | Ummart Farihin Sultana | Kazi Faizus Salahin"
+    country="Bangladesh"
+    organization="Eminence Associates for Social Development"
+    website="https://eminence-bd.org/"
+    profileImage="app-assets/images/frontend/shamim.png"
+    countryFlag="app-assets/images/frontend/bangladesh.svg"
+    userName="Dr. Md Shamim Hayder Talukder"
+    aboutProject="The project aims to develop an AI-based tool to detect perinatal depression with reduced screening time and improved accuracy. Our approach involves collecting high-quality eye fixation data and comparing it with existing eye fixation models to identify perinatal depression. The developed AI models' accuracy, sensitivity, specificity, and other relevant metrics will be assessed and compared to the depression scale and clinical diagnosis. The model would enable healthcare providers to detect and treat perinatal depression in women."
+    type="text"
+    />
+    <x-project-detail
+    bgColor="#FFDADB"
+    logo="app-assets/images/frontend/mpower_logo.svg"
+    title="{!! json_encode(['Project 1: AI/ML-based Pregnancy Risk Categorization (mCareAI)', 'Project 2: AI/ML-based Risk Stratification and Management of Pregnant Mothers (mCareSK)']) !!}"
+    piName="Dr. Mridul Chowdhury"
+    coPiName=""
+    projectTimeline="Oct-23 – Mar-25"
+    projectTeam="Imtiaz Alam Tanim | Dr. Chandrasegarar Soloman | Farig Yousuf Sadeque | Devashish Chowdhury | AGM Imam Hossain | Promit Boshak | Tanvir Hasan | Md Mojammel Hossain | Tamanna Molla Tanni | Zahinur Alam Zahin | Imran Hossain | Masudur Rahman"
+    country="Bangladesh"
+    organization="mPower Social Enterprises Limited"
+    website="https://www.mpower-social.com/"
+    profileImage="app-assets/images/frontend/maridul.png"
+    countryFlag="app-assets/images/frontend/bangladesh.svg"
+    userName="Dr. Mridul Chowdhury "
+    aboutProject="This project entails the development of a Machine-learning-based platform, that will take inputs from multiple sources of datasets, such as from MoH, public health NGOs, and private healthcare facilities for predicting the possibility of risk levels in pregnancies. During the project, we will undertake R&D to develop the platform, with an objective to reach an acceptable level of accuracy, and pilot in selected locations to document lessons learned from field-level execution."
+    type="bullets"
+    />
+    <x-project-detail
+    bgColor="#BBBFFF"
+    logo="app-assets/images/frontend/agha_khan_logo.svg"
+    title="Development and Evaluation of an AI-Based Predictive Model for Postnatal Depression in Pakistan: Bridging the Gap in Early Detection and Intervention"
+    piName="PI* Name: Dr. Zahid Memon"
+    coPiName="Co-PI* Name: Dr. Samra Naz"
+    projectTimeline="Oct-23 – Mar-25"
+    projectTeam="Shah Muhummad | Usman Akram | Asma Zulfiqar | Zohra Lassi | Hina Najmi | Narjis Fatima | Salima Meherali"
+    country="Pakistan"
+    organization="Organization: Aga Khan University"
+    website="https://www.aku.edu/"
+    profileImage="app-assets/images/frontend/zohra.png"
+    countryFlag="app-assets/images/frontend/pakistan.svg"
+    userName="Dr. Zohra Lassi"
+    aboutProject="The project aims to conduct a longitudinal study to address perinatal depression in Pakistan, a critical concern with lasting effects on mothers and children. Using AI and machine learning like logistic regression, decision trees, and neural networks our goal is to create a predictive model for early-stage postpartum depression detection, improving support for pregnant and postpartum women, especially with the likely likelihood of risk factors. Through a 20-month study with surveys at multiple time points, the project is comprehensively exploring factors contributing to postpartum depression severity. The project advances perinatal depression understanding, benefiting women's well-being in Pakistan. It could also help reduce mental health stigma and requires ethical considerations, data privacy, and participant well-being focus."
+    type="text"
+    />
+    <x-project-detail
+    bgColor="#BBBFFF"
+    logo="app-assets/images/frontend/nust.svg"
+    title="AI-based risk predictive tool for early diagnosis and treatment of Gestational Diabetes"
+    piName="PI* Name:  Dr. Ihtesham ul Islam"
+    coPiName=""
+    projectTimeline="Oct-23 - Mar-25"
+    projectTeam="Dr. Hammad Afzal | Dr. Naima Iltaf | Taimoor Shah | Sadaf Majid | Shifa Clinical Research Team"
+    country="Pakistan"
+    organization="Organization: National University of Science and Technology (NUST)"
+    website="https://www.aku.edu/"
+    profileImage="app-assets/images/frontend/naima.png"
+    countryFlag="app-assets/images/frontend/pakistan.svg"
+    userName="Dr. Naima Iltaf"
+    aboutProject="The AI predictive tool for gestational diabetes is an innovative, evidence-based solution for predicting diabetes risk in expectant mothers. It provides early detection and improves perinatal and postnatal outcomes. By integrating diverse clinical datasets and formulating effective algorithms using machine learning, we aim to create a tool for clinicians' daily use. A team of experts specialized in AI and software development from NUST, combined with the Shifa International Hospital's JCI-accredited clinical excellence guarantees the project's success."
+    type="text"
+    />
+    <x-project-detail
+    bgColor="#F6E1E4"
+    logo="app-assets/images/frontend/srilanka_logo.svg"
+    title="AI-Powered Population-based Birth Cohort Study in the Western Province of Sri Lanka"
+    piName="Dr. Kapila Jayaratne"
+    coPiName="Dr. Vajira Dissanayake"
+    projectTimeline="Oct-23 - Mar-25"
+    projectTeam="Dr. Chamli Pushpakumara | Dr. Sidath R. Liyanage | Dr. Roshan Hewapathirana | Dr. R.R.U.I. Rajapaksha | Dr. Dineshani Hettiarachchi | Prof. Karuna Tilake | Dr. P.W Prasad Chathuangana | Dr. M R M Rishard"
+    country="Sri Lanka"
+    organization="Faculty of Medicine, University of Colombo"
+    website="https://science.cmb.ac.lk/"
+    profileImage="app-assets/images/frontend/kapila.png"
+    countryFlag="app-assets/images/frontend/srilanka.svg"
+    userName="Dr. Kapila Jayaratne"
+    aboutProject="A population-based Birth Cohort Study will be conducted in the Western Province of Sri Lanka with a Maternal Health Enhancement (MHE) mobile application. The app includes AI predictive models capable of predicting preterm birth, low birth weight, preeclampsia, perinatal mortality, and postpartum depression in advance. MHE will deliver health advice/alerts directly to the pregnant mother's mobile phone through push notifications with simultaneous alerts for healthcare providers. AI models will also be used in data analysis."
+    type="text"
+    />
+    <x-project-detail
+    bgColor="#FFDBCC"
+    logo="app-assets/images/frontend/naami.svg"
+    title="AI-powered task-shifting for high-quality fetal ultrasound service in community healthcare settings"
+    piName="Dr. Bishesh Khanal"
+    coPiName="Dr. Pradeep Raj Regmi"
+    projectTimeline="Oct-23 - Mar-25"
+    projectTeam="Pratikhsya Dhungana | Rabin Adhikari | Udit Chandra Aryal"
+    country="Nepal"
+    organization="Nepal Applied Mathematics and Informatics Institute for Research (NAAMII)"
+    website="https://www.naamii.org.np/"
+    profileImage="app-assets/images/frontend/bishesh.png"
+    countryFlag="app-assets/images/frontend/nepal.svg"
+    userName="Dr. Bishesh Khanal"
+    aboutProject="This project will do research, development, and pilot evaluation of an AI-assisted fetal ultrasound scanning system for community health nurses. AI models to automatically detect key fetal anatomical views and abnormalities during scanning will be trained by utilizing existing public datasets and newly collected data from two hospitals in Nepal: a teaching hospital in an urban center and a community hospital in a remote area. The project’s results will provide valuable framework and learnings for building reliable fetal ultrasound services at scale in rural and community health centers in LMIC settings."
+    type="text"
+    />
+    <x-project-detail
+    bgColor="#FFDBCC"
+    logo="app-assets/images/frontend/wiseyak_logo.svg"
+    title="Artificial Intelligence Supported Cervical Screening (AISCS)"
+    piName="Dr. Suresh Manandhar"
+    coPiName="Dr. Sunila Shakya"
+    projectTimeline="Oct-23 - Jan-25"
+    projectTeam="Shyam Shrestha | Suraj Prasai | Saumya Bhandari | Kishan Chaudhary | Swedena Shakya | Shahil Manandhar"
+    country="Nepal"
+    organization="Wiseyak Solution Pvt. Ltd"
+    website="https://wiseyak.com/"
+    profileImage="app-assets/images/frontend/suresh.png"
+    countryFlag="app-assets/images/frontend/nepal.svg"
+    userName="Dr. Suresh Manandhar"
+    aboutProject="The project strives to address the high incidence of cervical cancer in low- and middle-income countries (LMICs). The key aim of the project is to provide an integrated system for integrating AI-driven colposcopy image diagnosis, remote consultation, and EMR system into a single platform to aid the doctor in delivering accurate and efficient patient care. The system will support the doctor by providing a paperless digital health platform upon which data analytics can be performed and success rates of interventions can be accurately measured. A secondary aim of the project is to develop/repurpose low-cost endoscopy and microscopy devices for AI-driven screening which can be scaled for use within remote healthcare sets."
+    type="text"
+    />
+
+@endsection
