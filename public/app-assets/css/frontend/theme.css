@@ -1,0 +1,77 @@
+:root {
+    --font-family-main:'Raleway';
+    --font-family-bonvivant-regulary:'Bonvivant-regular';
+    --font-family-bonvivant-serif:'Bonvivant-serif';
+    --blue-color: #313467;
+    --white: #ffffff;
+    --font-weight-lighter:400;
+    --font-weight-normal:500;
+    --font-weight-semi-bold:600;
+    --font-weight-bold:700;
+    --font-weight-bolder:800;
+    --bg-color-pink:#F6E1E4;
+    --bg-color-camel:#FFDBCC;
+    --heading-color:#313467;
+    --text-color:#313467;
+    --black:#292929;
+    --banner-heading-size:110px;
+    --heading-font-size:32px;
+    --banner-text-size:30px;
+    --sub-heading-font-size:26px;
+    --para-font-size:20px;
+    --black-color:#000;
+    --main-btn-bg-clr:#FE9C72;
+    --main-btn-text-clr:#fff;
+}
+.fw-lightr {
+    font-weight: var(--font-weight-light) !important;
+}
+.fw-normal {
+    font-weight: var(--font-weight-normal) !important;
+}
+.fw-semi-bold {
+    font-weight: var(--font-weight-semi-bold) !important;
+}
+.fw-bold {
+    font-weight: var(--font-weight-bold) !important;
+}
+.fw-bolder {
+    font-weight: var(--font-weight-bolder) !important;
+}
+.ff-main {
+    font-family: var(--font-family-main);
+}
+.ff-bv-regular {
+    font-family: var(--font-family-bonvivant-regulary);
+}  
+.ff-bv-serif {
+    font-family: var(--font-family-bonvivant-serif);
+}
+.main-para {
+    font-family: var(--font-family-main);
+    font-weight: var(--font-weight-normal);
+}
+.main-color {
+    color:var(--heading-color);
+}
+.text-clr {
+    color:var(--text-color);
+}
+.banner-heading-font-size {
+    font-size: var(---banner-heading-size);
+}
+.banner-text-font-size {
+    font-size: var(--banner-text-size);
+}
+.heading-font-size {
+    font-size: var(--heading-font-size);
+}
+.sub-heading-font-size {
+    font-size: var(--sub-heading-font-size);
+}
+.para-font-size {
+    font-size: var(--para-font-size);
+}
+.blk-clr {
+    color: var(--black-color);
+}
