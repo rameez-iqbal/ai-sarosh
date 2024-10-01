@@ -4,6 +4,7 @@
 /public/hot
 /public/app-assets/images
 /public/storage
+/public/app-assets/images
 /storage/*.key
 /vendor
 .env
