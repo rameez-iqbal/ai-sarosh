@@ -46,7 +46,6 @@
                 var formData = new FormData(form);
 
                 submitAjax('post', '{{ route('our.clients.store') }}', formData, function(response, error = null) {
-                    console.log(response);;
                     if (response.status === false) {
                         response.data.reverse().forEach(function(message) {
                             toastr.error(message);

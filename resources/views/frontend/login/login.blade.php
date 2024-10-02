@@ -60,8 +60,8 @@
                 </div>
                 <div class="col-lg-8 d-flex justify-content-center align-items-center">
                     <div class="w-100 py-5">
-                        {{-- <img class="img-fluid d-block mx-auto center-block"
-                            src="{{ asset('app-assets') }}/images/error.svg" alt=""> --}}
+                        <img class="img-fluid d-block mx-auto center-block"
+                            src="{{ asset('app-assets') }}/images/error.svg" alt="">
                     </div>
                 </div>
             </div>

@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     use HasFactory;
+    protected $table = 'projects';
+    protected $fillable = 
+    [
+        'title','university','logo','image','country_id'
+    ];
+    CONST PATH="projects";
 }

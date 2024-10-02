@@ -60,8 +60,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('our-clients/edit/{id}','edit')->name('our.clients.edit');
     } );
 
-    Route::controller( ProjectController::class )->group( function ( ) {
-        Route::get('project/create','create')->name('project.create');
+    Route::controller( ProjectController::class )->prefix('project')->group( function ( ) {
+        Route::get('create','create')->name('project.create');
+        Route::post('store','store')->name('project.store');
     } );
 
     Route::controller(OurTeamController::class)->group(function(){

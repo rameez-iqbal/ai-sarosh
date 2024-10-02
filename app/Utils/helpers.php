@@ -70,4 +70,12 @@ use Carbon\Carbon;
         }
     }
 
+    if( !function_exists('monthYearConversion') )
+    {
+        function monthYearConversion($date)
+        {
+            return date("M-d", $date);
+        }
+    }
+
 ?>
