@@ -553,7 +553,8 @@ a:hover{
 /* Scrollbar */
 #scrollbar {
    /* height: 200px; */
-   overflow: auto;
+   overflow-y: auto;
+   overflow-x: hidden;
  }
  
  #scrollbar::-webkit-scrollbar-track {

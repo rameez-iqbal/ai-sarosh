@@ -129,8 +129,6 @@
                         </div>
                     </div>
                 </div>
-                
-                
             </div>
         </div>
         <div class="row pak-projects">

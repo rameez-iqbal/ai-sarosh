@@ -4,10 +4,10 @@
 <div class="container">
     {{view('frontend.components.social-links')}}
     <x-breadcrumb
-    :backLink="$backLink"
-    homeText="Home"
-    :breadcrumbItems="$breadcrumbItems"
-/>
+        :backLink="$backLink"
+        homeText="Home"
+        :breadcrumbItems="$breadcrumbItems"
+    />
     {{view('frontend.components.banner')}}
 </div>
 {{view('frontend.projects.project-list')}}
