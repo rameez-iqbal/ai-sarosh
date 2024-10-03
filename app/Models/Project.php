@@ -14,4 +14,15 @@ class Project extends Model
         'title','university','logo','image','country_id'
     ];
     CONST PATH="projects";
+
+    public function details()
+    {
+        return $this->hasOne(ProjectDetail::class);
+    }
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class,'country_id','id');
+
+    }
 }

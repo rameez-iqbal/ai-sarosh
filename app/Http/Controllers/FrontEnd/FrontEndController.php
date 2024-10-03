@@ -8,13 +8,12 @@ use App\Models\LibraryTypes;
 use App\Models\OurClient;
 use App\Models\OurTeam;
 use App\Models\Page;
+use App\Models\Project;
 use App\Models\Report;
 use App\Models\Service;
 use App\Models\Setting;
 use App\Models\Video;
 use App\Models\Webinar;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class FrontEndController extends Controller
 {
@@ -32,6 +31,24 @@ class FrontEndController extends Controller
             'breadcrumbItems' => $breadcrumbItems,
             'backLink' => ['href' => url()->previous(), 'text' => 'Back']
         ]);
+    }
+
+    public function getProjectsByCountry()
+    {
+        $project_list = [];
+        $projects  = Project::with('details','country:id,name,bgColor')->get();
+        foreach($projects as $project)
+        {
+            if($project?->country?->id == $project->country_id)
+                $project_list[$project->country->name][] = $project;
+        }
+        return $project_list;
+    }
+
+    public function getProjects()
+    {
+        return Project::with('details','country:id,name,bgColor')->get();
+
     }
 
     public function getPages()

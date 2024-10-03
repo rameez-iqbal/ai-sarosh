@@ -11,6 +11,7 @@ class ProjectDetail extends Component
     /**
      * Create a new component instance.
      */
+    public $id;
     public $bgColor;
     public $logo;
     public $title;
@@ -26,9 +27,10 @@ class ProjectDetail extends Component
     public $userName;
     public $aboutProject;
     public $type;
-    public function __construct($bgColor = '#FFDADB',$logo,$title,$piName,$coPiName,$projectTimeline,$projectTeam,$country,$organization,$website,$profileImage,$countryFlag,$userName,$aboutProject,$type="text")
+    public function __construct($bgColor = '#FFDADB',$id,$logo,$title,$piName,$coPiName,$projectTimeline,$projectTeam,$country,$organization,$website,$profileImage,$countryFlag,$userName,$aboutProject,$type="text")
     {
         $this->bgColor = $bgColor;
+        $this->id = $id;
         $this->logo = $logo;
         $this->title = $title;
         $this->piName = $piName;

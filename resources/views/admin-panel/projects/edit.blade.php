@@ -1,30 +1,24 @@
 @extends('admin-panel.layout.master')
 @section('custom-css')
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <style>
-        .start_date,.end_date{
-            background: #fff !important;
-        }
-        .note-editable {
-            height: 200px !important;
-        }
-    </style>
+<style>
+    .note-editable {
+        height: 200px !important;
+    }
+</style>
 @endsection
-
 @section('content')
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-title">
-                    <h1>Our Projects</h1>
+                    <h1>Projects</h1>
                 </div>
                 <div class="card-body">
 
                     <form id="ourProjects" enctype="multipart/form-data">
                         @csrf
                         
-                        {{view('admin-panel.projects.form-fields',['countries'=>$countries,'project'=>null])}}
-                       
+                        {{view('admin-panel.projects.form-fields',['countries'=>$countries,'project'=>$project])}}
 
                         <div class="card-footer d-flex justify-content-between mt-3">
                             <a href="{{ route('project.index') }}" class="btn btn-outline-secondary">Back</a>
@@ -41,7 +35,6 @@
 @endsection
 
 @section('custom-js')
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
         $(document).ready(function() {
             $(document).on('submit', '#ourProjects', function(e) {
@@ -58,7 +51,7 @@
                             toastr.error(message);
                         });
                     } else {
-                        toastr.success("Project Created Successfully");
+                        toastr.success("Project Updated successfully");
                         setTimeout(() => {
                             window.location.href = '/admin/project';
                         }, 1000);
@@ -67,14 +60,6 @@
 
                 });
             })
-
-            const commonOptions = {
-                dateFormat: 'Y-m-d',
-                disableMobile: "true"
-            };
-
-            flatpickr('.start_date', commonOptions);
-            flatpickr('.end_date', commonOptions);
         });
 
 
@@ -93,6 +78,11 @@
                 label: '',
                 url: ''
             }
+            @if (isset($project['image']))
+                , files: [{
+                        source: "{{ asset('storage/projects/'.$project->image) }}",
+                    }],
+            @endif
 
         });
         FilePond.create(document.getElementById('logo'), {
@@ -110,6 +100,11 @@
                 label: '',
                 url: ''
             }
+            @if (isset($project['logo']))
+                , files: [{
+                        source: "{{ asset('storage/projects/'.$project->logo) }}",
+                    }],
+            @endif
 
         });
         FilePond.create(document.getElementById('detail_image'), {
@@ -127,6 +122,11 @@
                 label: '',
                 url: ''
             }
+            @if (isset($project->details['image']))
+                , files: [{
+                        source: "{{ asset('storage/projects/'.$project->details->image) }}",
+                    }],
+            @endif
 
         });
 

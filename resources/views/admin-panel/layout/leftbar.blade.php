@@ -41,8 +41,8 @@
 				<i class="la la-user-plus"></i> <span>Our Team </span>
 			</a>
 		</li>
-		<li class="{{ request()->routeIs('project.create') ? 'active' : '' }}">
-			<a href="{{route('project.create')}}">
+		<li class="{{ request()->routeIs('project.index') ? 'active' : '' }}">
+			<a href="{{route('project.index')}}">
 				<i class="la lacomment"></i> <span>Our Projects </span>
 			</a>
 		</li>

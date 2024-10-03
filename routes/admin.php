@@ -61,8 +61,12 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     } );
 
     Route::controller( ProjectController::class )->prefix('project')->group( function ( ) {
+        Route::get('/','index')->name('project.index');
         Route::get('create','create')->name('project.create');
+        Route::get('edit/{id}','edit')->name('project.edit');
         Route::post('store','store')->name('project.store');
+        Route::delete('delete/{id}','destroy')->name('project.destroy');
+
     } );
 
     Route::controller(OurTeamController::class)->group(function(){
