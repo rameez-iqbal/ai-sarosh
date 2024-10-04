@@ -2,6 +2,7 @@
 use App\Http\Controllers\Admin\{
     ArticleController,
     DashboardController,
+    GalleryController,
     LibraryTypesController,
     OurClientController,
     PageController,
@@ -95,23 +96,31 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
     Route::controller(ArticleController::class)->prefix('articles')->group(function(){
         Route::get('{type}/create','create')->name('article.create');
-        Route::post('article/store','store')->name('article.store');
-        Route::delete('article/delete/{id}','destroy')->name('article.destroy');
-        Route::get('article/edit/{id}','edit')->name('article.edit');
+        Route::post('store','store')->name('article.store');
+        Route::delete('delete/{id}','destroy')->name('article.destroy');
+        Route::get('edit/{id}','edit')->name('article.edit');
     });
 
     Route::controller(VideoController::class)->prefix('videos')->group(function(){
         Route::get('{type}/create','create')->name('video.create');
-        Route::post('video/store','store')->name('video.store');
-        Route::delete('video/delete/{id}','destroy')->name('video.destroy');
-        Route::get('video/edit/{id}','edit')->name('video.edit');
+        Route::post('store','store')->name('video.store');
+        Route::delete('delete/{id}','destroy')->name('video.destroy');
+        Route::get('edit/{id}','edit')->name('video.edit');
     });
 
     Route::controller(ReportController::class)->prefix('report')->group(function(){
         Route::get('{type}/create','create')->name('report.create');
-        Route::post('report/store','store')->name('report.store');
-        Route::delete('report/delete/{id}','destroy')->name('report.destroy');
-        Route::get('report/edit/{id}','edit')->name('report.edit');
+        Route::post('store','store')->name('report.store');
+        Route::delete('delete/{id}','destroy')->name('report.destroy');
+        Route::get('edit/{id}','edit')->name('report.edit');
     });
+
+    Route::controller(GalleryController::class)->prefix('gallery')->group(function(){
+        Route::get('{type}/create','create')->name('gallery.create');
+        Route::post('store','store')->name('gallery.store');
+        Route::delete('delete/{id}','destroy')->name('gallery.destroy');
+        Route::get('edit/{id}','edit')->name('gallery.edit');
+    });
+    
 
 });
