@@ -13,7 +13,7 @@
         <p class="main-color fw-normal text-align-justify"><span class="fw-bold">{!! $conference->description !!}</p>
         <a href="{{$conference->post_url}}" class="main-color fw-semi-bold mb-2" target="_blank">View Linkedin Post</a>
     </div>
-    @if(count(json_decode($conference->banner_images))>0)
+    @if(!empty($conference->banner_images) && count(json_decode($conference->banner_images))>0)
         <div class="row conference_banner_images gap-1 gap-md-2">
             @forelse (json_decode($conference->banner_images) as $banner_img)
                 <div class="col-md-12" data-aos="zoom-in-up">
