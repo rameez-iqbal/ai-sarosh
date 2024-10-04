@@ -204,7 +204,6 @@ class FrontEndController extends Controller
     public function getGalleries()
     {
         return Gallery::get(['id','heading','slug','banner_images','gallery_images']);
-        dd($galleries);
     }
     public function get_Pages($slug = '')
     {

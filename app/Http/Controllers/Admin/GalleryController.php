@@ -51,7 +51,7 @@ class GalleryController extends Controller
                 'mimes:png,jpg,jpeg,webp,svg',
             ],
             'gallery_images' => [
-                'required',
+                'nullable',
                 'array',
             ],
             'gallery_images.*' => [

@@ -23,22 +23,16 @@
             @endforelse
         </div>
     @endif
-    <div class="my-2 health_conference_images gap-2">
-        @forelse (json_decode($conference->gallery_images) as $gallery_img)
-            <div class="" data-aos="zoom-in-up">
-                <img src="{{asset('storage/gallery/'.$gallery_img)}}" class="international-public-images w-100" alt="">
-            </div>
-        @empty
-        @endforelse
-        {{-- <div class="" data-aos="zoom-in-up">
-            <img src="{{asset('app-assets/images/frontend/phc_conference_1.png')}}" class="international-public-images w-100" alt="">
+    @if(!empty($conference->gallery_images) && count(json_decode($conference->gallery_images))>0)
+
+        <div class="my-2 health_conference_images gap-2">
+            @forelse (json_decode($conference->gallery_images) as $gallery_img)
+                <div class="" data-aos="zoom-in-up">
+                    <img src="{{asset('storage/gallery/'.$gallery_img)}}" class="international-public-images w-100" alt="">
+                </div>
+            @empty
+            @endforelse
         </div>
-        <div class="" data-aos="zoom-in-up">
-            <img src="{{asset('app-assets/images/frontend/phc_conference_2.png')}}" class="international-public-images w-100" alt="">
-        </div>
-        <div class="" data-aos="zoom-in-up">
-            <img src="{{asset('app-assets/images/frontend/phc_conference_3.png')}}" class="international-public-images w-100" alt="">
-        </div> --}}
-    </div>
+    @endif
 </div>
 @endsection

@@ -174,8 +174,13 @@ class WebinarController extends Controller
                                 <img src="' . $imageUrl . '" alt="Image" style="border-radius:50%;width:50px;height:50px">
                             </a>';
                             }else {
-                                $gallery_image = json_decode(Gallery::find($row->id)->gallery_images)[0];
-                                $imageUrl = Storage::url('gallery/' . $gallery_image);
+                                $gallery = json_decode(Gallery::find($row->id));
+                                $gallery_image = $gallery->gallery_images;
+                                $banner_image = $gallery->banner_images;
+                                if(!is_null($gallery_image))
+                                    $imageUrl = Storage::url('gallery/' .json_decode($gallery_image)[0]);
+                                else
+                                    $imageUrl = Storage::url('gallery/' .json_decode($banner_image)[0]);
                                 return '<a href="' . $imageUrl . '" target="_blank">
                                 <img src="' . $imageUrl . '" alt="Image" style="border-radius:50%;width:50px;height:50px">
                             </a>';

@@ -64,12 +64,12 @@
                 @inject('obj','App\Http\Controllers\FrontEnd\FrontEndController')
                 @forelse ($obj->getGalleries() as $gallery)
                     <x-vertical-card 
-                    :image="asset('storage/gallery/'.$gallery['banner_image'])"
+                    :image="isset($gallery->banner_images) && json_decode($gallery->banner_images) ? asset('storage/gallery/'.json_decode($gallery->banner_images)[0]) : null"
                     :name="$gallery['heading']"
                     columns="col-md-4"
                     :href="$gallery['slug']"
                     borderRadius="25px"
-                    :bannerImage="asset('storage/gallery/'.json_decode($gallery->gallery_images)[0])"
+                    :bannerImage="isset($gallery->gallery_images) && json_decode($gallery->gallery_images) ? asset('storage/gallery/'.json_decode($gallery->gallery_images)[0]) : null"
                     :isGallery=true
                     />
                 @empty
