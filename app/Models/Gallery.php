@@ -11,10 +11,11 @@ class Gallery extends Model
     protected $table = 'galleries';
     protected $fillable = 
     [
-        'heading','description','banner_image','gallery_images','post_url'
+        'heading','description','banner_images','gallery_images','post_url'
     ];
     protected $casts = [
-        'gallery_images'=>'array'
+        'gallery_images'=>'array',
+        'banner_images'=>'array',
     ]; 
     CONST PATH="gallery";
     public function libraryType()

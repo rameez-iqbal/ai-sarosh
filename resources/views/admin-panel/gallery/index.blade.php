@@ -27,8 +27,8 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>image</th>
-                                    <th style="width: 20%">Name</th>
+                                    <th style="width: 10%">image</th>
+                                    <th>Heading</th>
                                     <th>Category</th>
                                     <th>Actions</th>
                                 </tr>
@@ -59,12 +59,12 @@
                 },
                 
                 {
-                    data: 'image',
-                    name: 'image'
+                    data: 'banner_image',
+                    name: 'banner_image'
                 },
                 {
-                    data: 'name',
-                    name: 'name'
+                    data: 'heading',
+                    name: 'heading'
                 },
                 {
                     data: 'category',

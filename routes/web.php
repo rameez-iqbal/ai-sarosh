@@ -27,16 +27,19 @@ Route::controller(FrontEndController::class)->group(function () {
     Route::get('about-us', 'aboutUs')->name('aboutUs');
     Route::get('reports', 'reports')->name('reports');
     Route::get('videos', 'videos')->name('videos');
-    Route::get('international-public-health-conference', 'PHCConference')->name('PHCConference');
-    Route::get('canadian-conference', 'canadianConference')->name('canadianConference');
-    Route::get('global-health-security-summit', 'ghsSummit')->name('ghssconference');
-    Route::get('al4gh-nairobi-kenya', 'al4gh')->name('al4gh');
-    Route::get('women-deliver-conference', 'wdc')->name('wdc');
+    // Route::get('13th-international-public-health-conference', 'PHCConference')->name('13th-international-public-health-conference');
+    // Route::get('canadian-conference-on-global-health-2023', 'canadianConference')->name('canadian-conference-on-global-health-2023');
+    // Route::get('global-health-security-summit-islamabad', 'ghsSummit')->name('global-health-security-summit-islamabad');
+    // Route::get('ai4gh-nairobi-kenya-2023', 'al4gh')->name('ai4gh-nairobi-kenya-2023');
+    // Route::get('women-deliver-conference', 'wdc')->name('wdc');
     Route::get('contact-us', 'contactUs')->name('contact-us');
-    Route::get('co-design-workshop-day1', 'codesign')->name('codesign');
-    Route::get('co-design-workshop-day2', 'codesignDay2')->name('codesign.day2');
-    Route::get('co-design-workshop-day3', 'codesignDay3')->name('codesign.day3');
-    Route::get('co-design-workshop-day4', 'codesignDay4')->name('codesign.day4');
+    // Route::get('co-design-workshop-day1', 'codesign')->name('codesign');
+    // Route::get('co-design-workshop-day2', 'codesignDay2')->name('codesign.day2');
+    // Route::get('co-design-workshop-day3', 'codesignDay3')->name('codesign.day3');
+    // Route::get('co-design-workshop-day4', 'codesignDay4')->name('codesign.day4');
+
+    // Dynamic Route for Gallery
+    Route::get('/{slug}',[FrontEndController::class,'getGalleryConferences'])->name('gallery.conferences');
 });
 
 Route::get('/clear', function () {

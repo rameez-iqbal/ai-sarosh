@@ -4,6 +4,7 @@ namespace App\Http\Controllers\FrontEnd;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
+use App\Models\Gallery;
 use App\Models\LibraryTypes;
 use App\Models\OurClient;
 use App\Models\OurTeam;
@@ -200,6 +201,11 @@ class FrontEndController extends Controller
             'backLink' => ['href' => url()->previous(), 'text' => 'Back'],
         ]);
     }
+    public function getGalleries()
+    {
+        return Gallery::get(['id','heading','slug','banner_images','gallery_images']);
+        dd($galleries);
+    }
     public function get_Pages($slug = '')
     {
         $page = Page::where('slug', $slug)->where('type', 'page')->first();
@@ -263,6 +269,21 @@ class FrontEndController extends Controller
     public function getVideos()
     {
         return Video::all(['id','title','name','organization','iframe_url','image','video_link']);
+    }
+
+    public function getGalleryConferences($slug)
+    {
+        $gallery_details = Gallery::Where('slug',$slug)->first();
+        $breadcrumbItems = [
+            ['text' => 'Library'],
+            ['text' => 'Gallery'],
+            ['text' => $gallery_details->heading],
+        ];
+        return view('frontend.conference.index', [
+            'breadcrumbItems' => $breadcrumbItems,
+            'backLink' => ['href' => url()->previous(), 'text' => 'Back'],
+            'conference'=>$gallery_details
+        ]);
     }
 
     public function PHCConference()

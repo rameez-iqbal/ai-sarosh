@@ -15,12 +15,18 @@ class VerticalCard extends Component
     public $name;
     public $columns;
     public $href;
-    public function __construct($image,$name,$columns,$href)
+    public $borderRadius;
+    public $bannerImage;
+    public $isGallery;
+    public function __construct($image,$name,$columns,$href,$borderRadius="0px",$bannerImage=null,$isGallery=false)
     {
         $this->image = $image;
         $this->name = $name;
         $this->columns = $columns;
         $this->href = $href;
+        $this->borderRadius = $borderRadius;
+        $this->bannerImage = $bannerImage;
+        $this->isGallery = $isGallery;
     }
 
     /**

@@ -167,9 +167,15 @@ class WebinarController extends Controller
                     $articles = Gallery::with('libraryType:id,type')->latest()->get();
                     return DataTables::of($articles)
                         ->addIndexColumn()
-                        ->addColumn('image', function ($row) {
-                            if (!is_null($row->image)) {
-                                $imageUrl = Storage::url('reports/' . $row->image);
+                        ->addColumn('banner_image', function ($row) {
+                            if (!is_null($row->banner_image)) {
+                                $imageUrl = Storage::url('gallery/' . $row->banner_image);
+                                return '<a href="' . $imageUrl . '" target="_blank">
+                                <img src="' . $imageUrl . '" alt="Image" style="border-radius:50%;width:50px;height:50px">
+                            </a>';
+                            }else {
+                                $gallery_image = json_decode(Gallery::find($row->id)->gallery_images)[0];
+                                $imageUrl = Storage::url('gallery/' . $gallery_image);
                                 return '<a href="' . $imageUrl . '" target="_blank">
                                 <img src="' . $imageUrl . '" alt="Image" style="border-radius:50%;width:50px;height:50px">
                             </a>';
@@ -184,7 +190,7 @@ class WebinarController extends Controller
                             $btn .= ' <a href="javascript:void(0)" class="delete btn btn-overlay-danger btn-icon"><i class="la la-trash"></i></a>';
                             return $btn;
                         })
-                        ->rawColumns(['action', 'image', 'category', 'report_file','description'])
+                        ->rawColumns(['action', 'banner_image', 'category','description'])
                         ->make(true);
                 }
                 return view('admin-panel.gallery.index', compact('type'));

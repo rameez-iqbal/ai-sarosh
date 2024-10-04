@@ -16,9 +16,10 @@ return new class extends Migration
             $table->string('heading')->nullable();
             $table->longText('description')->nullable();
             $table->string('slug')->nullable();
-            $table->string('banner_image')->nullable();
+            $table->json('banner_images')->nullable();
             $table->json('gallery_images')->nullable();
             $table->string('post_url')->nullable();
+            $table->string('recording_url')->nullable();
             $table->foreignId('library_type_id')->constrained();
             $table->timestamps();
         });

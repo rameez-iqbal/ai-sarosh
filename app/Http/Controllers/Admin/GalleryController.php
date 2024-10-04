@@ -42,10 +42,13 @@ class GalleryController extends Controller
             'description' => [
                 'required',
             ],
-            'banner_image' => [
-                'required',
+            'banner_images' => [
+                'nullable',
+                'array'
+            ],
+            'banner_images.*' => [
                 'image',
-                'mimes:png,jpg,jpeg,webp,svg'
+                'mimes:png,jpg,jpeg,webp,svg',
             ],
             'gallery_images' => [
                 'required',
@@ -59,7 +62,7 @@ class GalleryController extends Controller
         if ($validator->fails()) {
             return apiResponse(false, 403, $validator->errors()->all());
         }
-        $response = $this->gallery->createOrUpdateGallery( $request->only('library_type_id','heading','post_url','description','banner_image','gallery_images') );
+        $response = $this->gallery->createOrUpdateGallery( $request->only('library_type_id','heading','post_url','recording_url','description','banner_images','gallery_images') );
         if(  $response  )
             return apiResponse(true,200,$response);
         else

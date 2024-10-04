@@ -10,7 +10,11 @@
     </div>
 </div>
 <div class="row mt-3">
-    <div class="col-md-12">
+    <div class="col-md-6">
+        <label for="">Recording URL</label>
+        <input type="text" class="form-control" name="recording_url" placeholder="Recording URL">
+    </div>
+    <div class="col-md-6">
         <label for="">Description</label>
         <textarea class="editor-demo1" name="description"></textarea>
     </div>
@@ -18,7 +22,7 @@
 <div class="row mt-3">
     <div class="col-md-6">
         <label class="" for="Image">Banner Image</label>
-        <input type="file" class="filepond" name="banner_image" id="image"
+        <input type="file" class="filepond" name="banner_images[]" id="image"
             accept="image/png, image/jpeg, image/jpg, image/svg+xml, image/webp" />
     </div>
     

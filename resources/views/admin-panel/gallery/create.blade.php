@@ -60,7 +60,7 @@
                     } else {
                         toastr.success("Gallery Created Successfully");
                         setTimeout(() => {
-                            // window.location.href = '/admin/library-types/gallery';
+                            window.location.href = '/admin/library-types/gallery';
                         }, 1000);
                     }
                 });
@@ -88,14 +88,15 @@
             maxFileSize: '20480KB',
             ignoredFiles: ['.ds_store', 'thumbs.db', 'desktop.ini'],
             storeAsFile: true,
-            allowMultiple: false,
-            maxFiles: 1,
+            allowMultiple: true,
+            maxFiles: 4,
             required: false,
             checkValidity: true,
             credits: {
                 label: '',
                 url: ''
-            }
+            },
+
 
         });
         FilePond.create(document.getElementById('gallery_images'), {

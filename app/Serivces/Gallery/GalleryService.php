@@ -17,36 +17,38 @@ class GalleryService implements GalleryInterface
         DB::beginTransaction();
         try 
         {
-            if(array_key_exists('banner_image',$data)){
-                $banner_image = $data['banner_image'];
+            if(array_key_exists('banner_images',$data)){
+                $banner_images = $data['banner_images'];
             }
             if( array_key_exists('gallery_id',$data) && $data['gallery_id'] != 0 && !is_null( $data['gallery_id'] ))
             {
                 $gallery = Gallery::find( $data['gallery_id'] );
-                if(array_key_exists('banner_image',$data)){
-                    $banner_image = $data['banner_image'] ?? $gallery->banner_image;
+                if(array_key_exists('banner_images',$data)){
+                    $banner_images = $data['banner_images'] ?? $gallery->banner_images;
                 }
-                if( $gallery &&  $gallery->banner_image !=  $banner_image->getClientOriginalName())
-                    $this->deleteImage( $gallery->banner_image,Gallery::PATH );
+                if( $gallery &&  $gallery->banner_images !=  $banner_images->getClientOriginalName())
+                    $this->deleteImage( $gallery->banner_images,Gallery::PATH );
 
             }
             else 
             {
                 $gallery = new Gallery();
                 $unqiue_slug = generateSlug($gallery,array_key_exists('heading',$data) ? $data['heading'] : 'Gallery','slug');
+                $banner_imgs = [];
                 $gallery_imgs = [];
+                foreach($data['banner_images'] as $key=>$banner_image)
+                    $banner_imgs[$key] = $this->storeImage($banner_image, Gallery::PATH);
                 foreach($data['gallery_images'] as $key=>$gallery_image)
-                {
                     $gallery_imgs[$key] = $this->storeImage($gallery_image, Gallery::PATH);
-                }
 
             }
             $gallery->heading            = $data['heading'] ?? null;
             $gallery->post_url             = $data['post_url'] ?? null;
+            $gallery->recording_url             = $data['recording_url'] ?? null;
             $gallery->description    =  $data['description'] ?? null;
             $gallery->slug    =  $unqiue_slug ?? null;
-            $gallery->banner_image           = ($gallery->banner_image !=  $banner_image->getClientOriginalName()) ? $this->storeImage($banner_image, Gallery::PATH) : $gallery->banner_image;
-            $gallery->gallery_images           = json_encode($gallery_imgs);
+            $gallery->banner_images     = json_encode($banner_imgs);
+            $gallery->gallery_images    = json_encode($gallery_imgs);
             $gallery->library_type_id = $data['library_type_id'] ?? 1;
             $gallery->save();
             DB::commit();
