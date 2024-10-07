@@ -15,25 +15,24 @@
             <div class="card">
                 <div class="card-title">
                     <div class="card-title-left">
-                        <h2 class="">Gallery</h2>
+                        <h2 class="">Gallery Highlights</h2>
                     </div>
                     <div class="btn-grp">
                         <a href="{{  route('library.types') }}" class="btn btn-outline-danger"> <i class="zmdi zmdi-arrow-left"></i> Go Back
                              </a>
-                    <a href="{{ route('gallery.create',['type'=>$type]) }}" class="btn btn-outline-primary"> <i class="feather icon-plus"></i> Add
+                    <a href="{{ route('highlights.create',['id'=>$id]) }}" class="btn btn-outline-primary"> <i class="feather icon-plus"></i> Add
                         new</a>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table id="gallery-table" class="table table-striped table-bordered">
+                        <table id="highlights-table" class="table table-striped table-bordered">
                             <thead>
                                 <tr>
-                                    <th style="width:5% !important;">#</th>
-                                    <th style="width:10% !important;">image</th>
-                                    <th style="width:10% !important;">Heading</th>
-                                    <th style="width:10% !important;">Type</th>
-                                    <th style="width:5% !important;">Category</th>
+                                    <th>#</th>
+                                    <th>image</th>
+                                    <th>Day</th>
+                                    <th>Heading</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -52,10 +51,10 @@
 <script>
     var table = null;
         $(document).ready(function(){
-            table = $('#gallery-table').DataTable({
+            table = $('#highlights-table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('webinar',['type'=>'gallery']) }}",
+            ajax: "{{ route('highlights.index',['id'=>'<?php $id; ?>']) }}",
             columns: [
                 {
                     data: 'DT_RowIndex',
@@ -63,20 +62,16 @@
                 },
                 
                 {
-                    data: 'banner_image',
-                    name: 'banner_image'
+                    data: 'images',
+                    name: 'images'
+                },
+                {
+                    data: 'day',
+                    name: 'day'
                 },
                 {
                     data: 'heading',
                     name: 'heading'
-                },
-                {
-                    data: 'type',
-                    name: 'type'
-                },
-                {
-                    data: 'category',
-                    name: 'category'
                 },
                 {
                     data: 'action',

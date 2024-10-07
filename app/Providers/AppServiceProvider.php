@@ -15,6 +15,8 @@ use App\Serivces\ThematicServices\ThematicService;
 use App\Serivces\Articles\ArticlesService;
 use App\Serivces\Gallery\GalleryInterface;
 use App\Serivces\Gallery\GalleryService;
+use App\Serivces\GalleryHighlights\GalleryHighlightsInterface;
+use App\Serivces\GalleryHighlights\GalleryHighlightsService;
 use App\Serivces\Projects\ProjectInterface;
 use App\Serivces\Projects\ProjectService;
 use App\Serivces\Reports\ReportInterface;
@@ -41,6 +43,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(ReportInterface::class,ReportService::class);
         $this->app->bind(ProjectInterface::class,ProjectService::class);
         $this->app->bind(GalleryInterface::class,GalleryService::class);
+        $this->app->bind(GalleryHighlightsInterface::class,GalleryHighlightsService::class);
     }
 
     /**

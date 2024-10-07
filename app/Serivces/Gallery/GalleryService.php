@@ -7,7 +7,9 @@ use App\Serivces\Gallery\GalleryInterface;
 use App\Trait\Image;
 use Exception;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File as FacadesFile;
 use Illuminate\Support\Facades\Log;
+use Symfony\Component\HttpFoundation\File\File;
 
 class GalleryService implements GalleryInterface
 {
@@ -50,6 +52,7 @@ class GalleryService implements GalleryInterface
                 }
 
             }
+            $gallery->type            = $data['type'] ?? null;
             $gallery->heading            = $data['heading'] ?? null;
             $gallery->post_url             = $data['post_url'] ?? null;
             $gallery->recording_url             = $data['recording_url'] ?? null;
@@ -74,15 +77,25 @@ class GalleryService implements GalleryInterface
     {
         try 
         {
-            $report = Report::find($id);
-            $this->deleteImage( $report->image,Report::PATH );
-            $this->deleteImage( $report->report_file,Report::PATH );
-            $report->delete();
+            $gallery = Gallery::find($id);
+            $banner_images = json_decode($gallery->banner_images);
+            $gallery_images = json_decode($gallery->gallery_images);
+            if(count($gallery_images)>0)
+            {
+                for($i=0;$i<count($gallery_images);$i++)
+                    $this->deleteImage( $gallery_images[$i],Gallery::PATH );
+            }
+            if(count($banner_images)>0)
+            {
+                for($i=0;$i<count($banner_images);$i++)
+                    $this->deleteImage( $banner_images[$i],Gallery::PATH );
+            }
+            $gallery->delete();
             return true;
         } 
         catch (Exception $ex) 
         {
-            Log::info("Delete Report". $ex->getMessage() );
+            Log::info("Delete Video". $ex->getMessage() );
             return $ex->getMessage();
         }
     }

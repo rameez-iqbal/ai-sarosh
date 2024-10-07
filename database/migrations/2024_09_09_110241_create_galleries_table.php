@@ -20,6 +20,7 @@ return new class extends Migration
             $table->json('gallery_images')->nullable();
             $table->string('post_url')->nullable();
             $table->string('recording_url')->nullable();
+            $table->enum('type',['conference','workshop'])->default('conference');
             $table->foreignId('library_type_id')->constrained();
             $table->timestamps();
         });

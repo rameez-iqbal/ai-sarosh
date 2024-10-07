@@ -13,9 +13,9 @@ use App\Http\Controllers\Admin\{
     ReportController,
     ServiceController,
     VideoController,
-    WebinarController
+    WebinarController,
+    GalleryHighlightsController
 };
-
 use Illuminate\Support\Facades\Route;
 
 Route::controller(LoginController::class)->group( function ( ) {
@@ -121,6 +121,16 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::delete('delete/{id}','destroy')->name('gallery.destroy');
         Route::get('edit/{id}','edit')->name('gallery.edit');
     });
+
+    Route::controller(GalleryHighlightsController::class)->prefix('gallery/highlights')->group(function(){
+        Route::get('/{id}','index')->name('highlights.index');
+        Route::get('{id}/create','create')->name('highlights.create');
+        Route::post('store','store')->name('highlights.store');
+        // Route::delete('delete/{id}','destroy')->name('gallery.destroy');
+        // Route::get('edit/{id}','edit')->name('gallery.edit');
+    });
+
+
     
 
 });

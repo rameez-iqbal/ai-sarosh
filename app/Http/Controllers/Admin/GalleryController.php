@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Gallery;
+use Illuminate\Validation\Rule;
 use App\Models\LibraryTypes;
 use App\Serivces\Gallery\GalleryInterface;
 use Illuminate\Http\Request;
@@ -31,13 +31,17 @@ class GalleryController extends Controller
                 'required',
                 'exists:library_types,id',
             ],
+            'type'=>[
+                'required',
+                Rule::in(['conference', 'workshop']),
+            ],
             'heading' => [
                 'required',
                 'string',
                 'max:255'
             ],
             'post_url' => [
-                'required',
+                'required_if:type,==,conference',
             ],
             'description' => [
                 'required',
@@ -62,10 +66,17 @@ class GalleryController extends Controller
         if ($validator->fails()) {
             return apiResponse(false, 403, $validator->errors()->all());
         }
-        $response = $this->gallery->createOrUpdateGallery( $request->only('library_type_id','heading','post_url','recording_url','description','banner_images','gallery_images') );
+        $response = $this->gallery->createOrUpdateGallery( $request->only('library_type_id','heading','post_url','recording_url','description','banner_images','gallery_images','type') );
         if(  $response  )
             return apiResponse(true,200,$response);
         else
             return apiResponse(false,403);
+    }
+
+    public function destroy($id)
+    {
+        $id = (int)$id;
+        $response = $this->gallery->deleteGallery( (int)$id );
+        return apiResponse($response,200);
     }
 }

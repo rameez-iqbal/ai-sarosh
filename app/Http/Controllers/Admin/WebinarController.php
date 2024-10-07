@@ -164,6 +164,7 @@ class WebinarController extends Controller
                 break;
             case 'gallery':
                 if ($request->ajax()) {
+                    $btn = '';
                     $articles = Gallery::with('libraryType:id,type')->latest()->get();
                     return DataTables::of($articles)
                         ->addIndexColumn()
@@ -173,7 +174,7 @@ class WebinarController extends Controller
                                 return '<a href="' . $imageUrl . '" target="_blank">
                                 <img src="' . $imageUrl . '" alt="Image" style="border-radius:50%;width:50px;height:50px">
                             </a>';
-                            }else {
+                            }else if(!is_null($row->gallery_images)) {
                                 $gallery = json_decode(Gallery::find($row->id));
                                 $gallery_image = $gallery->gallery_images;
                                 $banner_image = $gallery->banner_images;
@@ -193,6 +194,10 @@ class WebinarController extends Controller
                         ->addColumn('action', function ($row) {
                             $btn = '<a href="' . route('report.edit', ['id' => $row->id]) . '" class="edit btn btn-overlay-success btn-icon"><i class="la la-edit"></i></a> |';
                             $btn .= ' <a href="javascript:void(0)" class="delete btn btn-overlay-danger btn-icon"><i class="la la-trash"></i></a>';
+                            if($row->type == 'workshop') {
+                                $btn .= ' | <a href="'.route('highlights.index',['id'=>$row->id]).'" class="btn btn-overlay-info btn-icon"><i class="fa fa-calendar-o"></i></a>';
+                                $btn.='';
+                            }
                             return $btn;
                         })
                         ->rawColumns(['action', 'banner_image', 'category','description'])
