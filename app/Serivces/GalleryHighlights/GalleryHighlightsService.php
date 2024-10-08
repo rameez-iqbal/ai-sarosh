@@ -48,8 +48,20 @@ class GalleryHighlightsService implements GalleryHighlightsInterface
         }
     }
 
-    public function storeGalleryImages()
+    public function updateHighlights($data)
     {
+        $images_arr = [];
+        $gallery_highlight = GalleryHighlights::find($data['id']);
+        foreach(json_decode($gallery_highlight['images']) as $key=>$img)
+            $this->deleteImage( $img,GalleryHighlights::PATH );
 
+        foreach($data['images'] as $key=>$img)
+            $images_arr[$key] = $this->storeImage($img, GalleryHighlights::PATH);
+        $gallery_highlight->day = $data['day'];
+        $gallery_highlight->heading = $data['heading'];
+        $gallery_highlight->gallery_id = $data['gallery_id'];
+        $gallery_highlight->images = $images_arr;
+        $gallery_highlight->save();
+        return true;
     }
 }

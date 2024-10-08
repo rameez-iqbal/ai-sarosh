@@ -56,18 +56,18 @@ class GalleryHighlightsController extends Controller
 
     public function create($id)
     {
-        // $library_type_id = LibraryTypes::getIdBySlug($type);
         return view('admin-panel.gallery.workshop-create', compact('id'));
     }
 
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'days' => 'required|array', // Ensure 'days' is an array
-            'days.*.id' => 'required|integer|exists:galleries,id', // Each 'id' should be an integer
-            'days.*.day' => 'required|string', // Each 'day' should be a string
-            'days.*.heading' => 'required|string|max:255', // Each 'heading' should be a string with max length of 255
-            'days.*.images' => 'required|array', // Ensure 'images' is an array
+            'id'=>'nullable|exists:gallery_highlights,id',
+            'days' => 'required_without:id|array', // Ensure 'days' is an array
+            'days.*.id' => 'required_without:id|integer|exists:galleries,id', // Each 'id' should be an integer
+            'days.*.day' => 'required_without:id|string', // Each 'day' should be a string
+            'days.*.heading' => 'required_without:id|string|max:255', // Each 'heading' should be a string with max length of 255
+            'days.*.images' => 'required_without:id|array', // Ensure 'images' is an array
             'days.*.images.*' => 'image|mimes:jpg,jpeg,png,svg,webp|max:10240', // Each image should be a valid image file with max size of 20MB
             'days.images.*' => 'image|mimes:jpeg,png,jpg,gif|max:10240',
         ]);
@@ -92,5 +92,24 @@ class GalleryHighlightsController extends Controller
     {
         $workshop = GalleryHighlights::find( (int)$id );
         return view('admin-panel.gallery.workshop-edit',compact('workshop','id'));   
+    }
+
+    public function update(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'id'=>'required|exists:gallery_highlights,id',
+            'gallery_id'=>'required|exists:galleries,id',
+            'day' => 'required',
+            'heading' => 'required',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:10240',
+        ]);
+        if ($validator->fails()) {
+            return apiResponse(false, 403, $validator->errors()->all());
+        }
+        $response  = $this->galleryHighlight->updateHighlights($request->except('_token'));
+        if( $response == true )
+            return apiResponse(true,200,$response);
+        else
+            return apiResponse(false,403);
     }
 }
