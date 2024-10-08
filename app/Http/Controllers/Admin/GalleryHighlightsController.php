@@ -40,7 +40,7 @@ class GalleryHighlightsController extends Controller
                     return $row?->gallery?->heading;
                 })
                 ->addColumn('action', function ($row) {
-                    $btn = '<a href="' . route('report.edit', ['id' => $row->id]) . '" class="edit btn btn-overlay-success btn-icon"><i class="la la-edit"></i></a> |';
+                    $btn = '<a href="' . route('highlights.edit', ['id' => $row->id]) . '" class="edit btn btn-overlay-success btn-icon"><i class="la la-edit"></i></a> |';
                     $btn .= ' <a href="javascript:void(0)" class="delete btn btn-overlay-danger btn-icon"><i class="la la-trash"></i></a>';
                     if($row->type == 'workshop') {
                         $btn .= ' | <a href="javascript:void(0)" class="btn btn-overlay-info btn-icon"><i class="fa fa-calendar-o"></i></a>';
@@ -56,12 +56,12 @@ class GalleryHighlightsController extends Controller
 
     public function create($id)
     {
+        // $library_type_id = LibraryTypes::getIdBySlug($type);
         return view('admin-panel.gallery.workshop-create', compact('id'));
     }
 
     public function store(Request $request)
     {
-        // dd($request->all());
         $validator = Validator::make($request->all(), [
             'days' => 'required|array', // Ensure 'days' is an array
             'days.*.id' => 'required|integer|exists:galleries,id', // Each 'id' should be an integer
@@ -75,7 +75,7 @@ class GalleryHighlightsController extends Controller
             return apiResponse(false, 403, $validator->errors()->all());
         }
         $response  = $this->galleryHighlight->createOrUpdateGalleryHighlights($request->except('_token'));
-        if( $response )
+        if( $response == true )
             return apiResponse(true,200,$response);
         else
             return apiResponse(false,403);
@@ -86,6 +86,11 @@ class GalleryHighlightsController extends Controller
         $id = (int)$id;
         $response = $this->galleryHighlight->deleteGalleryHighlights( $id );
         return apiResponse($response,200);
-        
+    }
+
+    public function edit( $id )
+    {
+        $workshop = GalleryHighlights::find( (int)$id );
+        return view('admin-panel.gallery.workshop-edit',compact('workshop','id'));   
     }
 }

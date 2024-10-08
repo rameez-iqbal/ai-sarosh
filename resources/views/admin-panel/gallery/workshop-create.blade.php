@@ -73,7 +73,7 @@ $days = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
                     </div>
                     <div class="row mt-3">
                         <div class="col-md-6">
-                            <label for="Image">Banner Image</label>
+                            <label for="Image">Images</label>
                             <input type="file" class="filepond" id="image${counter}" name="days[${counter}][images][]" accept="image/png, image/jpeg, image/jpg, image/svg+xml, image/webp" />
                         </div>
                     </div>
@@ -135,8 +135,9 @@ $days = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
 
                 submitAjax('post', '{{ route('highlights.store') }}', formData, function(response, error =
                     null) {
-                    console.log(response);
+                    console.log(response,error);
                     $('#submitGalleryBtn').attr('disabled', false);
+                    
                     if(response) {
                         if (response.status === false) {
                             response.data.reverse().forEach(function(message) {

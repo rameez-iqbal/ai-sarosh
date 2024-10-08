@@ -127,7 +127,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('{id}/create','create')->name('highlights.create');
         Route::post('store','store')->name('highlights.store');
         Route::delete('delete/{id}','destroy')->name('highlights.destroy');
-        // Route::get('edit/{id}','edit')->name('gallery.edit');
+        Route::get('edit/{id}','edit')->name('highlights.edit');
     });
 
 
