@@ -11,10 +11,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
         <!-- TITLE -->
-        <title>Oxoury - Responsive Admin Dashboard Template</title>
+        <title>AI-Sarosh - @yield('title')</title>
 
         <!-- FAVICON -->
-        <link rel="shortcut icon" href="{{ asset('app-assets') }}/images/favicon.ico" />
+        <link rel="icon" href="{{ asset('app-assets/images/frontend/favicon_logo.png') }}" type="image/x-icon"> 
 
         <!-- STYLE -->
         <link rel="stylesheet" type="text/css" href="{{ asset('app-assets') }}/css/style.css">

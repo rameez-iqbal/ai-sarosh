@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
+use App\Models\Gallery;
 use App\Models\LibraryTypes;
 use App\Models\Report;
 use App\Models\Video;
@@ -160,6 +161,49 @@ class WebinarController extends Controller
                         ->make(true);
                 }
                 return view('admin-panel.reports.index', compact('type'));
+                break;
+            case 'gallery':
+                if ($request->ajax()) {
+                    $btn = '';
+                    $articles = Gallery::with('libraryType:id,type')->latest()->get();
+                    return DataTables::of($articles)
+                        ->addIndexColumn()
+                        ->addColumn('banner_image', function ($row) {
+                            if (!is_null($row->banner_image)) {
+                                $imageUrl = Storage::url('gallery/' . $row->banner_image);
+                                return '<a href="' . $imageUrl . '" target="_blank">
+                                <img src="' . $imageUrl . '" alt="Image" style="border-radius:50%;width:50px;height:50px">
+                            </a>';
+                            }else if(!is_null($row->gallery_images)) {
+                                $gallery = json_decode(Gallery::find($row->id));
+                                $gallery_image = $gallery->gallery_images;
+                                $banner_image = $gallery->banner_images;
+                                if(!is_null($gallery_image))
+                                    $imageUrl = Storage::url('gallery/' .json_decode($gallery_image)[0]);
+                                else
+                                    $imageUrl = Storage::url('gallery/' .json_decode($banner_image)[0]);
+                                return '<a href="' . $imageUrl . '" target="_blank">
+                                <img src="' . $imageUrl . '" alt="Image" style="border-radius:50%;width:50px;height:50px">
+                            </a>';
+                            }
+                            return '';
+                        })
+                        ->addColumn('category', function ($row) {
+                            return $row?->libraryType?->type;
+                        })
+                        ->addColumn('action', function ($row) {
+                            $btn = '<a href="' . route('report.edit', ['id' => $row->id]) . '" class="edit btn btn-overlay-success btn-icon"><i class="la la-edit"></i></a> |';
+                            $btn .= ' <a href="javascript:void(0)" class="delete btn btn-overlay-danger btn-icon"><i class="la la-trash"></i></a>';
+                            if($row->type == 'workshop') {
+                                $btn .= ' | <a href="'.route('highlights.index',['id'=>$row->id]).'" class="btn btn-overlay-info btn-icon"><i class="fa fa-calendar-o"></i></a>';
+                                $btn.='';
+                            }
+                            return $btn;
+                        })
+                        ->rawColumns(['action', 'banner_image', 'category','description'])
+                        ->make(true);
+                }
+                return view('admin-panel.gallery.index', compact('type'));
                 break;
 
             default:

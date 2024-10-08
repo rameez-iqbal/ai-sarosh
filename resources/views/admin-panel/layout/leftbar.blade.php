@@ -30,6 +30,7 @@
 				<i class="la la-user-plus"></i> <span>Our Clients </span>
 			</a>
 		</li>
+		
 		{{-- <li class="{{ request()->routeIs('project.create') ? 'active' : '' }}">
 			<a href="{{route('project.create')}}">
 				<i class="la la-comment"></i> <span>Our Projects </span>
@@ -38,6 +39,11 @@
 		<li class="{{ request()->routeIs('our.teams') || request()->routeIs('our.teams.create') ? 'active' : '' }}">
 			<a href="{{route('our.teams')}}">
 				<i class="la la-user-plus"></i> <span>Our Team </span>
+			</a>
+		</li>
+		<li class="{{ request()->routeIs('project.index') ? 'active' : '' }}">
+			<a href="{{route('project.index')}}">
+				<i class="la lacomment"></i> <span>Our Projects </span>
 			</a>
 		</li>
 		<li class="{{ request()->routeIs('settings') ? 'active' : '' }}">

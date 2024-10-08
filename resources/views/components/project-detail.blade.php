@@ -1,4 +1,4 @@
-<section id="details-section" class="p-3 p-md-5" style="background-color: {{$bgColor}};border-bottom:1px solid #000">
+<section id="details-section project-{{$id}}" class="p-3 p-md-5" style="background-color: {{$bgColor}};border-bottom:1px solid #000">
     <div class="container">
         <div class="row details">
             <div class="col-md-12 details-logo" data-aos="fade-right">
@@ -33,7 +33,7 @@
                         </div>
                     @endif
                 </div>
-                <div class="row project-detail my-2 my-md-5">
+                <div class="row project-detail my-2 my-md-3">
                     <div class="col-md-12">
                         <div class="row">
                             <div class="col-md-12 p-0 p-md-2">
@@ -59,7 +59,7 @@
                                     </div>
                                     <div class="right">
                                         <span class="detail-heading ff-main fw-bold">Project Team:</span>
-                                        <span class="detail-description fw-semi-bold ff-main">{{$projectTeam}}</span>
+                                        <span class="detail-description fw-semi-bold ff-main">{!! $projectTeam !!}</span>
                                     </div>
 
                                 </div>
@@ -128,7 +128,7 @@
         <div class="row">
             <div class="col-md-11 p-0 p-md-2">
                 <h3 class="fw-bolder ff-main main-color">About the Project:</h3>
-                <p class="fw-normal ff-main text-clr text-align-justify">{{$aboutProject}}</p>
+                <p class="fw-normal ff-main text-clr text-align-justify">{!! $aboutProject !!}</p>
             </div>
         </div>
         <div class="row">

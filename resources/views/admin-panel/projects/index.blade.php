@@ -6,19 +6,22 @@
             <div class="card">
                 <div class="card-title">
                     <div class="card-title-left">
-                        <h2 class="">Library Types</h2>
+                        <h2 class="">Projects</h2>
                     </div>
-                    <a href="{{ route('library.create') }}" class="btn btn-outline-primary"> <i class="feather icon-plus"></i> Add
+                    <a href="{{ route('project.create') }}" class="btn btn-outline-primary"> <i class="feather icon-plus"></i> Add
                         new</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table id="library-table" class="table table-striped table-bordered">
+                        <table id="projects-table" class="table table-striped table-bordered">
                             <thead>
                                 <tr>
                                     <th>#</th>
                                     <th>image</th>
-                                    <th>Type</th>
+                                    <th style="width:20%">Title</th>
+                                    <th>university</th>
+                                    <th>Timeline</th>
+                                    <th>Url</th>
                                     <th>Created At</th>
                                     <th>Actions</th>
                                 </tr>
@@ -38,23 +41,34 @@
 <script>
     var table = null;
         $(document).ready(function(){
-            table = $('#library-table').DataTable({
+            table = $('#projects-table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('library.types') }}",
-            columns: [{
+            ajax: "{{ route('project.index') }}",
+            columns: [
+                {
                     data: 'DT_RowIndex',
                     name: 'DT_RowIndex'
                 },
-                
                 {
                     data: 'image',
                     name: 'image'
                 },
-                
                 {
-                    data: 'type',
-                    name: 'type'
+                    data: 'title',
+                    name: 'title'
+                },
+                {
+                    data: 'university',
+                    name: 'university'
+                },
+                {
+                    data: 'timeline',
+                    name: 'timeline'
+                },
+                {
+                    data: 'url',
+                    name: 'url'
                 },
                 {
                     data: 'created_at',
@@ -73,17 +87,18 @@
                 if(confirm("Are you sure want to delete ? ")) {
                     e.preventDefault();
                     var data = table.row($(this).parents('tr')).data();
-                    var url = "{{ route('library.destroy', '*') }}";
+                    var url = "{{ route('project.destroy', '*') }}";
                     url = url.replace('*', data.id);
                     $.ajax({
                         type: "DELETE",
                         url: url,
                         success: function (response) {
-                        toastr.success("Library Deleted Successfully");
+                        toastr.success("Project Deleted Successfully");
                             table.ajax.reload(null, false);
                         },
                         error: function (err) {
-                            toastr.error(err);
+                        toastr.error(err);
+
                         }
                     });
                 }

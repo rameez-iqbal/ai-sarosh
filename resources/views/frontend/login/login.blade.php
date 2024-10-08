@@ -19,7 +19,7 @@
         <link rel="shortcut icon" href="images/favicon.ico" />
 
         <!-- STYLE -->
-        <link rel="stylesheet" type="text/css" href="{{ asset('app-assets') }}/css/style.css">
+        <link rel="stylesheet" type="text/css" href="{{ asset('app-assets') }}/css/login.css">
 
     </head>
 
@@ -54,7 +54,7 @@
                                 <input type="password" class="form-control" name="password" placeholder="Password"
                                     required>
                             </div>
-                            <button type="submit" class="btn btn-primary">Login</button>
+                            <button type="submit" class="btn btn-primary mt-3">Login</button>
                         </form>
                     </div>
                 </div>
@@ -76,13 +76,6 @@
 
         <!-- bootstrap -->
         <script src="{{ asset('app-assets') }}/js/bootstrap/bootstrap.bundle.min.js"></script>
-
-        <!-- jquery-nicescroll -->
-        <script src="{{ asset('app-assets') }}/js/jquery-nicescroll/jquery.nicescroll.min.js"></script>
-
-        <!-- apexcharts -->
-        <script src="{{ asset('app-assets') }}/js/apexcharts/apexcharts.min.js"></script>
-        <script src="{{ asset('app-assets') }}/js/apexcharts/apexcharts-custom.js"></script>
 
         <!-- custom -->
         <script src="{{ asset('app-assets') }}/js/custom.js"></script>

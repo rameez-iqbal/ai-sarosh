@@ -13,18 +13,18 @@ return new class extends Migration
     {
         Schema::create('project_details', function (Blueprint $table) {
             $table->id();
-            $table->string('pi');
-            $table->string('co_pi');
-            $table->string('timeline');
-            $table->longText('project_teams');
-            $table->string('url');
-            $table->string('about_project');
-            $table->longText('about_description');
-            $table->string('bg_color');
+            $table->string('pi')->nullable();
+            $table->string('co_pi')->nullable();
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->string('timeline')->nullable();
+            $table->longText('project_teams')->nullable();
+            $table->string('url')->nullable();
+            $table->string('name')->nullable();
+            $table->longText('about_description')->nullable();
+            $table->string('image');
             $table->unsignedBigInteger('project_id');
-            $table->foreign('project_id')->references('id')->on('countries');
-            $table->unsignedBigInteger('country_id');
-            $table->foreign('country_id')->references('id')->on('countries');
+            $table->foreign('project_id')->references('id')->on('projects');
             $table->timestamps();
         });
     }

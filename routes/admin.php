@@ -2,6 +2,7 @@
 use App\Http\Controllers\Admin\{
     ArticleController,
     DashboardController,
+    GalleryController,
     LibraryTypesController,
     OurClientController,
     PageController,
@@ -12,9 +13,9 @@ use App\Http\Controllers\Admin\{
     ReportController,
     ServiceController,
     VideoController,
-    WebinarController
+    WebinarController,
+    GalleryHighlightsController
 };
-
 use Illuminate\Support\Facades\Route;
 
 Route::controller(LoginController::class)->group( function ( ) {
@@ -60,8 +61,13 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('our-clients/edit/{id}','edit')->name('our.clients.edit');
     } );
 
-    Route::controller( ProjectController::class )->group( function ( ) {
-        Route::get('project/create','create')->name('project.create');
+    Route::controller( ProjectController::class )->prefix('project')->group( function ( ) {
+        Route::get('/','index')->name('project.index');
+        Route::get('create','create')->name('project.create');
+        Route::get('edit/{id}','edit')->name('project.edit');
+        Route::post('store','store')->name('project.store');
+        Route::delete('delete/{id}','destroy')->name('project.destroy');
+
     } );
 
     Route::controller(OurTeamController::class)->group(function(){
@@ -90,23 +96,41 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
     Route::controller(ArticleController::class)->prefix('articles')->group(function(){
         Route::get('{type}/create','create')->name('article.create');
-        Route::post('article/store','store')->name('article.store');
-        Route::delete('article/delete/{id}','destroy')->name('article.destroy');
-        Route::get('article/edit/{id}','edit')->name('article.edit');
+        Route::post('store','store')->name('article.store');
+        Route::delete('delete/{id}','destroy')->name('article.destroy');
+        Route::get('edit/{id}','edit')->name('article.edit');
     });
 
     Route::controller(VideoController::class)->prefix('videos')->group(function(){
         Route::get('{type}/create','create')->name('video.create');
-        Route::post('video/store','store')->name('video.store');
-        Route::delete('video/delete/{id}','destroy')->name('video.destroy');
-        Route::get('video/edit/{id}','edit')->name('video.edit');
+        Route::post('store','store')->name('video.store');
+        Route::delete('delete/{id}','destroy')->name('video.destroy');
+        Route::get('edit/{id}','edit')->name('video.edit');
     });
 
     Route::controller(ReportController::class)->prefix('report')->group(function(){
         Route::get('{type}/create','create')->name('report.create');
-        Route::post('report/store','store')->name('report.store');
-        Route::delete('report/delete/{id}','destroy')->name('report.destroy');
-        Route::get('report/edit/{id}','edit')->name('report.edit');
+        Route::post('store','store')->name('report.store');
+        Route::delete('delete/{id}','destroy')->name('report.destroy');
+        Route::get('edit/{id}','edit')->name('report.edit');
     });
+
+    Route::controller(GalleryController::class)->prefix('gallery')->group(function(){
+        Route::get('{type}/create','create')->name('gallery.create');
+        Route::post('store','store')->name('gallery.store');
+        Route::delete('delete/{id}','destroy')->name('gallery.destroy');
+        Route::get('edit/{id}','edit')->name('gallery.edit');
+    });
+
+    Route::controller(GalleryHighlightsController::class)->prefix('gallery/highlights')->group(function(){
+        Route::get('/{id}','index')->name('highlights.index');
+        Route::get('{id}/create','create')->name('highlights.create');
+        Route::post('store','store')->name('highlights.store');
+        Route::delete('delete/{id}','destroy')->name('highlights.destroy');
+        // Route::get('edit/{id}','edit')->name('gallery.edit');
+    });
+
+
+    
 
 });

@@ -13,9 +13,15 @@ return new class extends Migration
     {
         Schema::create('galleries', function (Blueprint $table) {
             $table->id();
-            $table->string('image')->nullable();
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('heading')->nullable();
+            $table->longText('description')->nullable();
+            $table->string('slug')->nullable();
+            $table->json('banner_images')->nullable();
+            $table->json('gallery_images')->nullable();
+            $table->string('post_url')->nullable();
+            $table->string('recording_url')->nullable();
+            $table->enum('type',['conference','workshop'])->default('conference');
+            $table->foreignId('library_type_id')->constrained();
             $table->timestamps();
         });
     }

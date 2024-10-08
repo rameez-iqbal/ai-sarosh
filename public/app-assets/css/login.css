@@ -1,0 +1,11 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900");
+@import url(plugins/bootstrap/bootstrap.min.css);
+@import url(plugins/font-awesome/font-awesome.min.css);
+.btn {
+    border-radius: 30px;
+    padding: 0.575rem 1.6rem;
+    transition: all 0.5s ease-in-out;
+    background-color: #313467;
+    border: 1px solid #313467 !important;
+}
