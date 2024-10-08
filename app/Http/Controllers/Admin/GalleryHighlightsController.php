@@ -61,6 +61,7 @@ class GalleryHighlightsController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request->all());
         $validator = Validator::make($request->all(), [
             'days' => 'required|array', // Ensure 'days' is an array
             'days.*.id' => 'required|integer|exists:galleries,id', // Each 'id' should be an integer
