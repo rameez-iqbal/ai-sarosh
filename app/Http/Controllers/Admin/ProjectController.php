@@ -32,7 +32,7 @@ class ProjectController extends Controller
                     if( !is_null($row->image )) {
                         $imageUrl = Storage::url('projects/'.$row->image); // Generate the image URL
                         return '<a href="' . $imageUrl . '" target="_blank">
-                            <img src="' . $imageUrl . '" alt="Image" style="border-radius:50%;width:50%;height:50%">
+                            <img src="' . $imageUrl . '" alt="Image" style="border-radius:50%;width:32px;height:32px">
                         </a>';
                     }
                 })
