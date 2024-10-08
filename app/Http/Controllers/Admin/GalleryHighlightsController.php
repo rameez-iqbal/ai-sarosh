@@ -67,12 +67,24 @@ class GalleryHighlightsController extends Controller
             'days.*.day' => 'required|string', // Each 'day' should be a string
             'days.*.heading' => 'required|string|max:255', // Each 'heading' should be a string with max length of 255
             'days.*.images' => 'required|array', // Ensure 'images' is an array
-            'days.*.images.*' => 'image|mimes:jpg,jpeg,png,svg,webp|max:20480', // Each image should be a valid image file with max size of 20MB
-            'days.images.*' => 'image|mimes:jpeg,png,jpg,gif|max:20480',
+            'days.*.images.*' => 'image|mimes:jpg,jpeg,png,svg,webp|max:10240', // Each image should be a valid image file with max size of 20MB
+            'days.images.*' => 'image|mimes:jpeg,png,jpg,gif|max:10240',
         ]);
         if ($validator->fails()) {
             return apiResponse(false, 403, $validator->errors()->all());
         }
         $response  = $this->galleryHighlight->createOrUpdateGalleryHighlights($request->except('_token'));
+        if( $response )
+            return apiResponse(true,200,$response);
+        else
+            return apiResponse(false,403);
+    }
+
+    public function destroy($id)
+    {
+        $id = (int)$id;
+        $response = $this->galleryHighlight->deleteGalleryHighlights( $id );
+        return apiResponse($response,200);
+        
     }
 }

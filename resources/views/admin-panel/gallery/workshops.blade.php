@@ -86,7 +86,7 @@
                 if(confirm("Are you sure want to delete ? ")) {
                     e.preventDefault();
                     var data = table.row($(this).parents('tr')).data();
-                    var url = "{{ route('gallery.destroy', '*') }}";
+                    var url = "{{ route('highlights.destroy', '*') }}";
                     url = url.replace('*', data.id);
                     $.ajax({
                         type: "DELETE",

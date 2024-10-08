@@ -11,10 +11,14 @@ class CodesignBanner extends Component
     /**
      * Create a new component instance.
      */
-    public $day;
-    public function __construct($day)
+    public $groupedHighlightsArray;
+    public $headerContent;
+    public $slug;
+    public function __construct($groupedHighlightsArray,$headerContent,$slug)
     {
-        $this->day = $day;
+        $this->groupedHighlightsArray = $groupedHighlightsArray;
+        $this->headerContent = $headerContent;
+        $this->slug = $slug;
     }
 
     /**

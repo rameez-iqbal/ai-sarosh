@@ -39,7 +39,7 @@ Route::controller(FrontEndController::class)->group(function () {
     // Route::get('co-design-workshop-day4', 'codesignDay4')->name('codesign.day4');
 
     // Dynamic Route for Gallery
-    Route::get('/{slug}',[FrontEndController::class,'getGalleryConferences'])->name('gallery.conferences');
+    Route::get('/{slug}/{day?}',[FrontEndController::class,'getGalleryConferences'])->name('gallery.conferences');
 });
 
 Route::get('/clear', function () {
@@ -49,7 +49,7 @@ Route::get('/clear', function () {
     Artisan::call('view:clear');
     Artisan::call('config:cache');
     Artisan::call('storage:link');
-     Artisan::call('optimize:clear');
+    Artisan::call('optimize:clear');
     return [
         'Config cache has clear successfully!',
         'Application cache has clear successfully!',

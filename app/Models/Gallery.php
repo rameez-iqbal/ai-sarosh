@@ -22,4 +22,9 @@ class Gallery extends Model
     {
         return $this->belongsTo(LibraryTypes::class,'library_type_id','id');
     }
+
+    public function highlights()
+    {
+        return $this->hasMany(GalleryHighlights::class);
+    }
 }

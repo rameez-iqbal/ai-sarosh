@@ -5,6 +5,7 @@ namespace App\Http\Controllers\FrontEnd;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\Gallery;
+use App\Models\GalleryHighlights;
 use App\Models\LibraryTypes;
 use App\Models\OurClient;
 use App\Models\OurTeam;
@@ -37,10 +38,9 @@ class FrontEndController extends Controller
     public function getProjectsByCountry()
     {
         $project_list = [];
-        $projects  = Project::with('details','country:id,name,bgColor')->get();
-        foreach($projects as $project)
-        {
-            if($project?->country?->id == $project->country_id)
+        $projects  = Project::with('details', 'country:id,name,bgColor')->get();
+        foreach ($projects as $project) {
+            if ($project?->country?->id == $project->country_id)
                 $project_list[$project->country->name][] = $project;
         }
         return $project_list;
@@ -48,8 +48,7 @@ class FrontEndController extends Controller
 
     public function getProjects()
     {
-        return Project::with('details','country:id,name,bgColor')->get();
-
+        return Project::with('details', 'country:id,name,bgColor')->get();
     }
 
     public function getPages()
@@ -121,18 +120,17 @@ class FrontEndController extends Controller
         $teachnical_team = [];
         $implementation_team = [];
         $communication_team = [];
-        foreach( $our_teams as $our_team )
-        {
-            if($our_team?->category?->role=='Leadership')
+        foreach ($our_teams as $our_team) {
+            if ($our_team?->category?->role == 'Leadership')
                 $leaderships[] = $our_team;
-            if($our_team?->category?->role=='Technical Team')
+            if ($our_team?->category?->role == 'Technical Team')
                 $teachnical_team[] = $our_team;
-            if($our_team?->category?->role=='Implementation Team')
+            if ($our_team?->category?->role == 'Implementation Team')
                 $implementation_team[] = $our_team;
-            if($our_team?->category?->role=='Communications Team')
+            if ($our_team?->category?->role == 'Communications Team')
                 $communication_team[] = $our_team;
         }
-        return [$leaderships,$teachnical_team,$implementation_team,$communication_team];
+        return [$leaderships, $teachnical_team, $implementation_team, $communication_team];
     }
 
     public function library()
@@ -151,7 +149,7 @@ class FrontEndController extends Controller
 
     public function getLibraryTypes()
     {
-        return LibraryTypes::all(['id','type','image','slug']);
+        return LibraryTypes::all(['id', 'type', 'image', 'slug']);
     }
 
     public function webinars()
@@ -169,7 +167,7 @@ class FrontEndController extends Controller
 
     public function getWebinars()
     {
-        return Webinar::all(['id','title','image','redirect_url','webinar_date']);   
+        return Webinar::all(['id', 'title', 'image', 'redirect_url', 'webinar_date']);
     }
 
     public function articles()
@@ -187,7 +185,7 @@ class FrontEndController extends Controller
 
     public function getArticles()
     {
-        return Article::get(['id','title','sub_title','image','redirect_url','article_date']);
+        return Article::get(['id', 'title', 'sub_title', 'image', 'redirect_url', 'article_date']);
     }
 
     public function gallery()
@@ -203,7 +201,7 @@ class FrontEndController extends Controller
     }
     public function getGalleries()
     {
-        return Gallery::get(['id','heading','slug','banner_images','gallery_images']);
+        return Gallery::get(['id', 'heading', 'slug', 'banner_images', 'gallery_images']);
     }
     public function get_Pages($slug = '')
     {
@@ -250,7 +248,7 @@ class FrontEndController extends Controller
 
     public function getReports()
     {
-        return Report::all(['id','title','organization','description','report_file','image','library_type_id']);
+        return Report::all(['id', 'title', 'organization', 'description', 'report_file', 'image', 'library_type_id']);
     }
 
     public function videos()
@@ -267,88 +265,113 @@ class FrontEndController extends Controller
 
     public function getVideos()
     {
-        return Video::all(['id','title','name','organization','iframe_url','image','video_link']);
+        return Video::all(['id', 'title', 'name', 'organization', 'iframe_url', 'image', 'video_link']);
     }
 
-    public function getGalleryConferences($slug)
+    public function getGalleryConferences($slug,$day=null)
     {
-        $gallery_details = Gallery::Where('slug',$slug)->first();
+        $gallery_details = Gallery::with('highlights')->where('slug', $slug)
+        ->first();
+        $grouped_highlights = $gallery_details->highlights->groupBy('day');
+        $grouped_highlights_array = $grouped_highlights->toArray();
         $breadcrumbItems = [
             ['text' => 'Library'],
             ['text' => 'Gallery'],
             ['text' => $gallery_details->heading],
         ];
-        return view('frontend.conference.index', [
+        // dump(($grouped_highlights_array['Day 1'][0]));
+        // dump(($grouped_highlights_array['Day 1'][1]));
+        $view = (count($gallery_details->highlights) > 0) ? 'frontend.workshop.codesign' : 'frontend.conference.index';
+        return view($view, [
             'breadcrumbItems' => $breadcrumbItems,
             'backLink' => ['href' => url()->previous(), 'text' => 'Back'],
-            'conference'=>$gallery_details
+            'conference' => $gallery_details,
+            'grouped_highlights_array'=>$grouped_highlights_array
         ]);
     }
 
-    public function PHCConference()
-    {
-        $breadcrumbItems = [
-            ['text' => 'Library'],
-            ['text' => 'Gallery'],
-            ['text' => '13 Int. Public Health Conf'],
-        ];
-        return view('frontend.conference.13th_International_public_health_conference', [
-            'breadcrumbItems' => $breadcrumbItems,
-            'backLink' => ['href' => url()->previous(), 'text' => 'Back'],
-        ]);
-    }
+    // public function getWorkshop($slug) 
+    // {
+    //     $gallery_details = GalleryHighlights::with('gallery')
+    //     ->where('day', $slug)
+    //     ->first();
+    //     $breadcrumbItems = [
+    //         ['text' => 'Library'],
+    //         ['text' => 'Gallery'],
+    //         ['text' => $gallery_details->heading],
+    //     ];
+    //     return view('frontend.workshop.codesign', [
+    //         'breadcrumbItems' => $breadcrumbItems,
+    //         'backLink' => ['href' => url()->previous(), 'text' => 'Back'],
+    //         'conference' => $gallery_details,
+    //         'grouped_highlights_array'=>null
+    //     ]);
+    // }
 
-    public function canadianConference()
-    {
-        $breadcrumbItems = [
-            ['text' => 'Library'],
-            ['text' => 'Gallery'],
-            ['text' => '2023 Canadian Conf. on Global Health'],
-        ];
-        return view('frontend.conference.canadian_conference', [
-            'breadcrumbItems' => $breadcrumbItems,
-            'backLink' => ['href' => url()->previous(), 'text' => 'Back'],
-        ]);
-    }
+    // public function PHCConference()
+    // {
+    //     $breadcrumbItems = [
+    //         ['text' => 'Library'],
+    //         ['text' => 'Gallery'],
+    //         ['text' => '13 Int. Public Health Conf'],
+    //     ];
+    //     return view('frontend.conference.13th_International_public_health_conference', [
+    //         'breadcrumbItems' => $breadcrumbItems,
+    //         'backLink' => ['href' => url()->previous(), 'text' => 'Back'],
+    //     ]);
+    // }
 
-    public function ghsSummit()
-    {
-        $breadcrumbItems = [
-            ['text' => 'Library'],
-            ['text' => 'Gallery'],
-            ['text' => 'Global Health Security Summit Isb.'],
-        ];
-        return view('frontend.conference.global_health_security_summit', [
-            'breadcrumbItems' => $breadcrumbItems,
-            'backLink' => ['href' => url()->previous(), 'text' => 'Back'],
-        ]);
-    }
+    // public function canadianConference()
+    // {
+    //     $breadcrumbItems = [
+    //         ['text' => 'Library'],
+    //         ['text' => 'Gallery'],
+    //         ['text' => '2023 Canadian Conf. on Global Health'],
+    //     ];
+    //     return view('frontend.conference.canadian_conference', [
+    //         'breadcrumbItems' => $breadcrumbItems,
+    //         'backLink' => ['href' => url()->previous(), 'text' => 'Back'],
+    //     ]);
+    // }
 
-    public function al4gh()
-    {
-        $breadcrumbItems = [
-            ['text' => 'Library'],
-            ['text' => 'Gallery'],
-            ['text' => 'AI4GH: Nairobi.'],
-        ];
-        return view('frontend.conference.al4gh', [
-            'breadcrumbItems' => $breadcrumbItems,
-            'backLink' => ['href' => url()->previous(), 'text' => 'Back'],
-        ]);
-    }
+    // public function ghsSummit()
+    // {
+    //     $breadcrumbItems = [
+    //         ['text' => 'Library'],
+    //         ['text' => 'Gallery'],
+    //         ['text' => 'Global Health Security Summit Isb.'],
+    //     ];
+    //     return view('frontend.conference.global_health_security_summit', [
+    //         'breadcrumbItems' => $breadcrumbItems,
+    //         'backLink' => ['href' => url()->previous(), 'text' => 'Back'],
+    //     ]);
+    // }
 
-    public function wdc()
-    {
-        $breadcrumbItems = [
-            ['text' => 'Library'],
-            ['text' => 'Gallery'],
-            ['text' => 'WDC’23'],
-        ];
-        return view('frontend.conference.women_deliever_conference', [
-            'breadcrumbItems' => $breadcrumbItems,
-            'backLink' => ['href' => url()->previous(), 'text' => 'Back'],
-        ]);
-    }
+    // public function al4gh()
+    // {
+    //     $breadcrumbItems = [
+    //         ['text' => 'Library'],
+    //         ['text' => 'Gallery'],
+    //         ['text' => 'AI4GH: Nairobi.'],
+    //     ];
+    //     return view('frontend.conference.al4gh', [
+    //         'breadcrumbItems' => $breadcrumbItems,
+    //         'backLink' => ['href' => url()->previous(), 'text' => 'Back'],
+    //     ]);
+    // }
+
+    // public function wdc()
+    // {
+    //     $breadcrumbItems = [
+    //         ['text' => 'Library'],
+    //         ['text' => 'Gallery'],
+    //         ['text' => 'WDC’23'],
+    //     ];
+    //     return view('frontend.conference.women_deliever_conference', [
+    //         'breadcrumbItems' => $breadcrumbItems,
+    //         'backLink' => ['href' => url()->previous(), 'text' => 'Back'],
+    //     ]);
+    // }
 
     public function contactUs()
     {
@@ -364,55 +387,55 @@ class FrontEndController extends Controller
         ]);
     }
 
-    public function codesign()
-    {
-        $breadcrumbItems = [
-            ['text' => 'Library'],
-            ['text' => 'Gallery'],
-            ['text' => 'Co-Design Workshop Day 1'],
-        ];
-        return view('frontend.workshop.codesign', [
-            'breadcrumbItems' => $breadcrumbItems,
-            'backLink' => ['href' => url()->previous(), 'text' => 'Back'],
-        ]);
-    }
+    // public function codesign()
+    // {
+    //     $breadcrumbItems = [
+    //         ['text' => 'Library'],
+    //         ['text' => 'Gallery'],
+    //         ['text' => 'Co-Design Workshop Day 1'],
+    //     ];
+    //     return view('frontend.workshop.codesign', [
+    //         'breadcrumbItems' => $breadcrumbItems,
+    //         'backLink' => ['href' => url()->previous(), 'text' => 'Back'],
+    //     ]);
+    // }
 
-    public function codesignDay2()
-    {
-        $breadcrumbItems = [
-            ['text' => 'Library'],
-            ['text' => 'Gallery'],
-            ['text' => 'Co-Design Workshop Day 2'],
-        ];
-        return view('frontend.workshop.codesign-day2', [
-            'breadcrumbItems' => $breadcrumbItems,
-            'backLink' => ['href' => url()->previous(), 'text' => 'Back'],
-        ]);
-    }
+    // public function codesignDay2()
+    // {
+    //     $breadcrumbItems = [
+    //         ['text' => 'Library'],
+    //         ['text' => 'Gallery'],
+    //         ['text' => 'Co-Design Workshop Day 2'],
+    //     ];
+    //     return view('frontend.workshop.codesign-day2', [
+    //         'breadcrumbItems' => $breadcrumbItems,
+    //         'backLink' => ['href' => url()->previous(), 'text' => 'Back'],
+    //     ]);
+    // }
 
-    public function codesignDay3()
-    {
-        $breadcrumbItems = [
-            ['text' => 'Library'],
-            ['text' => 'Gallery'],
-            ['text' => 'Co-Design Workshop Day 3'],
-        ];
-        return view('frontend.workshop.codesign-day3', [
-            'breadcrumbItems' => $breadcrumbItems,
-            'backLink' => ['href' => url()->previous(), 'text' => 'Back'],
-        ]);
-    }
+    // public function codesignDay3()
+    // {
+    //     $breadcrumbItems = [
+    //         ['text' => 'Library'],
+    //         ['text' => 'Gallery'],
+    //         ['text' => 'Co-Design Workshop Day 3'],
+    //     ];
+    //     return view('frontend.workshop.codesign-day3', [
+    //         'breadcrumbItems' => $breadcrumbItems,
+    //         'backLink' => ['href' => url()->previous(), 'text' => 'Back'],
+    //     ]);
+    // }
 
-    public function codesignDay4()
-    {
-        $breadcrumbItems = [
-            ['text' => 'Library'],
-            ['text' => 'Gallery'],
-            ['text' => 'Co-Design Workshop Day 4'],
-        ];
-        return view('frontend.workshop.codesign-day4', [
-            'breadcrumbItems' => $breadcrumbItems,
-            'backLink' => ['href' => url()->previous(), 'text' => 'Back'],
-        ]);
-    }
+    // public function codesignDay4()
+    // {
+    //     $breadcrumbItems = [
+    //         ['text' => 'Library'],
+    //         ['text' => 'Gallery'],
+    //         ['text' => 'Co-Design Workshop Day 4'],
+    //     ];
+    //     return view('frontend.workshop.codesign-day4', [
+    //         'breadcrumbItems' => $breadcrumbItems,
+    //         'backLink' => ['href' => url()->previous(), 'text' => 'Back'],
+    //     ]);
+    // }
 }

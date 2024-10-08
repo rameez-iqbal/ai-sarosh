@@ -610,6 +610,9 @@ a:hover{
 .conference_images img {
    width: 100%;
 }
+.dropdown-menu[data-bs-popper] {
+   top: 153% !important;
+}
 @media(max-width:768px) {
    .icons-row {
       padding-top: 28px;

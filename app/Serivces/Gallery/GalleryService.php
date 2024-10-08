@@ -2,6 +2,7 @@
 namespace App\Serivces\Gallery;
 
 use App\Models\Gallery;
+use App\Models\GalleryHighlights;
 use App\Models\Report;
 use App\Serivces\Gallery\GalleryInterface;
 use App\Trait\Image;
@@ -16,7 +17,6 @@ class GalleryService implements GalleryInterface
     use Image;
     public function createOrUpdateGallery($data)
     {
-        // dd($data);
         DB::beginTransaction();
         try 
         {
@@ -35,7 +35,6 @@ class GalleryService implements GalleryInterface
             }
             else 
             {
-                // dd('aa');
                 $gallery = new Gallery();
                 $unqiue_slug = generateSlug($gallery,array_key_exists('heading',$data) ? $data['heading'] : 'Gallery','slug');
                 $banner_imgs = [];
@@ -75,27 +74,41 @@ class GalleryService implements GalleryInterface
 
     public function deleteGallery( $id )
     {
+        DB::beginTransaction();
         try 
         {
-            $gallery = Gallery::find($id);
+            $gallery = Gallery::with('highlights')->find($id);
+            if(!is_null($gallery->highlights))
+            {
+                $highlights = $gallery?->highlights;
+                foreach($highlights as $highlight)
+                {
+                    $highlight_images = json_decode($highlight['images']);
+                    for($i=0;$i<count($highlight_images);$i++)
+                        $this->deleteImage( $highlight_images[$i],GalleryHighlights::PATH );
+                    $highlight->delete();
+                }
+            }
             $banner_images = json_decode($gallery->banner_images);
             $gallery_images = json_decode($gallery->gallery_images);
-            if(count($gallery_images)>0)
+            if(!is_null($gallery_images) && count($gallery_images)>0)
             {
                 for($i=0;$i<count($gallery_images);$i++)
                     $this->deleteImage( $gallery_images[$i],Gallery::PATH );
             }
-            if(count($banner_images)>0)
+            if(!is_null($banner_images) && count($banner_images)>0)
             {
                 for($i=0;$i<count($banner_images);$i++)
                     $this->deleteImage( $banner_images[$i],Gallery::PATH );
             }
             $gallery->delete();
+            DB::commit();
             return true;
         } 
         catch (Exception $ex) 
         {
-            Log::info("Delete Video". $ex->getMessage() );
+            DB::rollBack();
+            Log::info("Delete Gallery". $ex->getMessage() );
             return $ex->getMessage();
         }
     }

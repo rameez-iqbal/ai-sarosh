@@ -54,30 +54,30 @@ $days = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
                 newRepeater.classList.add('row', 'repeater');
 
                 newRepeater.innerHTML = `
-        <input type="hidden" name="days[${counter}][id]" value="{{ $id }}">
-        <div class="col-md-5">
-            <label for="">Day</label>
-            <select name="days[${counter}][day]" class="form-control">
-                @foreach ($days as $day)
-                    <option value="{{ $day }}">{{ $day }}</option>
-                @endforeach
-            </select>
-        </div>
-        <div class="col-md-5">
-            <label for="" class="">Heading</label>
-            <input type="text" class="form-control" name="days[${counter}][heading]" placeholder="Heading ${counter + 1}">
-        </div>
-        <div class="col-md-2 mt-4">
-            <button class="btn btn-primary addBtn" type="button">Add</button>
-            <button class="btn btn-danger deleteBtn" type="button">Delete</button>
-        </div>
-        <div class="row mt-3">
-            <div class="col-md-6">
-                <label for="Image">Banner Image</label>
-                <input type="file" class="filepond" id="image${counter}" name="days[${counter}][images][]" accept="image/png, image/jpeg, image/jpg, image/svg+xml, image/webp" />
-            </div>
-        </div>
-    `;
+                    <input type="hidden" name="days[${counter}][id]" value="{{ $id }}">
+                    <div class="col-md-5">
+                        <label for="">Day</label>
+                        <select name="days[${counter}][day]" class="form-control">
+                            @foreach ($days as $day)
+                                <option value="{{ $day }}">{{ $day }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-md-5">
+                        <label for="" class="">Heading</label>
+                        <input type="text" class="form-control" name="days[${counter}][heading]" placeholder="Heading ${counter + 1}">
+                    </div>
+                    <div class="col-md-2 mt-4">
+                        <button class="btn btn-primary addBtn" type="button">Add</button>
+                        <button class="btn btn-danger deleteBtn" type="button">Delete</button>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <label for="Image">Banner Image</label>
+                            <input type="file" class="filepond" id="image${counter}" name="days[${counter}][images][]" accept="image/png, image/jpeg, image/jpg, image/svg+xml, image/webp" />
+                        </div>
+                    </div>
+                `;
 
                 // Append the newRepeater to the DOM
                 document.getElementById('repeater-container').appendChild(newRepeater);
@@ -86,15 +86,13 @@ $days = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
                 FilePond.create(newRepeater.querySelector(`input[type="file"]`), {
                     styleButtonRemoveItemPosition: 'right',
                     imageCropAspectRatio: '1:1',
-                    acceptedFileTypes: ['image/png', 'image/jpeg', 'image/jpg', 'image/svg+xml',
-                        'image/webp'
-                    ],
-                    maxFileSize: '20480KB',
+                    acceptedFileTypes: ['image/png', 'image/jpeg', 'image/jpg', 'image/svg+xml','image/webp'],
+                    maxFileSize: '10240KB',
                     ignoredFiles: ['.ds_store', 'thumbs.db', 'desktop.ini'],
                     storeAsFile: true,
                     allowMultiple: true,
-                    maxFiles: 24,
-                    required: false,
+                    maxFiles: 50,
+                    required: true,
                     checkValidity: true,
                     credits: {
                         label: '',
@@ -139,17 +137,19 @@ $days = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
                     null) {
                     console.log(response);
                     $('#submitGalleryBtn').attr('disabled', false);
-
-                    if (response.status === false) {
-                        response.data.reverse().forEach(function(message) {
-                            toastr.error(message);
-                        });
-                    } else {
-                        toastr.success("Gallery Created Successfully");
-                        setTimeout(() => {
-                            window.location.href = '/admin/library-types/gallery';
-                        }, 1000);
+                    if(response) {
+                        if (response.status === false) {
+                            response.data.reverse().forEach(function(message) {
+                                toastr.error(message);
+                            });
+                        } else {
+                            toastr.success("Workshop Created Successfully");
+                        }
                     }
+                    // setTimeout(() => {
+                    //         var id = <?php echo json_encode($id); ?>;
+                    //         window.location.href = '/admin/gallery/highlights/'+id;
+                    //     }, 1000);
                 });
             });
         });
