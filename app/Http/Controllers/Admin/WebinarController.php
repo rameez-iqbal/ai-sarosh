@@ -39,7 +39,7 @@ class WebinarController extends Controller
                             if (!is_null($row->image)) {
                                 $imageUrl = Storage::url('webinars/' . $row->image);
                                 return '<a href="' . $imageUrl . '" target="_blank">
-                                <img src="' . $imageUrl . '" alt="Image" style="border-radius:50%;width:50px;height:50px">
+                                <img src="' . $imageUrl . '" alt="Image" style="border-radius:50%;width:32px;height:32px">
                             </a>';
                             }
                             return '';  // Return empty string if there's no image

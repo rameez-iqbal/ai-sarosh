@@ -31,7 +31,7 @@ class GalleryHighlightsController extends Controller
                     if (!is_null($row->images)) {
                         $imageUrl = Storage::url('highlights/'.json_decode($row->images)[0]);
                         return '<a href="' . $imageUrl . '" target="_blank">
-                        <img src="' . $imageUrl . '" alt="Image" style="border-radius:50%;width:50px;height:50px">
+                        <img src="' . $imageUrl . '" alt="Image" style="border-radius:50%;width:32px;height:32px">
                         </a>';
                     }
                     return '';
