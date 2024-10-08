@@ -47,7 +47,7 @@
                 <div class="panel-hedding">
                     @yield('content')
                 </div>
-                {{ view('admin-panel.layout.footer') }}
+{{--                {{ view('admin-panel.layout.footer') }}--}}
             </div>
         </div>
         <script src="{{ asset('app-assets') }}/js/jquery-3.6.0.min.js"></script>

@@ -1,6 +1,6 @@
 <div class="sidebar-panel nicescrollbar sidebar-panel-light">
 	<ul class="sidebar-menu">
-		<li class="{{ request()->routeIs('dashboard') ? 'active' : '' }}"><a href="#"><i class="la la-home"></i> <span> Dashboard </span> </a></li>
+		<li class="{{ request()->routeIs('dashboard') ? 'active' : '' }}"><a href="{{route('pages')}}"><i class="la la-home"></i> <span> Dashboard </span> </a></li>
 		<li class="{{ request()->routeIs('pages') || request()->routeIs('page.create') ? 'active' : '' }}">
 			<a href="#">
 				<i class="zmdi zmdi-file"></i> <span>Pages </span> <i class="la la-angle-right down-arrow"></i>
