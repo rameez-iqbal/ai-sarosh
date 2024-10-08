@@ -34,6 +34,16 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('app-assets') }}/css/plugins/filepond/plugins/filepond.preview.min.css">
 
         {{-- <link rel="stylesheet" type="text/css" href="{{ asset('app-assets') }}/css/plugins/bootstrap/bootstrap.min.css"> --}}
+        <style>
+            table tr td:last-child,table tr th:last-child {
+                text-align: center !important;
+                /* display: flex;
+                justify-content: center;
+                align-content: center;
+                column-gap: 8px; */
+            }
+
+        </style>
         @yield('custom-css')
 
 

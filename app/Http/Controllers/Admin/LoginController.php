@@ -29,7 +29,7 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'password');
         try {
             if (Auth::attempt($credentials)) {
-                return redirect()->route('dashboard');
+                return redirect()->route('pages');
 
             } else {
                 return redirect()->route('login.view')->withErrors([
@@ -46,6 +46,7 @@ class LoginController extends Controller
 
     public function dashboardView()
     {
-        return view('admin-panel.dashboard.dashboard');    
+        return redirect()->route('pages');
+        // return view('admin-panel.dashboard.dashboard');    
     }
 }

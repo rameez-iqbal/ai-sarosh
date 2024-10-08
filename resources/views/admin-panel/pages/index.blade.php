@@ -1,12 +1,11 @@
 @extends('admin-panel.layout.master')
 @section('custom-css')
 <style>
-    table tr td:last-child {
-        /* text-align: center; */
+    /* table tr td:last-child {
         display: flex;
         justify-content: center;
         column-gap: 8px;
-    }
+    } */
     .table-striped>tbody>tr:nth-of-type(odd) {
         --bs-table-accent-bg:none !important;
     }

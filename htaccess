@@ -27,6 +27,7 @@
    php_value session.save_path "/var/cpanel/php/sessions/alt-php81"
    php_value upload_max_filesize 3128M
    php_flag zlib.output_compression Off
+   LimitRequestBody 104857600
 </IfModule>
 # END cPanel-generated php ini directives, do not edit
 
