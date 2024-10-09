@@ -29,6 +29,7 @@
                         @csrf
                         <div class="row">
                             <input type="hidden" name="library_type_id" value="{{ $gallery->library_type_id }}">
+                            <input type="hidden" name="gallery_id" value="{{ $gallery->id }}">
                             <div class="col-md-6">
                                 <label for="">Type</label>
                                 <select name="type" id="type" class="form-control">
@@ -107,7 +108,7 @@
                             toastr.error(message);
                         });
                     } else {
-                        toastr.success("Gallery Created Successfully");
+                        toastr.success("Gallery Updated Successfully");
                         setTimeout(() => {
                             window.location.href = '/admin/library-types/gallery';
                         }, 1000);

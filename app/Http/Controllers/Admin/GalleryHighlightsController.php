@@ -22,10 +22,11 @@ class GalleryHighlightsController extends Controller
 
     public function index(Request $request,$id)
     {
+        $gallery_id = $request->id;
         if ($request->ajax()) {
             $btn = '';
-            $articles = GalleryHighlights::with('gallery:id,heading')->latest()->get();
-            return DataTables::of($articles)
+            $highlights = GalleryHighlights::with('gallery:id,heading')->where('gallery_id',$gallery_id)->get();
+            return DataTables::of($highlights)
                 ->addIndexColumn()
                 ->addColumn('images', function ($row) {
                     if (!is_null($row->images)) {

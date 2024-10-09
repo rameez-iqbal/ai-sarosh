@@ -51,10 +51,11 @@
 <script>
     var table = null;
         $(document).ready(function(){
+            let id = '{{ $id }}';
             table = $('#highlights-table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('highlights.index',['id'=>'<?php $id; ?>']) }}",
+            ajax: "{{ route('highlights.index',['id' => ':id']) }}".replace(':id', id),
             columns: [
                 {
                     data: 'DT_RowIndex',

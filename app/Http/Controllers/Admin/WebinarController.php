@@ -196,7 +196,6 @@ class WebinarController extends Controller
                             $btn .= ' <a href="javascript:void(0)" class="delete btn btn-overlay-danger btn-icon"><i class="la la-trash"></i></a>';
                             if($row->type == 'workshop') {
                                 $btn .= ' | <a href="'.route('highlights.index',['id'=>$row->id]).'" class="btn btn-overlay-info btn-icon"><i class="fa fa-calendar-o"></i></a>';
-                                $btn.='';
                             }
                             return $btn;
                         })
