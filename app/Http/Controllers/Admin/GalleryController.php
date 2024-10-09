@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Gallery;
 use Illuminate\Validation\Rule;
 use App\Models\LibraryTypes;
 use App\Serivces\Gallery\GalleryInterface;
@@ -78,5 +79,11 @@ class GalleryController extends Controller
         $id = (int)$id;
         $response = $this->gallery->deleteGallery( (int)$id );
         return apiResponse($response,200);
+    }
+
+    public function edit( $id )
+    {
+        $gallery = Gallery::find( (int)$id );
+        return view('admin-panel.gallery.edit',compact('gallery','id'));   
     }
 }

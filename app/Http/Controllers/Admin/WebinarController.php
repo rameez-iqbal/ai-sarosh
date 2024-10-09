@@ -192,7 +192,7 @@ class WebinarController extends Controller
                             return $row?->libraryType?->type;
                         })
                         ->addColumn('action', function ($row) {
-                            $btn = '<a href="' . route('report.edit', ['id' => $row->id]) . '" class="edit btn btn-overlay-success btn-icon"><i class="la la-edit"></i></a> |';
+                            $btn = '<a href="' . route('gallery.edit', ['id' => $row->id]) . '" class="edit btn btn-overlay-success btn-icon"><i class="la la-edit"></i></a> |';
                             $btn .= ' <a href="javascript:void(0)" class="delete btn btn-overlay-danger btn-icon"><i class="la la-trash"></i></a>';
                             if($row->type == 'workshop') {
                                 $btn .= ' | <a href="'.route('highlights.index',['id'=>$row->id]).'" class="btn btn-overlay-info btn-icon"><i class="fa fa-calendar-o"></i></a>';

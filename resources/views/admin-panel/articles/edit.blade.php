@@ -52,7 +52,7 @@
 
 
                         <div class="card-footer d-flex justify-content-between">
-                            <a href="{{ route('our.clients') }}" class="btn btn-outline-secondary">Back</a>
+                            <a href="{{ route('webinar', ['type' => 'articles']) }}" class="btn btn-outline-secondary">Back</a>
                             <button type="submit" id="submitArticleBtn" class="btn btn-outline-primary">Update</button>
                         </div>
                     </form>
