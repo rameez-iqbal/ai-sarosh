@@ -6,7 +6,7 @@
 				<i class="zmdi zmdi-file"></i> <span>Pages </span> <i class="la la-angle-right down-arrow"></i>
 			</a>
 			<ul class="sidebar-submenu">
-				<li class="{{ request()->routeIs('pages') || request()->routeIs('page.create')  ? 'active' : '' }}" ><a href="{{route('pages')}}"><i class="la la-minus"></i> <span> Sections</span> </a></li>
+				<li class="{{ request()->routeIs('pages') || request()->routeIs('page.create')  ? 'active' : '' }}" ><a href="{{route('pages')}}"><i class="la la-minus"></i> <span> Pages & Sections</span> </a></li>
 			</ul>
 		</li>
 		<li class="{{ request()->routeIs('services') || request()->routeIs('services.create') ? 'active' : '' }}">
