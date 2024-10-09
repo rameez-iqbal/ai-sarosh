@@ -72,8 +72,8 @@ $days = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
                         <input type="text" class="form-control" name="days[${counter}][heading]" placeholder="Heading ${counter + 1}">
                     </div>
                     <div class="col-md-2 mt-4">
-                        <button class="btn btn-primary addBtn" type="button"><i class="fa fa-plus"></i></button>
-                        <button class="btn btn-danger deleteBtn" type="button"><i class="fa fa-trash"></i></button>
+                        <button class="btn btn-outline-primary addBtn" type="button"><i class="fa fa-plus"></i></button>
+                        <button class="btn btn-outline-danger deleteBtn" type="button"><i class="fa fa-trash"></i></button>
                     </div>
                     <div class="row mt-3">
                         <div class="col-md-6">

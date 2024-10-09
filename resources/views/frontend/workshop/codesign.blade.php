@@ -14,7 +14,7 @@
             ];
         @endphp
         <x-codesign-banner :slug="$conference->slug" :headerContent="$header_content" :groupedHighlightsArray="$grouped_highlights_array" />
-        <h2 class="ff-main main-color fw-bold text-center mt-md-5">{{request()->route('day') ?? array_keys($grouped_highlights_array)[0]}}</h2>
+        <h2 class="ff-main main-color fw-bold text-center mt-md-2">{{request()->route('day') ?? array_keys($grouped_highlights_array)[0]}}</h2>
         @if(is_null(request()->route('day')))
             @forelse(array_values($grouped_highlights_array)[0] as $data)
                 <div class="row mb-3 my-md-2 g-3" id="codesign_images">
