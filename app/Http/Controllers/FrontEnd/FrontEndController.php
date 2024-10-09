@@ -270,8 +270,7 @@ class FrontEndController extends Controller
 
     public function getGalleryConferences($slug,$day=null)
     {
-        $gallery_details = Gallery::with('highlights')->where('slug', $slug)
-        ->first();
+        $gallery_details = Gallery::with('highlights')->where('slug', $slug)->first();
         $grouped_highlights = $gallery_details->highlights->groupBy('day');
         $grouped_highlights_array = $grouped_highlights->toArray();
         $breadcrumbItems = [
@@ -279,8 +278,6 @@ class FrontEndController extends Controller
             ['text' => 'Gallery'],
             ['text' => $gallery_details->heading],
         ];
-        // dump(($grouped_highlights_array['Day 1'][0]));
-        // dump(($grouped_highlights_array['Day 1'][1]));
         $view = (count($gallery_details->highlights) > 0) ? 'frontend.workshop.codesign' : 'frontend.conference.index';
         return view($view, [
             'breadcrumbItems' => $breadcrumbItems,
@@ -290,23 +287,10 @@ class FrontEndController extends Controller
         ]);
     }
 
-    // public function getWorkshop($slug) 
-    // {
-    //     $gallery_details = GalleryHighlights::with('gallery')
-    //     ->where('day', $slug)
-    //     ->first();
-    //     $breadcrumbItems = [
-    //         ['text' => 'Library'],
-    //         ['text' => 'Gallery'],
-    //         ['text' => $gallery_details->heading],
-    //     ];
-    //     return view('frontend.workshop.codesign', [
-    //         'breadcrumbItems' => $breadcrumbItems,
-    //         'backLink' => ['href' => url()->previous(), 'text' => 'Back'],
-    //         'conference' => $gallery_details,
-    //         'grouped_highlights_array'=>null
-    //     ]);
-    // }
+    public function getWorkshop($slug=null) 
+    {
+        return GalleryHighlights::where('day', $slug)->get();
+    }
 
     // public function PHCConference()
     // {

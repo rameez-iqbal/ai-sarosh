@@ -115,7 +115,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('edit/{id}','edit')->name('report.edit');
     });
 
-    Route::controller(GalleryController::class)->prefix('gallery')->group(function(){
+    Route::controller(GalleryController::class)->prefix('galleries')->group(function(){
         Route::get('{type}/create','create')->name('gallery.create');
         Route::post('store','store')->name('gallery.store');
         Route::delete('delete/{id}','destroy')->name('gallery.destroy');

@@ -22,12 +22,18 @@
     </div>
     <div class="col-md-9" data-aos="fade-left">
         <img src="{{$headerContent['bannerImage']}}" class="w-100" alt="">
-        <div class="row mt-3">
+        <div class="row mt-3" id="banner-text-row">
             <div class="col-md-12"><h2 class="ff-main main-color fw-bold">{{$headerContent['heading']}}</h2></div>
             <div class="col-md-12">
                 <p class="ff-main text-clr fw-normal">{!!$headerContent['description']!!}</p>
             </div>
-            {{-- <h2 class="ff-main main-color fw-bold text-center mt-md-5">{{$day}}</h2> --}}
         </div>
     </div>
 </div>
+@section('custom-js')
+    <script>
+        $(document).ready(function () {
+            $('#banner-text-row').find('.col-md-12 p').addClass('ff-main text-clr fw-normal')
+        });
+    </script>
+@endsection

@@ -1,5 +1,13 @@
 @extends('frontend.layout.master')
-@section('page-title', 'Home')
+@section('page-title', 'Gallery')
+@section('custom-css')
+<style>
+    .gallery-banner-img {
+        height: 529px;
+        object-fit: cover;
+    }
+</style>
+@endsection
 @section('content')
 <div class="container">
     {{view('frontend.components.social-links')}}
@@ -17,7 +25,7 @@
         <div class="row conference_banner_images gap-1 gap-md-2">
             @forelse (json_decode($conference->banner_images) as $banner_img)
                 <div class="col-md-12" data-aos="zoom-in-up">
-                    <img src="{{asset('storage/gallery/'.$banner_img)}}" alt="">
+                    <img src="{{asset('storage/gallery/'.$banner_img)}}" alt="" class="gallery-banner-img">
                 </div>
             @empty
             @endforelse
@@ -35,4 +43,11 @@
         </div>
     @endif
 </div>
+@endsection
+@section('custom-js')
+    <script>
+        $(document).ready(function () {
+            $('.conference').find('p').addClass('ff-main text-clr fw-normal')
+        });
+    </script>
 @endsection
