@@ -2,19 +2,16 @@
 namespace App\Serivces\Library;
 
 use App\Models\LibraryTypes;
-use App\Models\OurTeam;
 use App\Trait\Image;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use PharIo\Manifest\Library;
 
 class LibraryService implements LibraryInterface
 {
     use Image;
     public function createOrUpdateLibrary($data)
     {
-        $unqiue_slug = null;
         DB::beginTransaction();
         try 
         {
@@ -25,6 +22,7 @@ class LibraryService implements LibraryInterface
             if( array_key_exists('library_id',$data) && $data['library_id'] != 0 && !is_null( $data['library_id'] ))
             {
                 $library = LibraryTypes::find( $data['library_id'] );
+                $unqiue_slug = $library->slug;
                 if(array_key_exists('image',$data)){
                     $image = $data['image'] ?? $library->image;
                 }
@@ -37,7 +35,7 @@ class LibraryService implements LibraryInterface
                 $unqiue_slug = generateSlug($library,array_key_exists('type',$data) ? $data['type'] : 'Webinars','slug');
             }
             $library->type            = array_key_exists('type',$data) ? $data['type'] : null;
-            $library->slug            = $unqiue_slug ?? null;
+            $library->slug            = $unqiue_slug;
             $library->image           = ($library->image !=  $image->getClientOriginalName()) ? $this->storeImage($image, LibraryTypes::PATH) : $library->image;
             $library->save();
             DB::commit();

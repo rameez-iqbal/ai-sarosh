@@ -5,7 +5,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-title">
-                    <h1>Create Library</h1>
+                    <h1>Update Library</h1>
                 </div>
                 <div class="card-body">
 
@@ -27,8 +27,8 @@
 
 
                         <div class="card-footer d-flex justify-content-between">
+                            <a href="{{ route('library.types') }}" class="btn btn-outline-secondary">Back</a>
                             <button type="submit" id="submitlibraryBtn" class="btn btn-outline-primary">Update</button>
-                            <a href="{{ route('our.clients') }}" class="btn btn-outline-secondary">Back</a>
                         </div>
                     </form>
 
@@ -56,7 +56,7 @@
                             toastr.error(message);
                         });
                     } else {
-                        toastr.success("Library created successfully");
+                        toastr.success("Library Updated successfully");
                         setTimeout(() => {
                             window.location.href = '/admin/library-types';
                         }, 1000);
