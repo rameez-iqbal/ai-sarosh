@@ -2,8 +2,8 @@
 <section class="my-5">
     <div class="container">
         <div class="row text-center text-lg-start g-2">
-            <div class="col-lg-3 col-md-4 col-6"  data-aos="zoom-in-up">
-                <a href="#" class="d-block h-100">
+            <div class="col-lg-3 col-md-4 col-6 img-div" data-img="{{ asset('app-assets') }}/images/frontend/g1.png"  data-aos="zoom-in-up">
+                <a href="javascript:void(0)" class="d-block h-100">
                     <div class="img-container">
                         <img class="img-fluid img-responsive" src="{{ asset('app-assets') }}/images/frontend/g1.png"
                             alt="">

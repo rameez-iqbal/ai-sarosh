@@ -11,7 +11,7 @@
     <meta name="keywords" content="">
     <meta name="author" content="PIXINVENT">
     <link rel="icon" href="{{ asset('app-assets/images/frontend/favicon_logo.png') }}" type="image/x-icon"> 
-    <title>@yield('page-title') - {{ env('APP_NAME') }}</title>
+    <title>{{ env('APP_NAME') }} - @yield('page-title')</title>
 
     <!-- END: Page CSS-->
 
