@@ -14,47 +14,7 @@
         {{ view('frontend.components.social-links') }}
         <x-breadcrumb :backLink="$backLink" homeText="Home" :breadcrumbItems="$breadcrumbItems" />
     </div>
-    <?php
-    $galleries = 
-    [
-        [
-            'image'=>'app-assets/images/frontend/codesign.png',
-            'name'=>'Co-Design Workshop',
-            'columns'=>'col-md-4',
-            'href'=>"codesign"
-        ],
-        [
-            'image'=>'app-assets/images/frontend/women_deliever.png',
-            'name'=>'Women Deliver Conference’23',
-            'columns'=>'col-md-4',
-            'href'=>'wdc'
-        ],
-        [
-            'image'=>'app-assets/images/frontend/public_health_conference.png',
-            'name'=>'13th International Public Health Conference',
-            'columns'=>'col-md-4',
-            'href'=>'13th-international-public-health-conference'
-        ],
-        [
-            'image'=>'app-assets/images/frontend/canadian_conference.png',
-            'name'=>'2023 Canadian Conference',
-            'columns'=>'col-md-4',
-            'href'=>'canadianConference'
-        ],
-        [
-            'image'=>'app-assets/images/frontend/global_health_security.png',
-            'name'=>'Global Health Security Summit',
-            'columns'=>'col-md-4',
-            'href'=>'ghssconference'
-        ],
-        [
-            'image'=>'app-assets/images/frontend/al4gh.png',
-            'name'=>'AI4GH in Kenya',
-            'columns'=>'col-md-4',
-            'href'=>'al4gh'
-        ]
-    ]; 
-    ?>
+    
     <section id="articles" class="my-4 my-md-5">
         <div class="container">
             <div class="row my-3 my-md-5">
@@ -75,15 +35,33 @@
                 @empty
                     <h3 class="main-color">No Gallery Found</h3>
                 @endforelse
-                {{-- @foreach ($galleries as $gallery)
-                    <x-vertical-card 
-                    image="{{$gallery['image']}}"
-                    name="{{$gallery['name']}}"
-                    columns="{{$gallery['columns']}}"
-                    href="{{$gallery['href']}}"
-                    />
-                @endforeach --}}
             </div>
         </div>
     </section>
+@endsection
+@section('custom-js')
+<script>
+    $(document).ready(function() {
+            $(document).on('click', '.img-div', function() {
+                let imageUrl = $(this).attr('data-img');
+                $.magnificPopup.open({
+                    items: {
+                        src: imageUrl,
+                        type: 'image'
+                    },
+                    callbacks: {
+                        open: function() {
+                            $('.mfp-img').css({
+                                'width': '600px',
+                                'height': 'auto'
+                            });
+                        }
+                    },
+                    gallery: {
+                        enabled: false
+                    }
+                });
+            });
+        });
+</script>
 @endsection

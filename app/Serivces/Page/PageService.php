@@ -26,16 +26,16 @@ class PageService implements PageInterface
             if( array_key_exists('page_id',$data) && $data['page_id'] != 0 && !is_null( $data['page_id'] ))
             {
                 $page = Page::find( $data['page_id'] );
-                if(!is_null($page->page)) {
+                if(!is_null($page) && !is_null($page->image)) {
                     if(array_key_exists('image',$data)){
-                        $image = $data['image'] ?? $page->image;
+                        $image = $data['image'];
                     }
+                }
                     if(array_key_exists('section_image',$data)) {
                         $image = $data['section_image'] ?? $page->image;
                     }
                     if( $page &&  $page->image !=  $image->getClientOriginalName())
                         $this->deleteImage( $page->image,Page::PATH );
-                }
             }
             else 
             {
@@ -48,7 +48,7 @@ class PageService implements PageInterface
             $page->description      = array_key_exists('description',$data) ? $data['description'] : null;
             $page->type             = $data['type'];
             $page->slug             = !is_null($unqiue_slug) ? $unqiue_slug : $page->slug;
-            $page->image            = !is_null($page->image) ? (($page->image !=  $image->getClientOriginalName()) ? $this->storeImage($image, 'home') : $page->image ): null;
+            $page->image            = !is_null($page->image) ? (($page->image !=  $image->getClientOriginalName()) ? $this->storeImage($image, 'home') : $page->image ): $this->storeImage($image, 'home');
             $page->user_id          = auth()->user()->id;
             $page->save();
             DB::commit();

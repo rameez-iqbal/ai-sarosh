@@ -1,3 +1,7 @@
+@section('custom-css')
+<link rel="stylesheet" type="text/css" href="{{ asset('app-assets') }}/css/plugins/magnific/magnific.css">
+
+@endsection
 <div class="row my-2 mt-md-5">
     <div class="col-md-3">
         <div class="timeline-section" data-aos="fade-right">
@@ -20,8 +24,10 @@
             </div>
         </div>
     </div>
-    <div class="col-md-9" data-aos="fade-left">
-        <img src="{{$headerContent['bannerImage']}}" class="w-100" alt="">
+    <div class="col-md-9 img-div" data-aos="fade-left" data-img="{{$headerContent['bannerImage']}}">
+        <a href="javascript:void(0)" class="d-block">
+            <img src="{{$headerContent['bannerImage']}}" class="w-100" alt="">
+        </a>
         <div class="row mt-3" id="banner-text-row">
             <div class="col-md-12"><h2 class="ff-main main-color fw-bold">{{$headerContent['heading']}}</h2></div>
             <div class="col-md-12">
@@ -31,9 +37,31 @@
     </div>
 </div>
 @section('custom-js')
+<script src="{{ asset('app-assets') }}/js/magnific/magnific.js"></script>
+
     <script>
         $(document).ready(function () {
-            $('#banner-text-row').find('.col-md-12 p').addClass('ff-main text-clr fw-normal')
+            $('#banner-text-row').find('.col-md-12 p').addClass('ff-main text-clr fw-normal');
+            $(document).on('click', '.img-div', function() {
+                let imageUrl = $(this).attr('data-img');
+                $.magnificPopup.open({
+                    items: {
+                        src: imageUrl,
+                        type: 'image'
+                    },
+                    callbacks: {
+                        open: function() {
+                            $('.mfp-img').css({
+                                'width': '600px',
+                                'height': 'auto'
+                            });
+                        }
+                    },
+                    gallery: {
+                        enabled: false
+                    }
+                });
+            });
         });
     </script>
 @endsection

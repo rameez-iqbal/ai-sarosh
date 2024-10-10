@@ -36,7 +36,7 @@
                         <div class="custom-card"  data-aos="zoom-in-up">
                             <div class="d-flex flex-column card-content">
                                 <h1 class="heading mb-0 text-center fw-normal">{{$vision_mission->heading}}</h1>
-                                <p class="mission-vision-text mb-0 fw-normal">{{$vision_mission->description}}</p>
+                                <p class="mission-vision-text mb-0 fw-normal blue-clr">{{$vision_mission->description}}</p>
                             </div>
                         </div>
                     @empty

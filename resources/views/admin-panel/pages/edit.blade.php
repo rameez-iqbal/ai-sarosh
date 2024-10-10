@@ -25,18 +25,18 @@
                                 
                         @endif
                         <div class="row mt-3">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <label for="page">Heading</label>
                                 <input type="text" class="form-control" name="heading" id="heading" placeholder="Heading" value="{{ $page->heading }}" >
                             </div>
                             @if($page->type == 'section')
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <label for="page">Image</label>
                                 <input type="file" class="filepond" name="section_image" id="section_image"
                                     accept="image/png, image/jpeg, image/jpg, image/svg+xml, image/webp" />
                             </div>
                             @else
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <label for="page">Description</label>
                                 <textarea class="form-control" id="description" name="description" placeholder="Description" rows="5">{{ $page->description }}</textarea>
                             </div>
@@ -62,8 +62,8 @@
                         @endif
                     </div>
                     <div class="card-footer d-flex justify-content-between">
-                        <button type="submit" id="submitPageFormBtn" class="btn btn-outline-primary">Save</button>
                         <a href="{{route('pages')}}" class="btn btn-outline-secondary">Back</a>
+                        <button type="submit" id="submitPageFormBtn" class="btn btn-outline-primary">Save</button>
                     </div>
                 </form>
             </div>
@@ -102,6 +102,17 @@
                     }
              })
          });
+
+         $('#description').summernote({
+                height: 200, // set editor height
+                toolbar: [
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['font', ['strikethrough', 'superscript', 'subscript']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['height', ['height']],
+                ],
+            });
         
     });
 
@@ -127,7 +138,7 @@
             @endif
 
         });
-    FilePond.create(document.getElementById('section_image'), {
+        FilePond.create(document.getElementById('section_image'), {
             styleButtonRemoveItemPosition: 'right',
             imageCropAspectRatio: '1:1',
             acceptedFileTypes: ['image/png', 'image/jpeg', 'image/jpg', 'image/svg+xml', 'image/webp'],
@@ -149,6 +160,10 @@
             @endif
 
         });
+
        
-</script>
+        </script>
+<script src="{{ asset('app-assets') }}/js/summernote/summernote.min.js"></script>
+<script src="{{ asset('app-assets') }}/js/simplemde/simplemde.min.js"></script>
+<script src="{{ asset('app-assets') }}/js/simplemde/simplemde.js"></script>
 @endsection

@@ -25,8 +25,8 @@
                         </div>
 
                         <div class="card-footer d-flex justify-content-between">
-                            <button type="submit" id="submitPageFormBtn" class="btn btn-outline-primary">Save</button>
                             <a href="{{ route('pages') }}" class="btn btn-outline-secondary">Back</a>
+                            <button type="submit" id="submitPageFormBtn" class="btn btn-outline-primary">Save</button>
                         </div>
                     </form>
 
@@ -37,7 +37,6 @@
     </div>
 @endsection
 @section('custom-js')
-
     <script>
         $(document).ready(function() {
             $(document).on('submit', '#pageForm', function(e) {
@@ -99,7 +98,7 @@
                 </div><br>
                 <div class="row">
                     <div class="col-md-12">
-                        <label class="form-label fs-5" for="Image">Image</label>
+                        <label class="" for="Image">Image</label>
                                 <input type="file" class="filepond" name="image" id="image"
                                     accept="image/png, image/jpeg, image/jpg, image/svg+xml, image/webp" />
                     </div>
@@ -113,7 +112,7 @@
                     <input type="text" class="form-control" name="heading" id="heading" placeholder="Section Name" value="{{ old('section') }}">
                 </div>
                 <div class="col-md-6">
-                    <label class="form-label fs-5" for="Image">Image</label>
+                    <label class="" for="Image">Image</label>
                             <input type="file" class="filepond" name="section_image" id="section_image"
                                 accept="image/png, image/jpeg, image/jpg, image/svg+xml, image/webp" />
                 </div>
@@ -137,8 +136,8 @@
                     ['font', ['strikethrough', 'superscript', 'subscript']],
                     ['insert', ['link', 'picture', 'video']],
                     ['para', ['ul', 'ol', 'paragraph']],
-                    ['height', ['height']]
-                ]
+                    ['height', ['height']],
+                ],
             });
         }
 
@@ -189,5 +188,5 @@
     </script>
     <script src="{{ asset('app-assets') }}/js/summernote/summernote.min.js"></script>
     <script src="{{ asset('app-assets') }}/js/simplemde/simplemde.min.js"></script>
-    <script src="{{ asset('app-assets')}}/js/simplemde/simplemde.js"></script>
+    <script src="{{ asset('app-assets') }}/js/simplemde/simplemde.js"></script>
 @endsection

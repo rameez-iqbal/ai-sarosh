@@ -1,5 +1,13 @@
 @extends('frontend.layout.master')
 @section('page-title', 'Projects')
+@section('custom-css')
+<style>
+    .link {
+        text-decoration: none;
+        color: #292929;
+    }
+</style>
+@endsection
 @section('content')
     <div class="container">
         {{ view('frontend.components.social-links') }}
@@ -32,5 +40,10 @@
                 console.log("Target div not found:", projectId);
             }
         }
+        $(document).ready(function () {
+            $('.about-project').each(function() {
+                $(this).find('p').addClass('fw-normal ff-main text-clr text-align-justify blue-clr');
+            });
+        });
     </script>
 @endsection

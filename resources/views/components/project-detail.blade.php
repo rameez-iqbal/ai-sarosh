@@ -50,7 +50,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12 my-3">
+                    <div class="col-md-12">
                         <div class="row">
                             <div class="col-md-12 p-0 p-md-2">
                                 <div class="timelines d-flex  p-0 gap-2 gap-md-4 align-items-center">
@@ -66,7 +66,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12 my-3">
+                    <div class="col-md-12">
                         <div class="row">
                             <div class="col-md-12 p-0 p-md-2">
                                 <div class="timelines d-flex gap-2 gap-md-4 align-items-center">
@@ -104,7 +104,7 @@
                                         <img src="{{asset('app-assets/images/frontend/world.svg')}}" alt="">
                                     </div>
                                     <div class="right">
-                                        <span class="detail-description fw-semi-bold ff-main">{{$website}}</span>
+                                        <a href="{{$website}}" class="detail-description fw-semi-bold ff-main link" target="_blank">{{$website}}</a>
                                     </div>
                                 </div>
                             </div>
@@ -126,7 +126,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-11 p-0 p-md-2">
+            <div class="col-md-11 p-0 p-md-2 about-project">
                 <h3 class="fw-bolder ff-main main-color">About the Project:</h3>
                 <p class="fw-normal ff-main text-clr text-align-justify">{!! $aboutProject !!}</p>
             </div>

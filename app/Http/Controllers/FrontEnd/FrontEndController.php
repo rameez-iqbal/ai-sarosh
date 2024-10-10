@@ -24,6 +24,19 @@ class FrontEndController extends Controller
         return view('frontend.home.home');
     }
 
+    public function getRandomGalleryImages()
+    {
+        $images = [];
+        $json_gallery_images = Gallery::where('gallery_images', '!=', null)->pluck('gallery_images')->toArray();
+        foreach ($json_gallery_images as $json_gallery_image)
+            $images = array_merge($images, json_decode($json_gallery_image));
+        $random_keys = array_rand($images, min(8, count($images)));
+        $random_images = [];
+        foreach ($random_keys as $key)
+            $random_images[] = $images[$key];
+        return $random_images;
+    }
+
     public function projects()
     {
         $breadcrumbItems = [
@@ -224,8 +237,8 @@ class FrontEndController extends Controller
 
     public function getAboutUsBanner()
     {
-        return Page::where('slug', 'about-us')->where('type', 'section')
-            ->select('image', 'heading', 'description')
+        return Page::where('slug', 'about-us')->where('type', 'page')
+            ->select('name', 'image', 'heading', 'description', 'sub_heading')
             ->first();
     }
 
@@ -268,7 +281,7 @@ class FrontEndController extends Controller
         return Video::all(['id', 'title', 'name', 'organization', 'iframe_url', 'image', 'video_link']);
     }
 
-    public function getGalleryConferences($slug,$day=null)
+    public function getGalleryConferences($slug, $day = null)
     {
         $gallery_details = Gallery::with('highlights')->where('slug', $slug)->first();
         $grouped_highlights = $gallery_details->highlights->groupBy('day');
@@ -283,11 +296,11 @@ class FrontEndController extends Controller
             'breadcrumbItems' => $breadcrumbItems,
             'backLink' => ['href' => url()->previous(), 'text' => 'Back'],
             'conference' => $gallery_details,
-            'grouped_highlights_array'=>$grouped_highlights_array
+            'grouped_highlights_array' => $grouped_highlights_array
         ]);
     }
 
-    public function getWorkshop($slug=null) 
+    public function getWorkshop($slug = null)
     {
         return GalleryHighlights::where('day', $slug)->get();
     }

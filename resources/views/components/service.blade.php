@@ -4,6 +4,6 @@
         <h2 class="ff-main fw-bold main-color heading-font-size">{{$title}}</h2>
     </div>
     <div class="thematic-description">
-        <p class="ff-main fw-normal text-clr text-align-justify para-font-size">{{$description}}</p>
+        <p class="ff-main fw-normal text-clr text-align-justify para-font-size blue-clr">{{$description}}</p>
     </div>
 </div>

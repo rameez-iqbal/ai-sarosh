@@ -1,5 +1,41 @@
 @extends('frontend.layout.master')
 @section('page-title', 'About Us')
+@section('custom-css')
+<style>
+    #left-icon {
+        position: absolute;
+        right: -15px;
+        height: 23px;
+        top: 7%;
+    }
+    #right-icon {
+        position: absolute;
+        top: 37%;
+        left: -20px;
+        height: 23px;
+    }@media (max-width: 768px) {
+        /* .ai-sarosh-stands-for {
+            text-align: left !important;
+        }
+        #left-icon {
+            right: -35px;
+            height: 21px;
+            top: 4%;
+        }
+        #right-icon {
+            top: 23%;
+            left: -25px;
+            height: 20px;
+        }
+        #who-are-we h3 {
+            text-align: center !important;
+        } */
+        #left-icon,#right-icon {
+            display: none;
+        }
+    }
+</style>
+@endsection
 @section('content')
 <div class="container">
     {{view('frontend.components.social-links')}}
@@ -11,36 +47,29 @@
     @inject('obj','App\Http\Controllers\FrontEnd\FrontEndController')
     <x-banner-component
     :title="$obj->getAboutUsBanner()->heading"
-    :description="$obj->getAboutUsBanner()->description"
+    :description="$obj->getAboutUsBanner()->sub_heading"
     :image="Storage::url('home/'.$obj->getAboutUsBanner()->image)"
     />
 </div>
 
 
     <section id="bg-about" style="background:#BBBFFF" class="py-5" data-aos="zoom-in-up">
+        <img id="left-icon" src="{{asset('app-assets/images/frontend/left.png')}}" alt="">
+        <img id="right-icon" src="{{asset('app-assets/images/frontend/right.png')}}" alt="">
+
+
         <div class="container">
             <div class="row justify-content-end">
                 <div class="col-md-6">
                     <h3 class="ai-sarosh-stands-for fw-bold ff-main text-end main-color">
                         What does AI-Sarosh stand for?
                     </h3>
-                    <p class="ff-main fw-normal text-align-justify text-color">The name “AI-Sarosh” derives from a persian word “Sarosh” which means <span class="fw-bold"> voice of heaven </span> or <span class="fw-bold"> an angel and </span> AI means Artificial Intelligence. The logo embodies a <span class="fw-bold"> supportive embrace </span> that could be between close relations like that of a mother and child, father and child or partners. Digital technologies are the future now and ethical AI gives us the ability to learn, reason and problem solve the pertinent challenges in the world. Hence, AI-Sarosh!</p>
+                    <p class="ff-main fw-normal text-align-justify blue-clr">The name “AI-Sarosh” derives from a persian word “Sarosh” which means <span class="fw-bold"> voice of heaven </span> or <span class="fw-bold"> an angel and </span> AI means Artificial Intelligence. The logo embodies a <span class="fw-bold"> supportive embrace </span> that could be between close relations like that of a mother and child, father and child or partners. Digital technologies are the future now and ethical AI gives us the ability to learn, reason and problem solve the pertinent challenges in the world. Hence, AI-Sarosh!</p>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" id="who-are-we">
                 <h3 class="fw-bold ff-main main-color">Who Are We ?</h3>
-                <p class="ff-main fw-normal text-align-justify">
-                    AI-Sarosh, funded by and part of the larger AI4GH project by the International Development Research Centre (IDRC),  is a collaborative knowledge hub led by PHC Global and GTA Foundation, based in Pakistan and Nepal respectively. As implementing partners, we aim to build an AI-powered platform designed to revolutionize access to SRMH resources and services in South Asia. This platform will make use of AI to improve services in Bangladesh, Sri Lanka, Nepal and Pakistan to help educate patients and healthcare providers and assist in the development of informed decision-making and policy. We focus on delivering an easy-to-use user experience that allows anyone, no matter their technological skill level, to use our platform and all its services.
-                </p>
-                <p class="ff-main fw-normal text-align-justify">
-                    Through this platform, AI-Sarosh aims to provide evidence-based solutions that make use of AI technology to identify potential opportunities to facilitate or aid the existing programs, or develop newer programs improving quality and access to services, improving client knowledge, and engaging in meaningful ways to improve SRMH in South Asia. We work with a multidisciplinary approach by awarding and managing projects that leverage AI innovations to address key challenges in SRMH in South Asia. Moreover, our knowledge hub provides an platform to promote knowledge sharing on the use of AI for SRMH between countries in South Asia and different regions across the globe.
-                </p>
-                <p class="ff-main fw-normal text-align-justify">
-                    We believe that this unique initiative, supported by our dynamic and passionate team of professionals, will go a long way toward helping us address some of the pressing issues concerning SRMH issues in South Asia and pave the way for the development of better health care solutions for this vulnerable population.
-                </p>
-                <p class="ff-main fw-normal text-align-justify">
-                    We have provided nine grants to different organizations across the region to innovative AI solutions for improving access, quality, and equity of SRMH care. 
-                </p>
+                {!!$obj->getAboutUsBanner()->description !!}
             </div>
         </div>
         <img id="about-us-bottom" src="{{asset('app-assets/images/frontend/about_us_bottom.svg')}}" alt="">
@@ -89,4 +118,12 @@
             </div>
         </div>
     </section>
+@endsection
+
+@section('custom-js')
+<script>
+    $(document).ready(function () {
+        $('#who-are-we').find('p').addClass('ff-main fw-normal text-align-justify blue-clr');
+    });
+</script>
 @endsection
