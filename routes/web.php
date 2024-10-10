@@ -39,7 +39,8 @@ Route::controller(FrontEndController::class)->group(function () {
     // Route::get('co-design-workshop-day4', 'codesignDay4')->name('codesign.day4');
 
     // Dynamic Route for Gallery
-    // Route::get('/{slug}/{day?}',[FrontEndController::class,'getGalleryConferences'])->name('gallery.conferences');
+    Route::get('gallery/{slug}/{day?}',[FrontEndController::class,'getGalleryConferences'])->name('gallery.conferences');
+    // Route::get('gallery/{slug}/{day?}',[FrontEndController::class,'getGalleryConferences'])->name('gallery.conferences');
 });
 
 Route::get('/clear', function () {

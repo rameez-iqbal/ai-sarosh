@@ -21,7 +21,7 @@ class PageController extends Controller
     public function index ( Request $request )
     {
         if ($request->ajax()) {
-            $pages = Page::where('type','section')->latest()->get();
+            $pages = Page::latest()->get();
             return DataTables::of($pages)
                 ->addIndexColumn()
                 ->addColumn('created_at', function($row) {

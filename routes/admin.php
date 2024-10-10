@@ -115,7 +115,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('edit/{id}','edit')->name('report.edit');
     });
 
-    Route::controller(GalleryController::class)->prefix('gallery')->group(function(){
+    Route::controller(GalleryController::class)->prefix('galleries')->group(function(){
         Route::get('{type}/create','create')->name('gallery.create');
         Route::post('store','store')->name('gallery.store');
         Route::delete('delete/{id}','destroy')->name('gallery.destroy');
@@ -126,8 +126,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('/{id}','index')->name('highlights.index');
         Route::get('{id}/create','create')->name('highlights.create');
         Route::post('store','store')->name('highlights.store');
+        Route::post('update','update')->name('highlights.update');
         Route::delete('delete/{id}','destroy')->name('highlights.destroy');
-        // Route::get('edit/{id}','edit')->name('gallery.edit');
+        Route::get('edit/{id}','edit')->name('highlights.edit');
     });
 
 

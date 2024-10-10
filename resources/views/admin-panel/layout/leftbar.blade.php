@@ -6,7 +6,7 @@
 				<i class="fa fa-pagelines"></i> <span>Pages </span> <i class="la la-angle-right down-arrow"></i>
 			</a>
 			<ul class="sidebar-submenu">
-				<li class="{{ request()->routeIs('pages') || request()->routeIs('page.create')  ? 'active' : '' }}" ><a href="{{route('pages')}}"><i class="la la-minus"></i> <span> Sections</span> </a></li>
+				<li class="{{ request()->routeIs('pages') || request()->routeIs('page.create')  ? 'active' : '' }}" ><a href="{{route('pages')}}"><i class="la la-minus"></i> <span> Pages & Sections</span> </a></li>
 			</ul>
 		</li>
 		<li class="{{ request()->routeIs('services') || request()->routeIs('services.create') ? 'active' : '' }}">
@@ -22,7 +22,24 @@
 				<i class="fa fa-book"></i> <span>Library </span> <i class="la la-angle-right down-arrow"></i>
 			</a>
 			<ul class="sidebar-submenu">
-				<li class="{{ request()->routeIs('library.types') || request()->routeIs('library.create')  ? 'active' : '' }}" ><a href="{{route('library.types')}}"><i class="la la-minus"></i> <span> Create Library Type</span> </a></li>
+				<li class="{{ request()->routeIs('library.types') || request()->routeIs('article.create') || request()->routeIs('webinar') || request()->routeIs('library.create')  ? 'active' : '' }}" >
+					<a href="{{route('library.types')}}"><i class="la la-minus"></i> <span>Library Types</span> </a>
+				</li>
+				<li class="active" >
+					<a href="{{route('webinar',['type'=>'articles'])}}"><i class="la la-minus"></i> <span>Articles</span> </a>
+				</li>
+				<li class="{{ request()->routeIs('webinar') || request()->routeIs('webinar')  ? 'active' : '' }}" >
+					<a href="{{route('webinar',['type'=>'videos'])}}"><i class="la la-minus"></i> <span>Videos</span> </a>
+				</li>
+				<li class="{{ request()->routeIs('webinar') || request()->routeIs('webinar')  ? 'active' : '' }}" >
+					<a href="{{route('webinar',['type'=>'gallery'])}}"><i class="la la-minus"></i> <span>Gallery</span> </a>
+				</li>
+				<li class="{{ request()->routeIs('webinar') || request()->routeIs('webinar')  ? 'active' : '' }}" >
+					<a href="{{route('webinar',['type'=>'reports'])}}"><i class="la la-minus"></i> <span>Reports</span> </a>
+				</li>
+				<li class="{{ request()->routeIs('webinar') || request()->routeIs('webinar')  ? 'active' : '' }}" >
+					<a href="{{route('webinar',['type'=>'webinars'])}}"><i class="la la-minus"></i> <span>Webinars</span> </a>
+				</li>
 			</ul>
 		</li>
 		<li class="{{ request()->routeIs('our.clients') ? 'active' : '' }}">

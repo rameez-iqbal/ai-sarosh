@@ -22,10 +22,11 @@ class GalleryHighlightsController extends Controller
 
     public function index(Request $request,$id)
     {
+        $gallery_id = $request->id;
         if ($request->ajax()) {
             $btn = '';
-            $articles = GalleryHighlights::with('gallery:id,heading')->latest()->get();
-            return DataTables::of($articles)
+            $highlights = GalleryHighlights::with('gallery:id,heading')->where('gallery_id',$gallery_id)->get();
+            return DataTables::of($highlights)
                 ->addIndexColumn()
                 ->addColumn('images', function ($row) {
                     if (!is_null($row->images)) {
@@ -40,7 +41,7 @@ class GalleryHighlightsController extends Controller
                     return $row?->gallery?->heading;
                 })
                 ->addColumn('action', function ($row) {
-                    $btn = '<a href="' . route('report.edit', ['id' => $row->id]) . '" class="edit btn btn-overlay-success btn-icon"><i class="la la-edit"></i></a> |';
+                    $btn = '<a href="' . route('highlights.edit', ['id' => $row->id]) . '" class="edit btn btn-overlay-success btn-icon"><i class="la la-edit"></i></a> |';
                     $btn .= ' <a href="javascript:void(0)" class="delete btn btn-overlay-danger btn-icon"><i class="la la-trash"></i></a>';
                     if($row->type == 'workshop') {
                         $btn .= ' | <a href="javascript:void(0)" class="btn btn-overlay-info btn-icon"><i class="fa fa-calendar-o"></i></a>';
@@ -61,13 +62,13 @@ class GalleryHighlightsController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->all());
         $validator = Validator::make($request->all(), [
-            'days' => 'required|array', // Ensure 'days' is an array
-            'days.*.id' => 'required|integer|exists:galleries,id', // Each 'id' should be an integer
-            'days.*.day' => 'required|string', // Each 'day' should be a string
-            'days.*.heading' => 'required|string|max:255', // Each 'heading' should be a string with max length of 255
-            'days.*.images' => 'required|array', // Ensure 'images' is an array
+            'id'=>'nullable|exists:gallery_highlights,id',
+            'days' => 'required_without:id|array', // Ensure 'days' is an array
+            'days.*.id' => 'required_without:id|integer|exists:galleries,id', // Each 'id' should be an integer
+            'days.*.day' => 'required_without:id|string', // Each 'day' should be a string
+            'days.*.heading' => 'required_without:id|string|max:255', // Each 'heading' should be a string with max length of 255
+            'days.*.images' => 'required_without:id|array', // Ensure 'images' is an array
             'days.*.images.*' => 'image|mimes:jpg,jpeg,png,svg,webp|max:10240', // Each image should be a valid image file with max size of 20MB
             'days.images.*' => 'image|mimes:jpeg,png,jpg,gif|max:10240',
         ]);
@@ -75,7 +76,7 @@ class GalleryHighlightsController extends Controller
             return apiResponse(false, 403, $validator->errors()->all());
         }
         $response  = $this->galleryHighlight->createOrUpdateGalleryHighlights($request->except('_token'));
-        if( $response )
+        if( $response == true )
             return apiResponse(true,200,$response);
         else
             return apiResponse(false,403);
@@ -86,6 +87,30 @@ class GalleryHighlightsController extends Controller
         $id = (int)$id;
         $response = $this->galleryHighlight->deleteGalleryHighlights( $id );
         return apiResponse($response,200);
-        
+    }
+
+    public function edit( $id )
+    {
+        $workshop = GalleryHighlights::find( (int)$id );
+        return view('admin-panel.gallery.workshop-edit',compact('workshop','id'));   
+    }
+
+    public function update(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'id'=>'required|exists:gallery_highlights,id',
+            'gallery_id'=>'required|exists:galleries,id',
+            'day' => 'required',
+            'heading' => 'required',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:10240',
+        ]);
+        if ($validator->fails()) {
+            return apiResponse(false, 403, $validator->errors()->all());
+        }
+        $response  = $this->galleryHighlight->updateHighlights($request->except('_token'));
+        if( $response == true )
+            return apiResponse(true,200,$response);
+        else
+            return apiResponse(false,403);
     }
 }

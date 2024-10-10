@@ -38,8 +38,8 @@ class LibraryTypesController extends Controller
                 })
                 ->addColumn('action', function($row) {
                     $btn = '<a href="' . route('library.edit',['id'=>$row->id]) . '" class="edit btn btn-overlay-success btn-icon"><i class="la la-edit"></i></a> |';
-                    $btn .= ' <a href="javascript:void(0)"  class="delete btn btn-overlay-danger btn-icon"><i class="la la-trash"></i></a>|';
-                    $btn .= ' <a href="'.route('webinar',['type'=>$row->slug]).'"  class="btn btn-overlay-info btn-icon"><i class="la la-plus"></i></a>';
+                    $btn .= ' <a href="javascript:void(0)"  class="delete btn btn-overlay-danger btn-icon"><i class="la la-trash"></i></a>';
+                    // $btn .= ' <a href="'.route('webinar',['type'=>$row->slug]).'"  class="btn btn-overlay-info btn-icon"><i class="la la-plus"></i></a>';
                     return $btn;
                 })
                 ->rawColumns(['action','image'])

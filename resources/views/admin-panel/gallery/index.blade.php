@@ -97,7 +97,7 @@
                         type: "DELETE",
                         url: url,
                         success: function (response) {
-                        toastr.success("Report Deleted Successfully");
+                        toastr.success("Gallery  Deleted Successfully");
                             table.ajax.reload(null, false);
                         },
                         error: function (err) {

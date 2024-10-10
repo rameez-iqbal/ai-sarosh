@@ -26,8 +26,8 @@
 
 
                         <div class="card-footer d-flex justify-content-between">
+                            <a href="{{ route('library.types') }}" class="btn btn-outline-secondary">Back</a>
                             <button type="submit" id="submitlibraryBtn" class="btn btn-outline-primary">Save</button>
-                            <a href="{{ route('our.clients') }}" class="btn btn-outline-secondary">Back</a>
                         </div>
                     </form>
 

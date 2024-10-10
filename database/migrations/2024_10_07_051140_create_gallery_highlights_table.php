@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('gallery_highlights', function (Blueprint $table) {
             $table->id();
             $table->string('day');
+            $table->string('day_slug');
             $table->string('heading');
             $table->json('images');
             $table->foreignId('gallery_id')->constrained();

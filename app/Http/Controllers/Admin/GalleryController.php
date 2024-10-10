@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Gallery;
 use Illuminate\Validation\Rule;
 use App\Models\LibraryTypes;
 use App\Serivces\Gallery\GalleryInterface;
@@ -27,6 +28,10 @@ class GalleryController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'gallery_id'=>[
+                'nullable',
+                'exists:galleries,id'
+            ],
             'library_type_id' => [
                 'required',
                 'exists:library_types,id',
@@ -66,7 +71,7 @@ class GalleryController extends Controller
         if ($validator->fails()) {
             return apiResponse(false, 403, $validator->errors()->all());
         }
-        $response = $this->gallery->createOrUpdateGallery( $request->only('library_type_id','heading','post_url','recording_url','description','banner_images','gallery_images','type') );
+        $response = $this->gallery->createOrUpdateGallery( $request->only('library_type_id','heading','post_url','recording_url','description','banner_images','gallery_images','type','gallery_id') );
         if(  $response  )
             return apiResponse(true,200,$response);
         else
@@ -78,5 +83,11 @@ class GalleryController extends Controller
         $id = (int)$id;
         $response = $this->gallery->deleteGallery( (int)$id );
         return apiResponse($response,200);
+    }
+
+    public function edit( $id )
+    {
+        $gallery = Gallery::find( (int)$id );
+        return view('admin-panel.gallery.edit',compact('gallery','id'));   
     }
 }

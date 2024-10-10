@@ -15,6 +15,10 @@
             display: flex;
             flex-wrap: wrap;
         }
+
+        .btn i {
+            padding-right: 0 !important;
+        }
     </style>
 @endsection
 <?php
@@ -68,12 +72,12 @@ $days = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
                         <input type="text" class="form-control" name="days[${counter}][heading]" placeholder="Heading ${counter + 1}">
                     </div>
                     <div class="col-md-2 mt-4">
-                        <button class="btn btn-primary addBtn" type="button">Add</button>
-                        <button class="btn btn-danger deleteBtn" type="button">Delete</button>
+                        <button class="btn btn-outline-primary addBtn" type="button"><i class="fa fa-plus"></i></button>
+                        <button class="btn btn-outline-danger deleteBtn" type="button"><i class="fa fa-trash"></i></button>
                     </div>
                     <div class="row mt-3">
                         <div class="col-md-6">
-                            <label for="Image">Banner Image</label>
+                            <label for="Image">Images</label>
                             <input type="file" class="filepond" id="image${counter}" name="days[${counter}][images][]" accept="image/png, image/jpeg, image/jpg, image/svg+xml, image/webp" />
                         </div>
                     </div>
@@ -86,7 +90,9 @@ $days = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
                 FilePond.create(newRepeater.querySelector(`input[type="file"]`), {
                     styleButtonRemoveItemPosition: 'right',
                     imageCropAspectRatio: '1:1',
-                    acceptedFileTypes: ['image/png', 'image/jpeg', 'image/jpg', 'image/svg+xml','image/webp'],
+                    acceptedFileTypes: ['image/png', 'image/jpeg', 'image/jpg', 'image/svg+xml',
+                        'image/webp'
+                    ],
                     maxFileSize: '10240KB',
                     ignoredFiles: ['.ds_store', 'thumbs.db', 'desktop.ini'],
                     storeAsFile: true,
@@ -135,9 +141,10 @@ $days = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
 
                 submitAjax('post', '{{ route('highlights.store') }}', formData, function(response, error =
                     null) {
-                    console.log(response);
+                    console.log(response, error);
                     $('#submitGalleryBtn').attr('disabled', false);
-                    if(response) {
+
+                    if (response) {
                         if (response.status === false) {
                             response.data.reverse().forEach(function(message) {
                                 toastr.error(message);
@@ -146,11 +153,12 @@ $days = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
                             toastr.success("Workshop Created Successfully");
                         }
                     }
-                    // setTimeout(() => {
-                    //         var id = <?php echo json_encode($id); ?>;
-                    //         window.location.href = '/admin/gallery/highlights/'+id;
-                    //     }, 1000);
+                    setTimeout(() => {
+                        var id = <?php echo json_encode($id); ?>;
+                        window.location.href = '/admin/gallery/highlights/' + id;
+                    }, 1000);
                 });
+
             });
         });
     </script>

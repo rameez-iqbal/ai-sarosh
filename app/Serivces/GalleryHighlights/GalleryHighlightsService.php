@@ -15,7 +15,9 @@ class GalleryHighlightsService implements GalleryHighlightsInterface
         {
             $images_arr = [];
             $gallery_highlight = new GalleryHighlights();
+            $unqiue_slug = generateSlug($gallery_highlight,array_key_exists('day',$data) ? $data['day'] : 'Day 1','day_slug');
             $gallery_highlight->day  = $dy['day'];
+            $gallery_highlight->day_slug  = $unqiue_slug;
             $gallery_highlight->heading  = $dy['heading'];
             $gallery_highlight->gallery_id  = $dy['id'];
             foreach($dy['images'] as $key=>$img)
@@ -48,8 +50,22 @@ class GalleryHighlightsService implements GalleryHighlightsInterface
         }
     }
 
-    public function storeGalleryImages()
+    public function updateHighlights($data)
     {
+        $images_arr = [];
+        $gallery_highlight = GalleryHighlights::find($data['id']);
 
+        foreach(json_decode($gallery_highlight['images']) as $key=>$img)
+            $this->deleteImage( $img,GalleryHighlights::PATH );
+
+        foreach($data['images'] as $key=>$img)
+            $images_arr[$key] = $this->storeImage($img, GalleryHighlights::PATH);
+        $gallery_highlight->day = $data['day'];
+        $gallery_highlight->day_slug = $gallery_highlight->day_slug;
+        $gallery_highlight->heading = $data['heading'];
+        $gallery_highlight->gallery_id = $data['gallery_id'];
+        $gallery_highlight->images = $images_arr;
+        $gallery_highlight->save();
+        return true;
     }
 }
