@@ -30,7 +30,6 @@ class FrontEndController extends Controller
         $json_gallery_images = Gallery::where('gallery_images', '!=', null)->pluck('gallery_images')->toArray();
         if(count($json_gallery_images)>0)
         {
-            dd('aa');
             foreach ($json_gallery_images as $json_gallery_image)
                 $images = array_merge($images, json_decode($json_gallery_image));
             $random_keys = array_rand($images, min(8, count($images)));
