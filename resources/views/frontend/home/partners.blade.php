@@ -1,5 +1,5 @@
 @inject('obj','App\Http\Controllers\FrontEnd\FrontEndController')
-
+@if(count($obj->ourClients())>0)
 <section id="partners">
     <div class="container">
         <div class="row">
@@ -22,3 +22,4 @@
         </div>
     </div>
 </section>
+@endif

@@ -15,10 +15,10 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $adminId = DB::table('users')->insertGetId([
-            'first_name' => 'Al',
+            'first_name' => 'AI',
             'last_name' => 'Sarosh',
-            'email' => 'admin@alsarosh.com',
-            'password' => Hash::make('Aa12345678'),
+            'email' => 'admin@aisarosh.com',
+            'password' => Hash::make('12345678'),
             'created_at' => now(),
             'updated_at' => now(),
         ]);

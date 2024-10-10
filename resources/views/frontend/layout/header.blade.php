@@ -4,8 +4,10 @@
     <nav class="navbar navbar-expand-lg ">
         <div class="container">
             <a class="navbar-brand brand-logo" href="{{route('homepage')}}">
-                <img src="{{ asset('storage/setting/'.$obj->getSettings()->logo)}}" alt="Logo" data-src="{{ asset('storage/setting/'.$obj->getSettings()->logo)}}"
-                    class="d-inline-block align-text-top logo">
+                @if(!is_null($obj->getSettings()))
+                    <img src="{{ asset('storage/setting/'.$obj->getSettings()->logo)}}" alt="Logo" data-src="{{ asset('storage/setting/'.$obj->getSettings()->logo)}}"
+                        class="d-inline-block align-text-top logo">
+                @endif
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"

@@ -14,13 +14,13 @@
         </div>
         <div class="row">
             <div class="col-md-8 banner-content mx-auto" >
-                <h1 class="main-heading text-center ff-bv-serif" data-aos="zoom-in-up">{{$obj->homeBannerSectionData()->heading}}</h1>
-                <h1 class="banner-al-sarosh-content text-center" data-aos="zoom-in-up">{{$obj->homeBannerSectionData()->sub_heading}}</h1>
+                <h1 class="main-heading text-center ff-bv-serif" data-aos="zoom-in-up">{{$obj->homeBannerSectionData() ? $obj->homeBannerSectionData()->heading : ''}}</h1>
+                <h1 class="banner-al-sarosh-content text-center" data-aos="zoom-in-up">{{$obj->homeBannerSectionData() ? $obj->homeBannerSectionData()->sub_heading : ''}}</h1>
             </div>
         </div>
         <div class="row" data-aos="zoom-in-up">
             <div class="col-md-11 about-banner-al-sarosh mx-auto">
-                <p class="main-para mb-0 about-al-sarosh-artificial">{{$obj->homeBannerSectionData()->description}}</p>
+                <p class="main-para mb-0 about-al-sarosh-artificial">{{$obj->homeBannerSectionData() ? $obj->homeBannerSectionData()->description : ''}}</p>
             </div>
         </div>
         <div class="row" id="image-section">
@@ -40,7 +40,6 @@
                             </div>
                         </div>
                     @empty
-                        <h3>No Banner Image</h3>
                     @endforelse
                 </div>
             </div>
