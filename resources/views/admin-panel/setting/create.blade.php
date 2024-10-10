@@ -11,25 +11,25 @@
                     <form id="settingForm" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
-                        <input type="hidden" name="setting_id" value="{{$settings->id}}">
+                        <input type="hidden" name="setting_id" value="{{$settings?->id}}">
                         <div class="col-md-6">
                             <label>Facebook Url</label>
-                            <input type="text" class="form-control" name="fb_url" id="fb_url" value="{{json_decode($settings->social_url)->fb_url}}">
+                            <input type="text" class="form-control" name="fb_url" id="fb_url" value="{{$settings ? json_decode($settings->social_url)->fb_url : ''}}">
                         </div>
                         <div class="col-md-6">
                             <label>Instagram Url</label>
-                            <input type="text" class="form-control" name="insta_url" id="insta_url" value="{{json_decode($settings->social_url)->insta_url}}">
+                            <input type="text" class="form-control" name="insta_url" id="insta_url" value="{{$settings ? json_decode($settings->social_url)->insta_url : ''}}">
                         </div>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col-md-6">
                             <label>Youtube Url</label>
-                            <input type="text" class="form-control" name="youtube_url" id="youtube_url" value="{{json_decode($settings->social_url)->youtube_url}}">
+                            <input type="text" class="form-control" name="youtube_url" id="youtube_url" value="{{$settings ? json_decode($settings->social_url)->youtube_url : ''}}">
                         </div>
                         <div class="col-md-6">
                             <label>LinkedIn Url</label>
-                            <input type="text" class="form-control" name="linkedin_url" id="linkedin_url" value="{{json_decode($settings->social_url)->linkedin_url}}">
+                            <input type="text" class="form-control" name="linkedin_url" id="linkedin_url" value="{{$settings ? json_decode($settings->social_url)->linkedin_url : ''}}">
                         </div>
                     </div>
                     <br>
