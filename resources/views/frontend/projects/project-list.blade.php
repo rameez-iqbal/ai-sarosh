@@ -1,4 +1,5 @@
 @inject('obj', 'App\Http\Controllers\FrontEnd\FrontEndController')
+@if(count($obj->getProjectsByCountry())>0)
 <section id="single-project">
     <div class="container py-5">
         <div class="row">
@@ -129,3 +130,4 @@
 
     </div>
 </section>
+@endif

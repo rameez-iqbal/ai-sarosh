@@ -19,7 +19,6 @@
                 ];
             @endphp
         @empty
-            <h3>No Leadership Found</h3>
         @endforelse
 
         @if (!empty($leaders))
@@ -39,7 +38,6 @@
                 ];
             @endphp
         @empty
-            <h3>No Technical Found</h3>
         @endforelse
 
         @if (!empty($technical_team))
@@ -59,7 +57,6 @@
                 ];
             @endphp
         @empty
-            <h3>No Implementation Found</h3>
         @endforelse
 
         @if (!empty($implementation_team))
@@ -79,7 +76,6 @@
                 ];
             @endphp
         @empty
-            <h3>No Implementation Found</h3>
         @endforelse
 
         @if (!empty($implementation_team))

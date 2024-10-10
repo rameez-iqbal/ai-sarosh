@@ -23,7 +23,6 @@
             :profileImage="asset('storage/projects/' . $project->details->image)" countryFlag="app-assets/images/frontend/bangladesh.svg" :userName="$project->details->name" :aboutProject='$project->details->about_description'
             type="text" />
     @empty
-        <h3>No Project Found</h3>
     @endforelse
 
 @endsection
@@ -31,6 +30,7 @@
 @section('custom-js')
     <script>
         function navigateToProject(projectId) {
+
             const targetDiv = document.getElementById(projectId);
             if (targetDiv) {
                 targetDiv.scrollIntoView({

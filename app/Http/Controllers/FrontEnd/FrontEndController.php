@@ -28,7 +28,6 @@ class FrontEndController extends Controller
     {
         $images = [];
         $json_gallery_images = Gallery::where('gallery_images', '!=', null)->pluck('gallery_images')->toArray();
-        // dd(count($json_gallery_images));
         if(count($json_gallery_images)>0)
         {
             dd('aa');

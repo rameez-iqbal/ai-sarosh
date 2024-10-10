@@ -60,7 +60,6 @@
                 @forelse ($obj->getVideos() as $video)
                     <x-video :bgImg="asset('storage/videos/' . $video->image)" :title="$video->title" :name="$video->name" :org="$video->organization" :videoLink="asset('storage/videos/'.$video->video_link)" />
                 @empty
-                    <h3>No Video Found</h3>
                 @endforelse
             </div>
         </div>

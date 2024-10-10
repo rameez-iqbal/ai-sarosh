@@ -33,7 +33,6 @@
                     :isGallery=true
                     />
                 @empty
-                    <h3 class="main-color">No Gallery Found</h3>
                 @endforelse
             </div>
         </div>
