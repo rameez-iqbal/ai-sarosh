@@ -7,9 +7,9 @@
                 <p class="heading text-center mb-0">Implementing Partners</p>
             </div>
         </div>
-        <div class="row my-5" id="partners-row">
+        <div class="row my-5 justify-content-between" id="partners-row">
             @forelse ($obj->ourClients() as $key=>$ourClient)
-                <div class="col-md-5 @if($key%2!=0) offset-md-2 @endif" data-aos="zoom-in-up">
+                <div class="col-md-5" data-aos="zoom-in-up">
                     <div class="partner-image text-center"><img src="{{asset('storage/ourclients/' . $ourClient->image) }}" alt=""></div>
                     <div class="partner-description">
                         <p class="text">{{$ourClient->description}}</p>

@@ -6,6 +6,8 @@
     <div class="row mt-3">
         <div class="col-md-6">
             <label for="">Title </label>
+            {{-- <textarea class="" id="title" name="title" placeholder="Description" rows="2">{{ !is_null($project) ? $project?->title : '' }}</textarea> --}}
+
             <input type="text" class="form-control" name="title" id="title" placeholder="Title"
                 value="{{ !is_null($project) ? $project->title : '' }}">
         </div>

@@ -64,7 +64,7 @@ class FrontEndController extends Controller
 
     public function getProjects()
     {
-        return Project::with('details', 'country:id,name,bgColor')->get();
+        return Project::with('details', 'country:id,name,bgColor')->orderBy('country_id','asc')->get();
     }
 
     public function getPages()

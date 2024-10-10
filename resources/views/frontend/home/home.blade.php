@@ -2,6 +2,13 @@
 @section('page-title', 'Home')
 @section('custom-css')
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets') }}/css/plugins/magnific/magnific.css">
+    <style>
+        @media (max-width: 768px) {
+            .donner-image img {
+                width: 100%;
+            }
+        }
+    </style>
 @endsection
 @section('content')
     <div class="container">

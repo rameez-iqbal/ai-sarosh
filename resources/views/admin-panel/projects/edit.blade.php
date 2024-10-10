@@ -11,7 +11,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-title">
-                    <h1>Projects</h1>
+                    <h1>Update Project</h1>
                 </div>
                 <div class="card-body">
 
@@ -132,16 +132,16 @@
 
         $(document).ready(function() {
             // Initialize Summernote
-            $('#about_description').summernote({
-                height: 300, // set editor height
-                toolbar: [
-                    ['style', ['bold', 'italic', 'underline', 'clear']],
-                    ['font', ['strikethrough', 'superscript', 'subscript']],
-                    ['insert', ['link', 'picture', 'video']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['height', ['height']]
-                ]
-            });
+           
+            // $('#about_description').summernote({
+            //     toolbar: [
+            //         ['style', ['bold', 'italic', 'underline', 'clear']],
+            //         ['font', ['strikethrough', 'superscript', 'subscript']],
+            //         ['insert', ['link', 'picture', 'video']],
+            //         ['para', ['ul', 'ol', 'paragraph']],
+            //         ['height', ['height']]
+            //     ]
+            // });
             $('#project_team').summernote({
                 height: 300, // set editor height
                 toolbar: [
