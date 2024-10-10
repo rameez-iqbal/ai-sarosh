@@ -133,15 +133,15 @@
         $(document).ready(function() {
             // Initialize Summernote
            
-            // $('#about_description').summernote({
-            //     toolbar: [
-            //         ['style', ['bold', 'italic', 'underline', 'clear']],
-            //         ['font', ['strikethrough', 'superscript', 'subscript']],
-            //         ['insert', ['link', 'picture', 'video']],
-            //         ['para', ['ul', 'ol', 'paragraph']],
-            //         ['height', ['height']]
-            //     ]
-            // });
+            $('#about_description').summernote({
+                toolbar: [
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['font', ['strikethrough', 'superscript', 'subscript']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['height', ['height']]
+                ]
+            });
             $('#project_team').summernote({
                 height: 300, // set editor height
                 toolbar: [
