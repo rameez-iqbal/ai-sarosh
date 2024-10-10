@@ -4,7 +4,7 @@
 <style>
     #left-icon {
         position: absolute;
-        right: -15px;
+        right: 0px;
         height: 23px;
         top: 7%;
     }
@@ -45,11 +45,13 @@
     :breadcrumbItems="$breadcrumbItems"
     />
     @inject('obj','App\Http\Controllers\FrontEnd\FrontEndController')
-    <x-banner-component
-    :title="$obj->getAboutUsBanner()->heading"
-    :description="$obj->getAboutUsBanner()->sub_heading"
-    :image="Storage::url('home/'.$obj->getAboutUsBanner()->image)"
-    />
+    @if(!is_null($obj->getAboutUsBanner()))
+        <x-banner-component
+        :title="$obj->getAboutUsBanner()?->heading"
+        :description="$obj->getAboutUsBanner()?->sub_heading"
+        :image="Storage::url('home/'.$obj->getAboutUsBanner()?->image)"
+        />
+    @endif
 </div>
 
 
@@ -67,14 +69,16 @@
                     <p class="ff-main fw-normal text-align-justify blue-clr">The name “AI-Sarosh” derives from a persian word “Sarosh” which means <span class="fw-bold"> voice of heaven </span> or <span class="fw-bold"> an angel and </span> AI means Artificial Intelligence. The logo embodies a <span class="fw-bold"> supportive embrace </span> that could be between close relations like that of a mother and child, father and child or partners. Digital technologies are the future now and ethical AI gives us the ability to learn, reason and problem solve the pertinent challenges in the world. Hence, AI-Sarosh!</p>
                 </div>
             </div>
-            <div class="row" id="who-are-we">
-                <h3 class="fw-bold ff-main main-color">Who Are We ?</h3>
-                {!!$obj->getAboutUsBanner()->description !!}
-            </div>
+            @if(!is_null($obj->getAboutUsBanner()))
+                <div class="row" id="who-are-we">
+                    <h3 class="fw-bold ff-main main-color">Who Are We ?</h3>
+                    {!!$obj->getAboutUsBanner()?->description !!}
+                </div>
+            @endif
         </div>
         <img id="about-us-bottom" src="{{asset('app-assets/images/frontend/about_us_bottom.svg')}}" alt="">
     </section>
-
+    @if(count($obj->getThematicAreas())>0)
     <section id="thematic-areas" class="my-5">
         <div class="container">
             <div class="row">
@@ -93,6 +97,7 @@
             </div>
         </div>
     </section>
+    @endif
 
     <section id="more-about-us" class="py-md-5" style="background: #FFDBCC" data-aos="zoom-in-up">
         <div class="container">
