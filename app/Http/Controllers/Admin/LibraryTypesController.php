@@ -30,7 +30,7 @@ class LibraryTypesController extends Controller
                 })
                 ->addColumn('image', function ($row) {
                     if( !is_null($row->image )) {
-                        $imageUrl = Storage::url('library/'.$row->image); // Generate the image URL
+                        $imageUrl = asset('storage/library/' . $row->image);
                         return '<a href="' . $imageUrl . '" target="_blank">
                             <img src="' . $imageUrl . '" alt="Image" style="border-radius:50%;width:32px;height:32px">
                         </a>';

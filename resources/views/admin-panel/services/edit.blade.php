@@ -61,7 +61,7 @@
                         if(response.status == true) {
                             toastr.success("Service Updated");
                             setTimeout(() => {
-                                window.location.href = '/admin/services';
+                                window.location.href = '{{route('services')}}';
                             }, 1000);
                         }else {
                             response.data.forEach(function(message) {

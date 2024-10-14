@@ -89,7 +89,7 @@
                     } else {
                         toastr.success("Report Updated Successfully");
                         setTimeout(() => {
-                            window.location.href = '/admin/library-types/reports';
+                            window.location.href = "{{route('webinar',['type'=>'reports'])}}";
                         }, 1000);
                     }
                 });

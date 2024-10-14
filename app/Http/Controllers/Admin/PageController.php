@@ -29,7 +29,7 @@ class PageController extends Controller
                 })
                 ->addColumn('image', function ($row) {
                     if( !is_null($row->image )) {
-                        $imageUrl = Storage::url('home/'.$row->image); // Generate the image URL
+                        $imageUrl = asset('storage/home/' . $row->image);
                         return '<a href="' . $imageUrl . '" target="_blank">
                             <img src="' . $imageUrl . '" alt="Image" style="border-radius:50%;width:32px;height:32px">
                         </a>';

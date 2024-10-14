@@ -89,7 +89,7 @@
                         if(response.status == true) {
                             toastr.success("Page Updated");
                             setTimeout(() => {
-                                window.location.href = '/admin/pages';
+                                window.location.href = '{{route('pages')}}';
                             }, 1000);
                         }else {
                             response.data.forEach(function(message) {

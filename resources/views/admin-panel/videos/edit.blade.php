@@ -96,7 +96,7 @@
                     } else {
                         toastr.success("Video Updated Successfully");
                         setTimeout(() => {
-                            window.location.href = '/admin/library-types/videos';
+                            window.location.href = "{{route('webinar',['type'=>'videos'])}}";
                         }, 1000);
                     }
                 });

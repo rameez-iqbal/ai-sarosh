@@ -72,7 +72,7 @@
                     } else {
                         toastr.success("our team created successfully");
                         setTimeout(() => {
-                            window.location.href = '/admin/our-teams';
+                            window.location.href = '{{route('our.teams')}}';
                         }, 1000);
                     }
                 });

@@ -70,9 +70,9 @@
                         });
                     } else {
                         toastr.success(response.data+" created successfully");
-                        // setTimeout(() => {
-                        //     window.location.href = '/admin/pages';
-                        // }, 1000);
+                        setTimeout(() => {
+                            window.location.href = '{{route('settings')}}';
+                        }, 1000);
                     }
                 });
             })

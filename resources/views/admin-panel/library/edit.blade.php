@@ -58,7 +58,7 @@
                     } else {
                         toastr.success("Library Updated successfully");
                         setTimeout(() => {
-                            window.location.href = '/admin/library-types';
+                            window.location.href = '{{route('library.types')}}';
                         }, 1000);
                     }
                 });

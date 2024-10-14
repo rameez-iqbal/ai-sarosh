@@ -23,15 +23,17 @@
         </div>
         <div class="row my-md-5 gap-md-5" id="report-list">
             @foreach($obj->getReports() as $report)
-                <x-horizental-card
-                    image="{{$report['image']}}"
-                    href="{{$report['href']}}"
-                    title="{{$report['title']}}"
-                    owner="{{$report['owner']}}"
-                    date="{{$report['date']}}"
-                    imageCol="{{$report['imageCol']}}"
-                    textCol="{{$report['textCol']}}"
-                    type="{{$report['type']}}"
+                <x-report-list
+                    :image="asset('storage/reports/'.$report['image'])"
+                    :reportFile="asset('storage/reports/'.$report['report_file'])"
+                    :href="$report['href']"
+                    :title="$report['title']"
+                    :description="$report['description']"
+                    :organization="$report['organization']"
+                    :date="$report['date']"
+                    imageCol="col-md-3"
+                    textCol="col-md-8"
+                    :type="$report['type']"
                 />
             @endforeach
         </div>

@@ -89,7 +89,7 @@
                     } else {
                         toastr.success("Article Updated Successfully");
                         setTimeout(() => {
-                            window.location.href = '/admin/library-types/articles';
+                            window.location.href = "{{route('webinar',['type'=>'articles'])}}";
                         }, 1000);
                     }
                 });

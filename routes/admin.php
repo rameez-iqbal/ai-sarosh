@@ -131,7 +131,4 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('edit/{id}','edit')->name('highlights.edit');
     });
 
-
-    
-
 });

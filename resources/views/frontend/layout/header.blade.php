@@ -34,6 +34,7 @@
                           Library
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <li><a class="dropdown-item" href="{{route('library')}}">Library</a></li>
                           <li><a class="dropdown-item" href="{{route('webinars')}}">Webinars</a></li>
                           <li><a class="dropdown-item" href="{{route('reports')}}">Reports</a></li>
                           <li><a class="dropdown-item" href="{{route('gallery')}}">Gallery</a></li>

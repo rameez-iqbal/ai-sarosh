@@ -60,7 +60,7 @@
                     } else {
                         toastr.success("Project Created Successfully");
                         setTimeout(() => {
-                            window.location.href = '/admin/project';
+                            window.location.href = '{{route('project.index')}}';
                         }, 1000);
                     }
                     $('#submitourProjectsBtn').attr('disabled',false);

@@ -30,7 +30,7 @@
                                     <th>image</th>
                                     <th style="width: 20%">Title</th>
                                     <th style="width: 20%">Sub Title</th>
-                                    <th style="width: 20%">Redirect Url</th>
+                                    <th style="width: 20% !important;">Redirect Url</th>
                                     <th>Category</th>
                                     <th>Webinar Date</th>
                                     <th>Actions</th>

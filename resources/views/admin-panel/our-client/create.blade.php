@@ -53,7 +53,7 @@
                     } else {
                         toastr.success("our client created successfully");
                         setTimeout(() => {
-                            window.location.href = '/admin/our-clients';
+                            window.location.href = '{{route('our.clients')}}';
                         }, 1000);
                     }
                 });

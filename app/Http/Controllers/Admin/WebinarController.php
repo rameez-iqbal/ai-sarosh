@@ -37,7 +37,7 @@ class WebinarController extends Controller
                         })
                         ->addColumn('image', function ($row) {
                             if (!is_null($row->image)) {
-                                $imageUrl = Storage::url('webinars/' . $row->image);
+                                $imageUrl = asset('storage/webinars/'.$row->image);
                                 return '<a href="' . $imageUrl . '" target="_blank">
                                 <img src="' . $imageUrl . '" alt="Image" style="border-radius:50%;width:32px;height:32px">
                             </a>';
@@ -70,7 +70,7 @@ class WebinarController extends Controller
                         })
                         ->addColumn('image', function ($row) {
                             if (!is_null($row->image)) {
-                                $imageUrl = Storage::url('articles/' . $row->image);
+                                $imageUrl = asset('storage/articles/'.$row->image);
                                 return '<a href="' . $imageUrl . '" target="_blank">
                                 <img src="' . $imageUrl . '" alt="Image" style="border-radius:50%;width:50px;height:50px">
                             </a>';
@@ -100,7 +100,7 @@ class WebinarController extends Controller
                         ->addIndexColumn()
                         ->addColumn('image', function ($row) {
                             if (!is_null($row->image)) {
-                                $imageUrl = Storage::url('videos/' . $row->image);
+                                $imageUrl = asset('storage/videos/'.$row->image);
                                 return '<a href="' . $imageUrl . '" target="_blank">
                                 <img src="' . $imageUrl . '" alt="Image" style="border-radius:50%;width:50px;height:50px">
                             </a>';
@@ -130,7 +130,7 @@ class WebinarController extends Controller
                         ->addIndexColumn()
                         ->addColumn('image', function ($row) {
                             if (!is_null($row->image)) {
-                                $imageUrl = Storage::url('reports/' . $row->image);
+                                $imageUrl = asset('storage/reports/'.$row->image);
                                 return '<a href="' . $imageUrl . '" target="_blank">
                                 <img src="' . $imageUrl . '" alt="Image" style="border-radius:50%;width:50px;height:50px">
                             </a>';
@@ -141,7 +141,7 @@ class WebinarController extends Controller
                             return $row?->libraryType?->type;
                         })
                         ->addColumn('report_file', function ($row) {
-                            $filePath = Storage::url('reports/' . $row->report_file); // Adjust the path as needed
+                            $filePath = asset('storage/reports/'.$row->report_file);
                             return '<a href="' . $filePath . '" target="_blank">Report File</a>';
                         })
                         ->addColumn('description', function ($row) {
@@ -165,12 +165,12 @@ class WebinarController extends Controller
             case 'gallery':
                 if ($request->ajax()) {
                     $btn = '';
-                    $articles = Gallery::with('libraryType:id,type')->latest()->get();
-                    return DataTables::of($articles)
+                    $galleries = Gallery::with('libraryType:id,type')->latest()->get();
+                    return DataTables::of($galleries)
                         ->addIndexColumn()
                         ->addColumn('banner_image', function ($row) {
-                            if (!is_null($row->banner_image)) {
-                                $imageUrl = Storage::url('gallery/' . $row->banner_image);
+                            if (!is_null($row->banner_images)) {
+                                $imageUrl = asset('storage/gallery/'.json_decode($row->banner_images)[0]);
                                 return '<a href="' . $imageUrl . '" target="_blank">
                                 <img src="' . $imageUrl . '" alt="Image" style="border-radius:50%;width:50px;height:50px">
                             </a>';
@@ -179,12 +179,12 @@ class WebinarController extends Controller
                                 $gallery_image = $gallery->gallery_images;
                                 $banner_image = $gallery->banner_images;
                                 if(!is_null($gallery_image))
-                                    $imageUrl = Storage::url('gallery/' .json_decode($gallery_image)[0]);
+                                    $imageUrl = asset('storage/gallery/'.json_decode($gallery_image)[0]);
                                 else
-                                    $imageUrl = Storage::url('gallery/' .json_decode($banner_image)[0]);
+                                    $imageUrl = asset('storage/gallery/'.json_decode($banner_image)[0]);
                                 return '<a href="' . $imageUrl . '" target="_blank">
-                                <img src="' . $imageUrl . '" alt="Image" style="border-radius:50%;width:50px;height:50px">
-                            </a>';
+                                    <img src="' . $imageUrl . '" alt="Image" style="border-radius:50%;width:50px;height:50px">
+                                </a>';
                             }
                             return '';
                         })

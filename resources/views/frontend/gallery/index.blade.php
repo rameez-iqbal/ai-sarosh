@@ -26,7 +26,7 @@
                     <x-vertical-card 
                     :image="isset($gallery->banner_images) && json_decode($gallery->banner_images) ? asset('storage/gallery/'.json_decode($gallery->banner_images)[0]) : null"
                     :name="$gallery['heading']"
-                    columns="col-md-4"
+                    columns="col-md-5"
                     :href="$gallery['slug']"
                     borderRadius="25px"
                     :bannerImage="isset($gallery->gallery_images) && json_decode($gallery->gallery_images) ? asset('storage/gallery/'.json_decode($gallery->gallery_images)[0]) : null"

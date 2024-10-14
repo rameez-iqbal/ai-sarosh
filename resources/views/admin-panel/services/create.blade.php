@@ -71,7 +71,7 @@
                     } else {
                         toastr.success(response.data + " created successfully");
                         setTimeout(() => {
-                            window.location.href = '/admin/services';
+                            window.location.href = '{{route('services')}}';
                         }, 1000);
                     }
                 });

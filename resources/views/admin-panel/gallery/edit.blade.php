@@ -110,7 +110,7 @@
                     } else {
                         toastr.success("Gallery Updated Successfully");
                         setTimeout(() => {
-                            window.location.href = '/admin/library-types/gallery';
+                            window.location.href = "{{route('webinar',['type'=>'gallery'])}}";
                         }, 1000);
                     }
                 });

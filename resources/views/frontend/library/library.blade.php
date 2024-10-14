@@ -19,7 +19,7 @@
     <section id="libraries" class="my-3">
         <div class="row g-3 g-md-5 justify-content-center">
             @forelse ($obj->getLibraryTypes() as $libraryType)
-                <x-vertical-card 
+                <x-library-list 
                 :image="asset('storage/library/'.$libraryType->image)"
                 :name="$libraryType->type"
                 columns="col-md-4"

@@ -53,7 +53,7 @@
                     } else {
                         toastr.success(response.data + " created successfully");
                         setTimeout(() => {
-                            window.location.href = '/admin/pages';
+                            window.location.href = '{{route('pages')}}';
                         }, 1000);
                     }
                 });

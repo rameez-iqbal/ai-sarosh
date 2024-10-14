@@ -82,7 +82,7 @@
                     } else {
                         toastr.success("Webinar Created Successfully");
                         setTimeout(() => {
-                            window.location.href = '/admin/library-types/webinars';
+                            window.location.href = "{{route('webinar',['type'=>'webinars'])}}";
                         }, 1000);
                     }
                 });
