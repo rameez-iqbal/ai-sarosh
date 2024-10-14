@@ -27,7 +27,7 @@ class OurClientController extends Controller
                 })
                 ->addColumn('image', function ($row) {
                     if( !is_null($row->image )) {
-                        $imageUrl = Storage::url('ourclients/'.$row->image); // Generate the image URL
+                        $imageUrl = asset('storage/ourclients/'.$row->image); // Generate the image URL
                         return '<a href="' . $imageUrl . '" target="_blank">
                             <img src="' . $imageUrl . '" alt="Image" style="border-radius:50%;width:32px;height:32px">
                         </a>';

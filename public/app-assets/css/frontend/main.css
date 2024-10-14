@@ -177,7 +177,7 @@ body {
 
 .header-heading {
    font-family: var(--ff-main);
-   font-size: 31px;
+   font-size: 29px;
    font-weight: var(--font-weight-bold);
    line-height: 46.5px;
    color: var(--heading-color);
@@ -613,6 +613,16 @@ a:hover{
 .dropdown-menu[data-bs-popper] {
    top: 153% !important;
 }
+.set-margin-top {
+   margin-top: -30px;
+}
+@media (max-width: 1024px) {
+   .custom-card {
+      min-width: 880px !important;
+      max-width: 880px !important;
+   }
+}
+
 @media(max-width:768px) {
    .icons-row {
       padding-top: 28px;
@@ -623,7 +633,7 @@ a:hover{
    }
 
    .main-heading {
-      font-size: 50px;
+      font-size: 45px;
    }
 
    .banner-al-sarosh-content {
@@ -640,7 +650,7 @@ a:hover{
    }
 
    .header-heading {
-      font-size: 22px;
+      font-size: 18px;
    }
 
    .objective-content {
@@ -789,5 +799,8 @@ a:hover{
    }
    .article-img {
       width: 100%;
+   }
+   .set-margin-top {
+      margin-top: 0px;
    }
 }

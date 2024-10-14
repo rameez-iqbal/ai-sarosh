@@ -42,7 +42,7 @@ class VideoController extends Controller
                 'max:255'
             ],
             'video' => [
-                'required_if:video_id,!=,null',
+                'nullable',
                 'file',
                 'mimes:mp4'
             ],

@@ -50,7 +50,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
     Route::controller(SettingController::class)->group( function () {
         Route::get('setting','settingForm')->name('settings');
+        Route::get('change-credientials','userForm')->name('user.form');
         Route::post('setting-save','store')->name('settings.store');
+        Route::post('change-credientials','changeCredientials')->name('change.credientials');
     } );
 
     Route::controller(OurClientController::class)->group( function () {

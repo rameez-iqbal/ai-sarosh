@@ -68,7 +68,8 @@
 				<i class="fa fa-cogs"></i> <span>Settings </span> <i class="la la-angle-right down-arrow"></i>
 			</a>
 			<ul class="sidebar-submenu">
-				<li class="{{ request()->routeIs('settings')  ? 'active' : '' }}" ><a href="{{route('settings')}}"><i class="la la-minus"></i> <span> Setting</span> </a></li>
+				<li class="{{ request()->routeIs('user.form')  ? 'active' : '' }}" ><a href="{{route('user.form')}}"><i class="la la-minus"></i> <span> Change Credientials</span> </a></li>
+				<li class="{{ request()->routeIs('settings')  ? 'active' : '' }}" ><a href="{{route('settings')}}"><i class="la la-minus"></i> <span> Social Links</span> </a></li>
 			</ul>
 		</li>
 	

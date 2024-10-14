@@ -49,7 +49,7 @@
         <x-banner-component
         :title="$obj->getAboutUsBanner()?->heading"
         :description="$obj->getAboutUsBanner()?->sub_heading"
-        :image="Storage::url('home/'.$obj->getAboutUsBanner()?->image)"
+        :image="asset('storage/home/'.$obj->getAboutUsBanner()?->image)"
         />
     @endif
 </div>

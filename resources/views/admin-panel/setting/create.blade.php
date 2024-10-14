@@ -42,8 +42,8 @@
                     </div>
                     
                         <div class="card-footer d-flex justify-content-between">
+                            <a href="{{route('settings')}}" class="btn btn-outline-secondary">Back</a>
                             <button type="submit" id="submitSettingFormBtn" class="btn btn-outline-primary">Save</button>
-                            <a href="{{route('pages')}}" class="btn btn-outline-secondary">Back</a>
                         </div>
                     </form>
                         

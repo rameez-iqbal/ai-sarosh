@@ -9,7 +9,7 @@
         </div>
         <div class="row my-5 justify-content-between" id="partners-row">
             @forelse ($obj->ourClients() as $key=>$ourClient)
-                <div class="col-md-5" data-aos="zoom-in-up">
+                <div class="col-md-5 @php $key==1 ? 'set-margin-top' : '' @endphp" data-aos="zoom-in-up">
                     <div class="partner-image text-center"><img src="{{asset('storage/ourclients/' . $ourClient->image) }}" alt=""></div>
                     <div class="partner-description">
                         <p class="text">{{$ourClient->description}}</p>
