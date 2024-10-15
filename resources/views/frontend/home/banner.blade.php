@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row icons-row d-flex justify-content-center">
             <div class="col-md-6 d-flex justify-content-center">
-                <div class="gap-3 gap-md-5 d-flex flex-row" data-aos="fade-up">
+                <div class="gap-4 gap-md-5 d-flex flex-row care-icons" data-aos="fade-up" >
                     <img src="{{ asset('app-assets') }}/images/frontend/mother_care.svg" data-src="{{ asset('app-assets') }}/images/frontend/mother_care.svg" alt="">
                     <img src="{{ asset('app-assets') }}/images/frontend/heart.svg" data-src="{{ asset('app-assets') }}/images/frontend/heart.svg" alt="">
                     <img src="{{ asset('app-assets') }}/images/frontend/care.svg" data-src="{{ asset('app-assets') }}/images/frontend/care.svg" alt="">
@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="row" data-aos="zoom-in-up">
-            <div class="col-md-11 about-banner-al-sarosh mx-auto">
+            <div class="col-md-11 about-banner-al-sarosh pt-3 mx-auto">
                 <p class="main-para mb-0 about-al-sarosh-artificial">{{$obj->homeBannerSectionData() ? $obj->homeBannerSectionData()->description : ''}}</p>
             </div>
         </div>

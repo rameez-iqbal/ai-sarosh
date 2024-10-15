@@ -21,6 +21,7 @@
 body {
    font-family: var(--font-family-main) !important;
    overflow-x: hidden;
+   font-size: 14px
 }
 #navbarNav {
    justify-content: end;
@@ -622,10 +623,17 @@ a:hover{
       max-width: 880px !important;
    }
 }
+@media (min-width: 768px) and (max-width: 992px) {
+   .custom-card {
+      min-width: 680px !important;
+      max-width: 680px !important;
+  }
+ }
+ 
 
 @media(max-width:768px) {
    .icons-row {
-      padding-top: 28px;
+      padding-top: unset;
    }
 
    .banner-content {
@@ -633,19 +641,19 @@ a:hover{
    }
 
    .main-heading {
-      font-size: 45px;
+      font-size: 40px;
    }
 
    .banner-al-sarosh-content {
-      font-size: 24px;
+      font-size: 18px;
    }
 
-   .about-banner-al-sarosh {
+   /* .about-banner-al-sarosh {
       padding-top: 23px;
-   }
+   } */
 
    .about-al-sarosh-artificial {
-      font-size: 18px;
+      font-size: 16px;
 
    }
 
@@ -654,7 +662,7 @@ a:hover{
    }
 
    .objective-content {
-      font-size: 18px;
+      font-size: 16px;
    }
 
    .objective-image {
@@ -678,11 +686,12 @@ a:hover{
    }
 
    .heading {
-      font-size: 32px;
+      font-size: 26px;
    }
 
    .mission-vision-text {
-      font-size: 18px;
+      font-size: 16px;
+      line-height: 30px;
    }
 
    .p-0-sm {
@@ -690,7 +699,7 @@ a:hover{
    }
 
    .text {
-      font-size: 18px;
+      font-size: 16px;
    }
 
    #gallery img,.map-image {
@@ -802,5 +811,14 @@ a:hover{
    }
    .set-margin-top {
       margin-top: 0px;
+   }
+   .care-icons img {
+      max-width: 44px;
+   }
+   .social-icons {
+      margin: 18px;
+   }
+   #partners-row img {
+      width: 50%;
    }
 }
