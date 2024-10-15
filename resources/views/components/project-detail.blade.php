@@ -33,7 +33,7 @@
                         </div>
                     @endif
                 </div>
-                <div class="row project-detail my-2 my-md-3">
+                <div class="row project-detail my-2 my-md-3 gy-2">
                     <div class="col-md-12">
                         <div class="row">
                             <div class="col-md-12 p-0 p-md-2">

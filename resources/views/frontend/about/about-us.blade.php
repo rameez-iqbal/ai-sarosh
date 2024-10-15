@@ -66,7 +66,7 @@
                     <h3 class="ai-sarosh-stands-for fw-bold ff-main text-end main-color">
                         What does AI-Sarosh stand for?
                     </h3>
-                    <p class="ff-main fw-normal text-align-justify blue-clr">The name “AI-Sarosh” derives from a persian word “Sarosh” which means <span class="fw-bold"> voice of heaven </span> or <span class="fw-bold"> an angel and </span> AI means Artificial Intelligence. The logo embodies a <span class="fw-bold"> supportive embrace </span> that could be between close relations like that of a mother and child, father and child or partners. Digital technologies are the future now and ethical AI gives us the ability to learn, reason and problem solve the pertinent challenges in the world. Hence, AI-Sarosh!</p>
+                    <p class="ff-main fw-normal text-align-justify blue-clr sarosh-desc">The name “AI-Sarosh” derives from a persian word “Sarosh” which means <span class="fw-bold"> voice of heaven </span> or <span class="fw-bold"> an angel and </span> AI means Artificial Intelligence. The logo embodies a <span class="fw-bold"> supportive embrace </span> that could be between close relations like that of a mother and child, father and child or partners. Digital technologies are the future now and ethical AI gives us the ability to learn, reason and problem solve the pertinent challenges in the world. Hence, AI-Sarosh!</p>
                 </div>
             </div>
             @if(!is_null($obj->getAboutUsBanner()))
@@ -128,7 +128,7 @@
 @section('custom-js')
 <script>
     $(document).ready(function () {
-        $('#who-are-we').find('p').addClass('ff-main fw-normal text-align-justify blue-clr');
+        $('#who-are-we').find('p').addClass('ff-main fw-normal text-align-justify blue-clr sarosh-desc');
     });
 </script>
 @endsection

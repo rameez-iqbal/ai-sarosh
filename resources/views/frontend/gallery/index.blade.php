@@ -1,13 +1,4 @@
 @extends('frontend.layout.master')
-@section('custom-css')
-<style>
-    .gallery_image {
-        width: 400px !important;
-        height: 334px !important;
-        object-fit: cover;
-    }
-</style>
-@endsection
 @section('page-title', 'Gallery')
 @section('content')
     <div class="container">

@@ -12,7 +12,7 @@
             <div class="row my-3 my-md-5">
                 <h1 class="ff-main text-center main-color fw-bold">Articles</h1>
             </div>
-            <div class="row g-5">
+            <div class="row g-3">
 
                 @foreach($obj->getArticles() as $article)
                 <x-horizental-card

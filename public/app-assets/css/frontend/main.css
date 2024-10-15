@@ -164,7 +164,7 @@ body {
    position: relative;
    justify-content: space-around;
    align-items: center;
-   margin: -75px 0px 135px 0px !important;
+   margin: -75px 0px 135px 0px;
 }
 
 .icons-row {
@@ -326,7 +326,7 @@ section#about-donor {
    object-fit: contain;
 }
 .name {
-   font-size: 19px;
+   font-size: 18px;
 }
 .role {
    font-size: 16px;
@@ -579,7 +579,7 @@ a:hover{
    line-height: 27px;
 }
 .fs-md-48 {
-   font-size: 48px;
+   font-size: 36px;
 }
 .set-reports-desc-width {
    width: 65%;
@@ -588,7 +588,7 @@ a:hover{
    font-size: 39px;
 }
 .fs-md-30 {
-   font-size: 30px;
+   font-size: 24px;
 }
 .banner-img {
    height: 520px;
@@ -617,6 +617,17 @@ a:hover{
 .set-margin-top {
    margin-top: -30px;
 }
+.sarosh-desc {
+   line-height: 38px;
+}
+.gallery_image {
+   width: 400px !important;
+   height: 334px !important;
+   object-fit: cover;
+}
+.card-text {
+   font-size: 20px;
+}
 @media (max-width: 1024px) {
    .custom-card {
       min-width: 880px !important;
@@ -628,8 +639,17 @@ a:hover{
       min-width: 680px !important;
       max-width: 680px !important;
   }
+  .gallery_image {
+   width: 100% !important;
+  }
+   
  }
  
+ @media (min-width: 992px) and (max-width: 1200px) {
+   .card-width {
+      width: unset;
+   }
+ }
 
 @media(max-width:768px) {
    .icons-row {
@@ -641,7 +661,7 @@ a:hover{
    }
 
    .main-heading {
-      font-size: 40px;
+      font-size: 28px;
    }
 
    .banner-al-sarosh-content {
@@ -671,8 +691,9 @@ a:hover{
    }
 
    .vision-mission-row {
-      margin-top: -25px !important;
       row-gap: 15px !important;
+      margin: -75px 0px 25px 0px !important;
+
    }
 
    .custom-card {
@@ -708,10 +729,10 @@ a:hover{
 
   
    .project-banner-text {
-      font-size: 20px;
+      font-size: 14px;
    }
    .project-more {
-      font-size: 26px;
+      font-size: 18px;
    }
    .projects-heading {
       font-size: 36px;
@@ -724,10 +745,11 @@ a:hover{
    .projects-list {
       display: flex;
      row-gap: 200px;
-     padding: 33px 0px 25px 0px;
+     padding: 0px 0px 25px 0px;
    }
    .proj-desc,.ceo-name {
       max-width: 333px;
+      font-size: 18px;
    }
    .leadership-card {
       width: 100% !important;
@@ -746,6 +768,9 @@ a:hover{
    .detail-heading, .detail-desc {
       font-size: 16px;
    }
+   .detail-heading {
+      line-height: 30px;
+   }
    .pr-0 {
       padding-right: 0px !important;
    }
@@ -756,13 +781,13 @@ a:hover{
       font-size: 14px;
    }
    .main-btn {
-      font-size: 13px;
+      font-size: 14px;
    }
    .heading-font-size {
-      font-size: 24px;
+      font-size: 18px;
    }
    .para-font-size {
-      font-size: 18px;
+      font-size: 14px;
    }
    .align-contact-us-section {
       text-align: start;
@@ -791,20 +816,21 @@ a:hover{
       width: 100% !important;
    }
    .fs-32 {
-      font-size: 32px;
+      font-size: 20px;
    }
    .set-reports-desc-width {
       width: 100%;
+      font-size: 18px;
    }
    .fs-24{
-      font-size: 24px;
+      font-size: 18px;
    }
    .banner-img {
       height: 250px;
      
    }
    .international-public-images {
-      height: 220px;
+      height: 135px;
    }
    .article-img {
       width: 100%;
@@ -821,4 +847,32 @@ a:hover{
    #partners-row img {
       width: 50%;
    }
+   .ai-sarosh-stands-for {
+      font-size: 18px;
+   }
+   .set-sm-fs {
+      font-size: 18px;
+   }
+   .main-list {
+      gap: 20px;
+   }
+   .detail-description p{
+      line-height: 30px;
+   }
+   .name {
+      font-size: 18px;
+  }
+  .card-title {
+   font-size: 14px;
+  }
+  .card-text {
+   font-size: 14px !important;
+  }
+  .gallery_image {
+      width: 100% !important;
+      height: 250px !important;
+  }
+  .set-fs-25 {
+   font-size: 18px;
+  }
 }

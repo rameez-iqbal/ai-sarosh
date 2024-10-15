@@ -4,13 +4,13 @@
     <div class="container py-5">
         <div class="row">
             <div class="col-md-12 text-center" data-aos="zoom-in-up">
-                <p class="mb-0 project-more ff-main fw-normal text-white">Click on any project to learn more</p>
+                <p class="mb-0 project-more ff-main fw-normal text-white set-sm-fs">Click on any project to learn more</p>
             </div>
         </div>
         @if (array_key_exists('Bangladesh',$obj->getProjectsByCountry()) &&  count($obj->getProjectsByCountry()['Bangladesh']) > 0)
             <div class="row our-projects">
                 <div class="col-md-12 text-center ">
-                    <h1 class="fw-bold ff-main  my-3 my-md-5 text-white" data-aos="zoom-in-up">Our projects in Bangladesh
+                    <h1 class="fw-bold ff-main  my-3 my-md-5 text-white set-sm-fs" data-aos="zoom-in-up">Our projects in Bangladesh
                     </h1>
                 </div>
             </div>
@@ -40,7 +40,7 @@
         @if (array_key_exists('Pakistan',$obj->getProjectsByCountry()) &&  count($obj->getProjectsByCountry()['Pakistan']) > 0)
             <div class="row pak-projects" data-aos="zoom-in-up">
                 <div class="col-md-12 text-center">
-                    <h1 class="fw-bold ff-main  my-3 my-md-5 text-white">Our projects in Pakistan</h1>
+                    <h1 class="fw-bold ff-main  my-3 my-md-5 text-white set-sm-fs">Our projects in Pakistan</h1>
                 </div>
             </div>
             <div class="row projects-list">
@@ -70,7 +70,7 @@
         @if (array_key_exists('Sri Lanka',$obj->getProjectsByCountry()) && count($obj->getProjectsByCountry()['Sri Lanka']) > 0)
             <div class="row srilanka-projects">
                 <div class="col-md-12 text-center" data-aos="zoom-in-up">
-                    <h1 class="fw-bold ff-main my-3 my-md-5  text-white">Our projects in Sri Lanka</h1>
+                    <h1 class="fw-bold ff-main my-3 my-md-5  text-white set-sm-fs">Our projects in Sri Lanka</h1>
                 </div>
             </div>
             <div class="row projects-list">
@@ -99,7 +99,7 @@
         @if (array_key_exists('Nepal',$obj->getProjectsByCountry()) && count($obj->getProjectsByCountry()['Nepal']) > 0)
             <div class="row nepal-projects">
                 <div class="col-md-12 text-center" data-aos="zoom-in-up">
-                    <h1 class="fw-bold ff-main my-3 my-md-5  text-white">Our projects in Nepal</h1>
+                    <h1 class="fw-bold ff-main my-3 my-md-5  text-white set-sm-fs">Our projects in Nepal</h1>
                 </div>
             </div>
             <div class="row projects-list">

@@ -14,7 +14,7 @@
         {{ view('frontend.components.social-links') }}
         <x-breadcrumb :backLink="$backLink" homeText="Home" :breadcrumbItems="$breadcrumbItems" />
         <div class="row conference" data-aos="zoom-in-up">
-            <h1 class="ff-main main-color my-5 text-center fw-bold">{{ $conference->heading }}</h1>
+            <h1 class="ff-main main-color my-2 my-md-5 text-center fw-bold set-sm-fs">{{ $conference->heading }}</h1>
             <p class="main-color fw-normal text-align-justify"><span class="fw-bold">{!! $conference->description !!}</p>
             <a href="{{ $conference->post_url }}" class="main-color fw-semi-bold mb-2" target="_blank">View Linkedin Post</a>
         </div>
