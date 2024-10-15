@@ -3,7 +3,7 @@
 @section('custom-css')
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets') }}/css/plugins/magnific/magnific.css">
     <style>
-        @media (max-width: 768px) {
+        @media (max-width: 425px) {
             .donner-image img {
                 width: 100%;
             }
