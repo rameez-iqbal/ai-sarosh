@@ -649,6 +649,8 @@ a:hover{
   }
   .about-al-sarosh-artificial {
    font-size: 20px;
+   line-height: 30px;
+
   }
   .gallery_image {
    width: 100% !important;
@@ -678,6 +680,7 @@ a:hover{
 
    .banner-al-sarosh-content {
       font-size: 18px;
+      line-height: 30px;
    }
 
    /* .about-banner-al-sarosh {
@@ -704,8 +707,7 @@ a:hover{
 
    .vision-mission-row {
       row-gap: 15px !important;
-      margin: -25px 0px 25px 0px !important;
-
+      margin: -40px 0px 25px 0px !important;
    }
 
    .custom-card {
@@ -740,6 +742,7 @@ a:hover{
   
    .project-banner-text {
       font-size: 14px;
+      line-height: 30px;
    }
    .project-more {
       font-size: 18px;
@@ -856,6 +859,7 @@ a:hover{
    }
    #partners-row img {
       width: 50%;
+      height: 115px;
    }
    .ai-sarosh-stands-for {
       font-size: 18px;
@@ -887,5 +891,7 @@ a:hover{
   }
   .sarosh-desc {
       font-size: 14px;
+      line-height: 30px;
    }
+   
 }

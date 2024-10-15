@@ -4,10 +4,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <p class="heading text-center mb-0">Implementing Partners</p>
+                <p class="heading text-center mb-0 my-2 my-md-0">Implementing Partners</p>
             </div>
         </div>
-        <div class="row my-5 justify-content-between" id="partners-row">
+        <div class="row my-2 my-md-5 justify-content-between" id="partners-row">
             @forelse ($obj->ourClients() as $key=>$ourClient)
                 <div class="col-md-5 {{ $key==1 ? 'set-partner-margin-top' : '' }}" data-aos="zoom-in-up">
                     <div class="partner-image text-center"><img src="{{asset('storage/ourclients/' . $ourClient->image) }}" alt=""></div>
