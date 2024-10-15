@@ -4,15 +4,15 @@
 <style>
     #left-icon {
         position: absolute;
-        right: 0px;
-        height: 23px;
-        top: 7%;
+        right: -30px;
+        height: 22px;
+        top: 6%;
     }
     #right-icon {
         position: absolute;
-        top: 37%;
-        left: -20px;
-        height: 23px;
+        top: 35%;
+        left: -50px;
+        height: 22px;
     }@media (max-width: 768px) {
         /* .ai-sarosh-stands-for {
             text-align: left !important;
@@ -56,8 +56,8 @@
 
 
     <section id="bg-about" style="background:#BBBFFF" class="py-5" data-aos="zoom-in-up">
-        <img id="left-icon" src="{{asset('app-assets/images/frontend/left.png')}}" alt="">
-        <img id="right-icon" src="{{asset('app-assets/images/frontend/right.png')}}" alt="">
+        {{-- <img id="left-icon" src="{{asset('app-assets/images/frontend/left.png')}}" alt="">
+        <img id="right-icon" src="{{asset('app-assets/images/frontend/right.png')}}" alt=""> --}}
 
 
         <div class="container">

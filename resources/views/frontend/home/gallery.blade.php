@@ -1,6 +1,6 @@
 @inject('obj','App\Http\Controllers\FrontEnd\FrontEndController')
 <div>
-<section class="my-5">
+<section class="my-2 my-md-5">
     <div class="container">
         <div class="row text-center text-lg-start g-2">
             @if(!is_null($obj->getRandomGalleryImages()))

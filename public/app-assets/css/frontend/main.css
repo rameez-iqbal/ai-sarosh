@@ -121,7 +121,7 @@ body {
 }
 
 .banner-al-sarosh-content {
-   font-size: 39px;
+   font-size: 32px;
    color: var(--heading-color);
 
 }
@@ -131,7 +131,7 @@ body {
 }
 
 .about-al-sarosh-artificial {
-   font-size: 25px;
+   font-size: 22px;
    line-height: 38px;
    color: var(--heading-color);
    text-align: justify;
@@ -147,8 +147,8 @@ body {
    background-color: var(--white);
    border-radius: 25px;
    padding: 32px 25px !important;
-   min-width: 488px !important;
-   max-width: 488px !important;
+   /* min-width: 488px !important;
+   max-width: 488px !important; */
 }
 
 .card-content {
@@ -209,7 +209,7 @@ section#about-donor {
 }
 
 .heading {
-   font-size: 48px;
+   font-size: 32px;
    font-weight: var(--font-weight-normal);
    font-family: var(--font-family-main);
    color: var(--heading-color);
@@ -614,11 +614,12 @@ a:hover{
 .dropdown-menu[data-bs-popper] {
    top: 153% !important;
 }
-.set-margin-top {
+.set-partner-margin-top {
    margin-top: -30px;
 }
 .sarosh-desc {
    line-height: 38px;
+   font-size: 18px;
 }
 .gallery_image {
    width: 400px !important;
@@ -630,19 +631,35 @@ a:hover{
 }
 @media (max-width: 1024px) {
    .custom-card {
-      min-width: 880px !important;
-      max-width: 880px !important;
+      /* min-width: 880px !important;
+      max-width: 880px !important; */
    }
 }
 @media (min-width: 768px) and (max-width: 992px) {
    .custom-card {
-      min-width: 680px !important;
-      max-width: 680px !important;
+      /* min-width: 680px !important;
+      max-width: 680px !important; */
+      margin-bottom: 10px;
+  }
+  .main-heading {
+   font-size: 45px;
+  }
+  .banner-al-sarosh-content {
+   font-size: 24px;
+  }
+  .about-al-sarosh-artificial {
+   font-size: 20px;
   }
   .gallery_image {
    width: 100% !important;
   }
    
+ }
+ @media (min-width: 1025px) and (max-width: 1199px) {
+   .custom-card {
+      /* min-width: 388px !important;
+      max-width: 388px !important; */
+   }
  }
  
  @media (min-width: 992px) and (max-width: 1200px) {
@@ -678,11 +695,11 @@ a:hover{
    }
 
    .header-heading {
-      font-size: 18px;
+      font-size: 16px;
    }
 
    .objective-content {
-      font-size: 16px;
+      font-size: 14px;
    }
 
    .objective-image {
@@ -692,14 +709,14 @@ a:hover{
 
    .vision-mission-row {
       row-gap: 15px !important;
-      margin: -75px 0px 25px 0px !important;
+      margin: -25px 0px 25px 0px !important;
 
    }
 
    .custom-card {
       padding: 20px !important;
-      min-width: 100% !important;
-      max-width: 100% !important;
+      /* min-width: 100% !important;
+      max-width: 100% !important; */
    }
 
    #image-section {
@@ -711,7 +728,7 @@ a:hover{
    }
 
    .mission-vision-text {
-      font-size: 16px;
+      font-size: 14px;
       line-height: 30px;
    }
 
@@ -835,7 +852,7 @@ a:hover{
    .article-img {
       width: 100%;
    }
-   .set-margin-top {
+   .set-partner-margin-top {
       margin-top: 0px;
    }
    .care-icons img {
@@ -875,4 +892,7 @@ a:hover{
   .set-fs-25 {
    font-size: 18px;
   }
+  .sarosh-desc {
+      font-size: 14px;
+   }
 }

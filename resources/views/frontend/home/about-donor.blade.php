@@ -1,6 +1,6 @@
 @inject('obj','App\Http\Controllers\FrontEnd\FrontEndController')
 @if(!is_null($obj->donor()))
-<section class="my-5" id="about-donor">
+<section class="my-2 my-md-5" id="about-donor">
     <div class="container" data-aos="zoom-in-up">
         <div class="row">
             <div class="col-md-12">

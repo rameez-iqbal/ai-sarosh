@@ -33,7 +33,7 @@
                 </div>
                 <div class="row vision-mission-row">
                     @forelse ($obj->getVisionMission() as $vision_mission)
-                        <div class="custom-card"  data-aos="zoom-in-up">
+                        <div class="col-md-5 custom-card"  data-aos="zoom-in-up">
                             <div class="d-flex flex-column card-content">
                                 <h1 class="heading mb-0 text-center fw-normal">{{$vision_mission->heading}}</h1>
                                 <p class="mission-vision-text mb-0 fw-normal blue-clr">{{$vision_mission->description}}</p>
