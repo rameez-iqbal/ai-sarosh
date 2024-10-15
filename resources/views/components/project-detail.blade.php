@@ -114,7 +114,7 @@
             </div>
             <div class="col-md-5 mx-md-4" data-aos="fade-left">
                 <div class="d-flex flex-column align-items-end">
-                    <img src="{{$profileImage}}" alt="" class="profile_img mt-md-5">
+                    <img src="{{$profileImage}}" alt="" class="profile_img mt-md-5 w-100">
                 </div>
                 <div class="row mx-md-4">
                     <div class="col-md-12 my-2 my-md-3  p-0  text-center">

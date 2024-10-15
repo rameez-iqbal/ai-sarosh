@@ -116,7 +116,7 @@ body {
 }
 
 .main-heading {
-   font-size: 110px;
+   font-size: 100px;
    color: var(--heading-color);
 }
 
@@ -256,7 +256,7 @@ section#about-donor {
 }
 
 .project-banner-text {
-   font-size: 31px;
+   font-size: 24px;
    text-align: justify;
 }
 
@@ -596,7 +596,7 @@ a:hover{
     object-fit: cover;
 }
 .international-public-images {
-   height: 440px;
+   /* height: 440px; */
    object-fit: cover;
    width: 100%;
 }
@@ -659,9 +659,9 @@ a:hover{
  }
 
  
- @media (min-width: 992px) and (max-width: 1200px) {
-   .card-width {
-      width: unset;
+ @media (min-width: 992px) and (max-width: 1024px) {
+   .right-bar {
+      width: 38%;
    }
  }
 
@@ -812,7 +812,7 @@ a:hover{
       width: 100%;
    }
    .col-md-5 .video-img {
-      background-position: center;
+      background-position: right;
    }
    .timeline-section {
       margin-top: 0px;
@@ -844,6 +844,7 @@ a:hover{
    }
    .international-public-images {
       height: 135px;
+      object-fit: cover;
    }
    .article-img {
       width: 100%;

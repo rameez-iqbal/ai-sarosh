@@ -4,35 +4,15 @@
 <style>
     #left-icon {
         position: absolute;
-        right: -30px;
+        right: -51px;
         height: 22px;
-        top: 6%;
+        top: 4%;
     }
     #right-icon {
         position: absolute;
-        top: 35%;
-        left: -50px;
+        top: 34%;
+        left: -60px;
         height: 22px;
-    }@media (max-width: 768px) {
-        /* .ai-sarosh-stands-for {
-            text-align: left !important;
-        }
-        #left-icon {
-            right: -35px;
-            height: 21px;
-            top: 4%;
-        }
-        #right-icon {
-            top: 23%;
-            left: -25px;
-            height: 20px;
-        }
-        #who-are-we h3 {
-            text-align: center !important;
-        } */
-        #left-icon,#right-icon {
-            display: none;
-        }
     }
 </style>
 @endsection
@@ -56,8 +36,8 @@
 
 
     <section id="bg-about" style="background:#BBBFFF" class="py-5" data-aos="zoom-in-up">
-        {{-- <img id="left-icon" src="{{asset('app-assets/images/frontend/left.png')}}" alt="">
-        <img id="right-icon" src="{{asset('app-assets/images/frontend/right.png')}}" alt=""> --}}
+        <img id="left-icon" class="d-none d-lg-block" src="{{asset('app-assets/images/frontend/left.png')}}" alt="">
+        <img id="right-icon" class="d-none d-lg-block" src="{{asset('app-assets/images/frontend/right.png')}}" alt="">
 
 
         <div class="container">

@@ -16,7 +16,7 @@
 </div>
 <div class="row m-0">
     <!-- Form Section -->
-    <div class="col-md-6 bg-light p-5" data-aos="fade-right">
+    <div class="col-md-12 col-lg-6 bg-light p-5" data-aos="fade-right">
         <form class="px-md-5">
             <div class="col-md-3 mb-3">
                 <label for="firstName" class="form-label fw-semi-bold text-clr mb-0">First name*</label>

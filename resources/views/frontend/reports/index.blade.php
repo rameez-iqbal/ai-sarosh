@@ -40,3 +40,10 @@
     </div>
 </section>
 @endsection
+@section('custom-js')
+<script>
+    $(document).ready(function () {
+        $('.card-text').addClass('text-align-justify');
+    });
+</script>
+@endsection

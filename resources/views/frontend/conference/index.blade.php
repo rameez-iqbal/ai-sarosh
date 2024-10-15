@@ -5,8 +5,21 @@
     <style>
         .gallery-banner-img {
             height: 529px;
+            /* height: 529px; */
             object-fit: cover;
         }
+    @media(max-width:768px) {
+        .gallery-banner-img {
+            height: 300px;
+            object-fit: cover;
+        }
+    }
+    @media (max-width: 500px) {
+        .gallery-banner-img {
+            height: 200px;
+            object-fit: cover;
+        }
+    }
     </style>
 @endsection
 @section('content')

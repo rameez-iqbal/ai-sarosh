@@ -6,7 +6,7 @@
             <p class="project-banner-text fw-normal  main-color">{{$obj->getProjectBanner()->description}}</p>
         </div>
         <div class="col-md-6 text-end">
-            <img src="{{asset('storage/home/'.$obj->getProjectBanner()->image)}}"  class="map-image" alt="">
+            <img src="{{asset('storage/home/'.$obj->getProjectBanner()->image)}}"  class="map-image w-100" alt="">
         </div>
     </div>
 @endif

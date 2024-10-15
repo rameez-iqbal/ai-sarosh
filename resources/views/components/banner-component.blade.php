@@ -6,7 +6,7 @@
             <p class="project-banner-text fw-normal  main-color">{{$description}}</p>
         </div>
         <div class="col-md-5 offset-md-1">
-            <img src="{{$image}}"  class="map-image" alt="">
+            <img src="{{$image}}"  class="map-image w-100" alt="">
         </div>
     </div>
 </div>
