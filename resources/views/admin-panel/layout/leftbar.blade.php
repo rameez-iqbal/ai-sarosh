@@ -17,27 +17,27 @@
 				<li class="{{ request()->routeIs('services') || request()->routeIs('services.create')  ? 'active' : '' }}" ><a href="{{route('services')}}"><i class="la la-minus"></i> <span>Services & Thematic Areas</span> </a></li>
 			</ul>
 		</li>
-		<li class="{{ request()->routeIs('library.types') || request()->routeIs('library.create') ? 'active' : '' }}">
+		<li class="{{ request()->routeIs('library.types') || request()->routeIs('webinar')  || request()->routeIs('library.create') ||  request()->routeIs('webinar.create') ||  request()->routeIs('webinar.edit')  ? 'active' : '' }}">
 			<a href="#">
 				<i class="fa fa-book"></i> <span>Library </span> <i class="la la-angle-right down-arrow"></i>
 			</a>
 			<ul class="sidebar-submenu">
-				<li class="{{ request()->routeIs('library.types') || request()->routeIs('article.create') || request()->routeIs('webinar') || request()->routeIs('library.create')  ? 'active' : '' }}" >
+				<li class="{{ request()->routeIs('library.types') ? 'active' : '' }}" >
 					<a href="{{route('library.types')}}"><i class="la la-minus"></i> <span>Library Types</span> </a>
 				</li>
-				<li class="active" >
+				<li class="{{request('type') === 'articles' ? 'active' : ''}}" >
 					<a href="{{route('webinar',['type'=>'articles'])}}"><i class="la la-minus"></i> <span>Articles</span> </a>
 				</li>
-				<li class="{{ request()->routeIs('webinar') || request()->routeIs('webinar')  ? 'active' : '' }}" >
+				<li class="{{request('type') === 'videos' ? 'active' : ''}}" >
 					<a href="{{route('webinar',['type'=>'videos'])}}"><i class="la la-minus"></i> <span>Videos</span> </a>
 				</li>
-				<li class="{{ request()->routeIs('webinar') || request()->routeIs('webinar')  ? 'active' : '' }}" >
+				<li class="{{request('type') === 'gallery' ? 'active' : ''}}" >
 					<a href="{{route('webinar',['type'=>'gallery'])}}"><i class="la la-minus"></i> <span>Gallery</span> </a>
 				</li>
-				<li class="{{ request()->routeIs('webinar') || request()->routeIs('webinar')  ? 'active' : '' }}" >
+				<li class="{{request('type') === 'reports' ? 'active' : ''}}" >
 					<a href="{{route('webinar',['type'=>'reports'])}}"><i class="la la-minus"></i> <span>Reports</span> </a>
 				</li>
-				<li class="{{ request()->routeIs('webinar') || request()->routeIs('webinar')  ? 'active' : '' }}" >
+				<li class="{{request('type') === 'webinars' || request()->routeIs('webinar.create') ? 'active' : ''}}" >
 					<a href="{{route('webinar',['type'=>'webinars'])}}"><i class="la la-minus"></i> <span>Webinars</span> </a>
 				</li>
 			</ul>
@@ -47,12 +47,6 @@
 				<i class="la la-user-plus"></i> <span>Our Clients </span>
 			</a>
 		</li>
-		
-		{{-- <li class="{{ request()->routeIs('project.create') ? 'active' : '' }}">
-			<a href="{{route('project.create')}}">
-				<i class="la la-comment"></i> <span>Our Projects </span>
-			</a>
-		</li> --}}
 		<li class="{{ request()->routeIs('our.teams') || request()->routeIs('our.teams.create') ? 'active' : '' }}">
 			<a href="{{route('our.teams')}}">
 				<i class="fa fa-users"></i> <span>Our Team </span>
@@ -63,7 +57,7 @@
 				<i class="fa fa-clone"></i> <span>Our Projects </span>
 			</a>
 		</li>
-		<li class="{{ request()->routeIs('settings') ? 'active' : '' }}">
+		<li class="{{ request()->routeIs('settings') || request()->routeIs('user.form') ? 'active' : '' }}">
 			<a href="#">
 				<i class="fa fa-cogs"></i> <span>Settings </span> <i class="la la-angle-right down-arrow"></i>
 			</a>
