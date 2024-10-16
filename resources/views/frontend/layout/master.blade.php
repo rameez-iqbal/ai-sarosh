@@ -32,9 +32,7 @@
 
 <body id="scrollbar">
     {{ view('frontend.layout.header') }}
-
     @yield('content')
-
     {{ view('frontend.layout.footer') }}
     <script src="{{ asset('app-assets') }}/js/jquery-3.6.0.min.js"></script>
     <script src="{{ asset('app-assets') }}/js/bootstrap/bootstrap.min.js"></script>

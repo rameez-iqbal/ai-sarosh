@@ -64,7 +64,10 @@
     <script>
         $(document).ready(function() {
             $('.conference').find('p').addClass('ff-main text-clr fw-normal');
-           
         });
+
+    
+
     </script>
+        
 @endsection
