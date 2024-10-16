@@ -17,8 +17,8 @@
             <div class="row projects-list">
                 <div class="col-md-10 offset-md-1 main-list">
                     @foreach ($obj->getProjectsByCountry()['Bangladesh'] as $banglesh_proj)
-                        <div class=" card-column" data-aos="zoom-in-up">
-                            <div class="bg-image d-flex flex-column justify-content-between px-3" onclick="navigateToProject('project-{{$banglesh_proj->id}}')"
+                        <a class=" card-column text-decoration-none"  data-aos="zoom-in-up" href="#project-{{$banglesh_proj->id}}">
+                            <div class="bg-image d-flex flex-column justify-content-between px-3" 
                                 style="background-image: url({{ asset('storage/projects/' . $banglesh_proj->image) }});cursor:pointer">
                                 <div class="align-self-end mt-3">
                                     <img src="{{ asset('storage/projects/' . $banglesh_proj->logo) }}">
@@ -31,7 +31,7 @@
                                     </p>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     @endforeach
                 </div>
             </div>

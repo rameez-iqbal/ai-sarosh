@@ -16,7 +16,7 @@
 </div>
 <div class="row m-0">
     <!-- Form Section -->
-    <div class="col-md-12 col-lg-6 bg-light p-5" data-aos="fade-right">
+    <div class="col-md-12 col-lg-6 bg-light p-5">
         <form class="px-md-5">
             <div class="col-md-3 mb-3">
                 <label for="firstName" class="form-label fw-semi-bold text-clr mb-0">First name*</label>
@@ -34,12 +34,12 @@
                 <label for="message" class="form-label fw-semi-bold text-clr mb-0">Your message</label>
                 <textarea class="form-control p-0 custom-input-field height-md-0 resize-none fw-semi-bold text-clr" id="message" rows="3"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary w-50 rounded-pill submit-btn">Submit</button>
+            <button type="submit" class="btn btn-primary w-50 rounded-pill submit-btn" style="background-color: #FE9C72 !important;">Submit</button>
         </form>
     </div>
 
     <!-- Info Section -->
-    <div class="bg-primary p-5 text-white right-bar" data-aos="fade-left">
+    <div class="bg-primary p-5 text-white right-bar">
         <h2 class="mb-5">Info:</h4>
         <div class="my-3 d-flex flex-column gap-3">
             <div class="d-flex gap-3 align-items-start">

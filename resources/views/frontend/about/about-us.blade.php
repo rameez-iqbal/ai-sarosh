@@ -4,14 +4,14 @@
 <style>
     #left-icon {
         position: absolute;
-        right: -51px;
+        right: 0px;
         height: 22px;
-        top: 4%;
+        top: 5%;
     }
     #right-icon {
         position: absolute;
         top: 34%;
-        left: -60px;
+        left: 0px;
         height: 22px;
     }
 </style>
@@ -42,7 +42,7 @@
 
         <div class="container">
             <div class="row justify-content-end">
-                <div class="col-md-6">
+                <div class="col-md-5">
                     <h3 class="ai-sarosh-stands-for fw-bold ff-main text-end main-color">
                         What does AI-Sarosh stand for?
                     </h3>
@@ -51,7 +51,7 @@
             </div>
             @if(!is_null($obj->getAboutUsBanner()))
                 <div class="row" id="who-are-we">
-                    <h3 class="fw-bold ff-main main-color">Who Are We ?</h3>
+                    <h3 class="fw-bold ff-main main-color mb-3">Who Are We ?</h3>
                     {!!$obj->getAboutUsBanner()?->description !!}
                 </div>
             @endif

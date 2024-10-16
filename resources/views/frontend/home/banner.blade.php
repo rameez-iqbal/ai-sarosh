@@ -13,8 +13,8 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-8 banner-content mx-auto" >
-                <h1 class="main-heading text-center ff-bv-serif" data-aos="zoom-in-up">{{$obj->homeBannerSectionData() ? $obj->homeBannerSectionData()->heading : ''}}</h1>
+            <div class="col-12 col-md-8 banner-content mx-auto" >
+                <h1 class="main-heading text-center ff-bv-serif text-uppercase" data-aos="zoom-in-up">{{$obj->homeBannerSectionData() ? $obj->homeBannerSectionData()->heading : ''}}</h1>
                 <h1 class="banner-al-sarosh-content text-center" data-aos="zoom-in-up">{{$obj->homeBannerSectionData() ? $obj->homeBannerSectionData()->sub_heading : ''}}</h1>
             </div>
         </div>

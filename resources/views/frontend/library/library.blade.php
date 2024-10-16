@@ -16,7 +16,7 @@
 @inject('obj','App\Http\Controllers\FrontEnd\FrontEndController')
 
 <div class="container">
-    <section id="libraries" class="my-3">
+    <section id="libraries" class="my-5">
         <div class="row g-3 g-md-5 justify-content-center">
             @forelse ($obj->getLibraryTypes() as $libraryType)
                 <x-library-list 

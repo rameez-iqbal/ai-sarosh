@@ -4,11 +4,11 @@
     <div class="container" data-aos="zoom-in-up">
         <div class="row">
             <div class="col-md-12">
-                <h3  class="heading text-center pt-4">{{$obj->donor() ? $obj->donor()->heading : ''}}</h3>
+                <h3  class="heading text-center pt-5">{{$obj->donor() ? $obj->donor()->heading : ''}}</h3>
             </div>
         </div>
         @if(!is_null($obj->donor()))
-            <div class="row about-donner-content pb-3">
+            <div class="row about-donner-content pb-5">
                 <div class="col-md-12">
                     <div class="donner-image text-center">
                         <img src="{{ asset('storage/home/'.$obj->donor()->image) }}" alt="" class="w-sm-100">

@@ -85,6 +85,9 @@ body {
 
 .about-al-sarosh {
    font-weight: var(--font-weight-normal);
+   line-height: 30px;
+   font-family: var(--font-family-main);
+   font-size: 16px;
 }
 
 .links {
@@ -119,7 +122,7 @@ body {
 }
 
 .main-heading {
-   font-size: 100px;
+   font-size: 90px;
    color: var(--heading-color);
 }
 
@@ -149,7 +152,8 @@ body {
 .custom-card {
    background-color: var(--white);
    border-radius: 25px;
-   padding: 32px 25px !important;
+   box-shadow: -10px 13px 38.5px 0px rgba(0, 0, 0, 0.25);
+   padding: 45px;    
    /* min-width: 488px !important;
    max-width: 488px !important; */
 }
@@ -543,7 +547,7 @@ a:hover {
 }
 
 .bg-primary {
-   background-color: #243E73 !important;
+   background-color: #313467 !important;
    /* Custom primary color */
 }
 
@@ -707,10 +711,34 @@ a:hover {
 }
 
 .card-text {
-   font-size: 20px;
+   font-size: 20px !important;
+   font-family: var(--font-family-main) !important;
+   font-weight: 500 !important;
+}
+#who-are-we {
+   margin-top: -60px;
+}
+.para-font-size {
+   font-size: 18px;
+   font-family: var(--font-family-main) !important;
+}
+.nav-item.dropdown:hover .dropdown-menu {
+   display: block;
+   margin-top: 0;
+   visibility: visible; /* Make sure it's visible */
+   opacity: 1; /* Ensure it's fully opaque */
 }
 
+/* Keep the dropdown open when hovering over the submenu */
+.nav-item .dropdown-menu:hover {
+   display: block;
+}
+.pt-80 {
+   padding-top: 80px;
+   padding-bottom: 80px;
+}
 @media (min-width: 768px) and (max-width: 992px) {
+   
    .custom-card {
       margin-bottom: 10px;
    }
@@ -946,6 +974,7 @@ body {
 
    .para-font-size {
       font-size: 14px;
+      font-family: var(--font-family-main) !important;
    }
 
    .align-contact-us-section {
@@ -1042,7 +1071,7 @@ body {
    }
 
    .name {
-      font-size: 18px;
+      font-size: 16px;
    }
 
    .card-title {
@@ -1051,6 +1080,9 @@ body {
 
    .card-text {
       font-size: 14px !important;
+   font-family: var(--font-family-main) !important;
+   font-weight: 500 !important;
+
    }
 
    .gallery_image {
@@ -1089,7 +1121,16 @@ body {
     width: 100%;
     z-index: 99;
   }
-
+  #who-are-we {
+   margin-top: 0;
+}
+.proj-title {
+   font-size: 24px !important;
+}
+.pt-80 {
+   padding-top: 40px;
+   padding-bottom: 40px;
+}
 }
 @media(max-width:500px) {
    #header {
@@ -1102,4 +1143,6 @@ body {
       justify-content: center !important;
 
    }
+   
+   
 }

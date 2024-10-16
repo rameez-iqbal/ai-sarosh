@@ -22,7 +22,7 @@
         @endforelse
 
         @if (!empty($leaders))
-            <x-team :title="$team->category->role" :bgColor="$team->category->bgColor" columns="col-md-5" width="75" :leaders="$leaders" />
+            <x-team :title="$team->category->role" :bgColor="$team->category->bgColor" columns="col-md-6 col-lg-5" width="75" :leaders="$leaders" />
         @endif
 
         @php
@@ -41,7 +41,7 @@
         @endforelse
 
         @if (!empty($technical_team))
-            <x-team :title="$team->category->role" :bgColor="$team->category->bgColor" columns="col-md-4 col-lg-3" :leaders="$technical_team" />
+            <x-team :title="$team->category->role" :bgColor="$team->category->bgColor" columns="col-md-6 col-lg-3" :leaders="$technical_team" />
         @endif
 
         @php
@@ -60,7 +60,7 @@
         @endforelse
 
         @if (!empty($implementation_team))
-            <x-team :title="$team->category->role" :bgColor="$team->category->bgColor" columns="col-md-4 col-lg-3" :leaders="$implementation_team" />
+            <x-team :title="$team->category->role" :bgColor="$team->category->bgColor" columns="col-md-6 col-lg-3" :leaders="$implementation_team" />
         @endif
 
         @php
@@ -79,7 +79,7 @@
         @endforelse
 
         @if (!empty($implementation_team))
-            <x-team :title="$team->category->role" :bgColor="$team->category->bgColor" columns="col-md-4 col-lg-3" :leaders="$implementation_team" />
+            <x-team :title="$team->category->role" :bgColor="$team->category->bgColor" columns="col-md-6 col-lg-3" :leaders="$implementation_team" />
         @endif
 
       

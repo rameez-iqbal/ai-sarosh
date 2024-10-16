@@ -1,31 +1,41 @@
 <footer id="footer" data-aos="fade-up">
         <div class="container">
             <div class="row justify-content-between">
-                <div class="col-md-4">
+                <div class="col-md-4 col-lg-3">
                     <img src="{{ asset('app-assets') }}/images/frontend/logo.svg" class="logo" alt="">
-                    <span class="al-sarosh-heading">Al-Sarosh</span>
+                    <span class="al-sarosh-heading">AI-Sarosh</span>
                     <p class="text-white about-al-sarosh">AI-Sarosh is a knowledge hub for responsible use of Artificial Intelligence for Sexual, Reproductive and Maternal Health in South Asia.</p>
                 </div>
                 <div class="col-md-2">
                     <h6 class="text-white fw-bolder">Links</h6>
                     <ul class="links d-flex flex-column">
-                        <li class="text-white"><a href="{{route('homepage')}}">Al-Sarosh</a>
+                        <li class="text-white d-flex align-items-center justify-content-between"><a  href="{{route('homepage')}}">AI-Sarosh</a>
                             <img src="{{ asset('app-assets') }}/images/frontend/arrow_right.svg" class="" width="9" height="9" alt="" >
+                            
                         </li>
-                        <li class="text-white"><a href="{{route('project')}}">Our Work</a>
+                        <li class="text-white d-flex align-items-center justify-content-between"><a  href="{{route('project')}}">Our Work</a>
                             <img src="{{ asset('app-assets') }}/images/frontend/arrow_right.svg" class="" width="9" height="9" alt="" >
+                            
+
                         </li>
-                        <li class="text-white"><a href="{{route('aboutUs')}}">About Us</a>
+                        <li class="text-white d-flex align-items-center justify-content-between"><a  href="{{route('aboutUs')}}">About Us</a>
                             <img src="{{ asset('app-assets') }}/images/frontend/arrow_right.svg" class="" width="9" height="9" alt="" >
+                            
+
                         </li>
-                        <li class="text-white"><a href="{{route('team')}}">Our Team</a>
+                        <li class="text-white d-flex align-items-center justify-content-between"><a  href="{{route('team')}}">Our Team</a>
                             <img src="{{ asset('app-assets') }}/images/frontend/arrow_right.svg" class="" width="9" height="9" alt="" >
+                            
+
                         </li>
-                        <li class="text-white"><a href="{{route('contact-us')}}">Contact Us</a>
+                        <li class="text-white d-flex align-items-center justify-content-between"><a  href="{{route('contact-us')}}">Contact Us</a>
                             <img src="{{ asset('app-assets') }}/images/frontend/arrow_right.svg" class="" width="9" height="9" alt="" >
+                            
+
                         </li>
-                        <li class="text-white"><a href="{{route('library')}}">Library</a>
+                        <li class="text-white d-flex align-items-center justify-content-between"><a  href="{{route('library')}}">Library</a>
                             <img src="{{ asset('app-assets') }}/images/frontend/arrow_right.svg" class="" width="9" height="9" alt="" >
+                            
                         </li>
                     </ul>
                 </div>

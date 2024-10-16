@@ -1,6 +1,6 @@
 @inject('obj','App\Http\Controllers\FrontEnd\FrontEndController')
 @if(count($obj->ourClients())>0)
-<section id="partners">
+<section id="partners" class="py-4">
     <div class="container">
         <div class="row">
             <div class="col-md-12">

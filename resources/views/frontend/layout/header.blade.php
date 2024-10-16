@@ -19,9 +19,10 @@
                     <li class="nav-item"><a class="nav-link text-white" href="{{route('project')}}">Our Work</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="{{route('team')}}">Our Team</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Library</a>
+                        <a class="nav-link dropdown-toggle text-white d-none d-lg-block" href="{{route('library')}}" id="navbarDropdownMenuLink" role="button" aria-expanded="false">Library</a>
+                        <a class="nav-link dropdown-toggle text-white d-block d-lg-none" href="#" id="navbarDropdownMenuLink" role="button" aria-expanded="false">Library</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="{{route('library')}}">Library</a></li>
+                            <li><a class="dropdown-item d-block d-lg-none" href="{{route('library')}}">Library</a></li>
                             <li><a class="dropdown-item" href="{{route('webinars')}}">Webinars</a></li>
                             <li><a class="dropdown-item" href="{{route('reports')}}">Reports</a></li>
                             <li><a class="dropdown-item" href="{{route('gallery')}}">Gallery</a></li>
@@ -29,6 +30,7 @@
                             <li><a class="dropdown-item" href="{{route('articles')}}">Articles</a></li>
                         </ul>
                     </li>
+                    
                     <li class="nav-item"><a class="nav-link text-white" href="{{route('contact-us')}}">Contact Us</a></li>
                 </ul>
             </div>
