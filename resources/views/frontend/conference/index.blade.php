@@ -32,7 +32,7 @@
             <a href="{{ $conference->post_url }}" class="main-color fw-semi-bold mb-2" target="_blank">View Linkedin Post</a>
         </div>
         @if (!empty($conference->banner_images) && count(json_decode($conference->banner_images)) > 0)
-            <div class="row conference_banner_images gap-1 gap-md-2 " >
+            <div class="row conference_banner_images gap-1 gap-md-2 mb-2" >
                 @forelse (json_decode($conference->banner_images) as $banner_img)
                     <div class="col-md-12 img-div" data-aos="zoom-in-up" data-img="{{ asset('storage/gallery/' . $banner_img) }}">
                         <a href="javascript:void(0)" class="d-block h-100">

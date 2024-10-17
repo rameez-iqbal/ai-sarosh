@@ -22,14 +22,14 @@
                 <div class="row personal-info">
                     @if($piName!='' || !empty($piName))
                         <div class="col-md-6 personal-info-col">
-                            <span class="mb-0 fw-bolder ff-main main-color">PI'Name :</span>
-                            <span class="mb-0 fw-bold ff-main main-color">{{$piName}}</span>
+                            <span class="mb-0 fw-bolder ff-main main-color fs-22">PI'Name :</span>
+                            <span class="mb-0 fw-bold ff-main main-color fs-22">{{$piName}}</span>
                         </div>
                     @endif
                     @if($coPiName!='' || !empty($coPiName))
                         <div class="col-md-6 personal-info-col">
-                            <span class="mb-0 fw-bolder ff-main main-color">Co-PI Name :</span>
-                            <span class="mb-0 fw-bold ff-main main-color">{{$coPiName}}</span>
+                            <span class="mb-0 fw-bolder ff-main main-color fs-22">Co-PI Name :</span>
+                            <span class="mb-0 fw-bold ff-main main-color fs-22">{{$coPiName}}</span>
                         </div>
                     @endif
                 </div>
