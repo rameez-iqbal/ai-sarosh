@@ -2,7 +2,7 @@
 <div>
 <section class="my-2 my-md-5">
     <div class="container">
-        <div class="row text-center text-lg-start g-2">
+        <div class="row text-center text-lg-start g-2 p-x-2">
             @if(!is_null($obj->getRandomGalleryImages()))
                 @forelse($obj->getRandomGalleryImages() as $gallery_img)
                     <div class="col-lg-3 col-md-4 col-6 img-div" data-img="{{ asset('storage/gallery/'.$gallery_img)}}"  data-aos="zoom-in-up">

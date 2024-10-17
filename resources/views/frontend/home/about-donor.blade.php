@@ -8,8 +8,8 @@
             </div>
         </div>
         @if(!is_null($obj->donor()))
-            <div class="row about-donner-content pb-5">
-                <div class="col-md-12">
+            <div class="row about-donner-content pb-5 p-x-2">
+                <div class="col-md-11">
                     <div class="donner-image text-center">
                         <img src="{{ asset('storage/home/'.$obj->donor()->image) }}" alt="" class="w-sm-100">
                     </div>
