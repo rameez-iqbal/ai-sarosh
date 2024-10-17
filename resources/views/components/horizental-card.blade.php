@@ -6,9 +6,9 @@
             </div>
             <div class="{{$textCol}}">
                 <div class="card-body @if($type=="report") p-md-t @endif">
-                    <h2 class="card-title ff-main mb-md-3"><a href="{{$href}}"  target="_blank" class="fs-md-30 fs-24 @if($type=="report") main-color text-decoration-none @else blk-clr @endif">{{$title}}</a></h2>
+                    <h2 class="card-title ff-main mb-md-3 fw-bold"><a href="{{$href}}"  target="_blank" class="fs-md-30 fs-24 @if($type=="report") main-color text-decoration-none @else blk-clr @endif">{{$title}}</a></h2>
                     <h3 class="card-text fw-normal @if($type=="report") py-2 main-color mb-0 @endif">{{$owner}}</p>
-                    <h4 class="card-text main-color fw-lightr line-height-27 @if($type=="report") para-font-size main-color @endif">{{$date}}</h5>
+                    <h4 class="card-text main-color fw-lightr line-height-27 @if($type=="report") para-font-size main-color @endif" style="font-family: Lora !important;">{{$date}}</h5>
                     @if($type=="report")
                         <div class="row py-md-4">
                             <a href="{{$href}}" class="main-btn" target="_blank">Download Report</a>

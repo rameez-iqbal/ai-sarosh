@@ -55,6 +55,15 @@ if (!function_exists('editDate')) {
     }
 }
 
+if (!function_exists('editDateYear')) {
+
+    function editDateYear($date)
+    {
+        $date = new Carbon($date);
+        return $date->format('d M, Y');
+    }
+}
+
 if (! function_exists('generateSlug')) {
     function generateSlug(object $model, $title, $column = 'name')
     {

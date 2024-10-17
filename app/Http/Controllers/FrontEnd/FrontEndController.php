@@ -264,7 +264,7 @@ class FrontEndController extends Controller
 
     public function getReports()
     {
-        return Report::latest()->get(['id', 'title', 'organization', 'description', 'report_file', 'image', 'library_type_id']);
+        return Report::orderBy('created_at','desc')->get(['id', 'title', 'organization', 'description', 'report_file', 'image', 'library_type_id']);
     }
 
     public function videos()

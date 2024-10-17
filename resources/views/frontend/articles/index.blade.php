@@ -20,9 +20,9 @@
                     :href="$article['redirect_url']"
                     :title="$article['title']"
                     :owner="$article['sub_title']"
-                    :date="$article['article_date']"
+                    :date="editDateYear($article['article_date'])"
                     imageCol="col-md-3"
-                    textCol="col-md-9"
+                    textCol="col-md-6"
                     type="article"
                     />
                 @endforeach
