@@ -1,4 +1,4 @@
-<section id="project-{{$id}}" class="p-3 p-md-5 " style="background-color: {{$bgColor}};border-bottom:1px solid #000">
+<section id="project-{{$userName}}" class="p-3 p-md-5 " style="background-color: {{$bgColor}};border-bottom:1px solid #000">
     <div class="container">
         <div class="row details">
             <div class="col-md-12 details-logo" data-aos="fade-right">
@@ -8,12 +8,12 @@
                 <div class="row">
                     <div class="col-md-10 desc-row">
                         @if($type == 'text')
-                        <p class="main-color ff-main detail-desc fw-bold proj-title">{{$title}}</p>
+                            <p class="main-color ff-main detail-desc fw-bold proj-title">{{$title}}</p>
                         @elseif($type=='bullets')
                         <?php $titles = json_decode($title,true);?>
                             <ul>
-                                @foreach( $titles as $title )
-                                    <li class="main-color ff-main detail-desc fw-bold ">{{$title}}</li>
+                                @foreach( $titles as $key=>$title )
+                                    <li class="main-color ff-main detail-desc fw-bold ">Project: {{$key+1}} : {{$title}}</li>
                                 @endforeach
                             </ul>
                         @endif 

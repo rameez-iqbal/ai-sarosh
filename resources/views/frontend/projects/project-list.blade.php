@@ -17,7 +17,7 @@
             <div class="row projects-list">
                 <div class="col-md-10 offset-md-1 main-list">
                     @foreach ($obj->getProjectsByCountry()['Bangladesh'] as $banglesh_proj)
-                        <a class=" card-column text-decoration-none"  data-aos="zoom-in-up" href="#project-{{$banglesh_proj->id}}">
+                        <a class=" card-column text-decoration-none"  data-aos="zoom-in-up" href="#project-{{$banglesh_proj?->details->name}}">
                             <div class="bg-image d-flex flex-column justify-content-between px-3" 
                                 style="background-image: url({{ asset('storage/projects/' . $banglesh_proj->image) }});cursor:pointer">
                                 <div class="align-self-end mt-3">
@@ -46,7 +46,7 @@
             <div class="row projects-list">
                 <div class="col-md-10 offset-md-1 main-list">
                     @foreach ($obj->getProjectsByCountry()['Pakistan'] as $pakistan_proj)
-                        <div class=" card-column" data-aos="zoom-in-up">
+                        <a class=" card-column text-decoration-none" data-aos="zoom-in-up" href="#project-{{$pakistan_proj?->details->name}}">
                             <div class="bg-image d-flex flex-column justify-content-between px-3"
                                 style="background-image: url({{ asset('storage/projects/' . $pakistan_proj->image) }});cursor:pointer">
                                 <div class="align-self-end mt-3">
@@ -61,7 +61,7 @@
                                     </p>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     @endforeach
                 </div>
             </div>
@@ -76,7 +76,7 @@
             <div class="row projects-list">
                 <div class="col-md-10 offset-md-1 main-list">
                     @foreach ($obj->getProjectsByCountry()['Sri Lanka'] as $srilanka_proj)
-                        <div class=" card-column" data-aos="zoom-in-up">
+                        <a class=" card-column text-decoration-none" data-aos="zoom-in-up" href="#project-{{$srilanka_proj?->details->name}}">
                             <div class="bg-image d-flex flex-column justify-content-between px-3"
                                 style="background-image: url({{ asset('storage/projects/' . $srilanka_proj->image) }});cursor:pointer">
                                 <div class="align-self-end mt-3">
@@ -91,7 +91,7 @@
                                     </p>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     @endforeach
                 </div>
             </div>
@@ -105,7 +105,7 @@
             <div class="row projects-list">
                 <div class="col-md-10 offset-md-1 main-list">
                     @foreach ($obj->getProjectsByCountry()['Nepal'] as $nepal_proj)
-                        <div class=" card-column" data-aos="zoom-in-up">
+                        <a class=" card-column text-decoration-none" data-aos="zoom-in-up" href="#project-{{$nepal_proj?->details->name}}">
                             <div class="bg-image d-flex flex-column justify-content-between px-3"
                                 style="background-image: url({{ asset('storage/projects/' . $nepal_proj->image) }});cursor:pointer">
                                 <div class="align-self-end mt-3">
@@ -120,7 +120,7 @@
                                     </p>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     @endforeach
                 </div>
             </div>
