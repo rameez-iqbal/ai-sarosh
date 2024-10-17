@@ -2,7 +2,7 @@
 @section('page-title', 'About Us')
 @section('custom-css')
 <style>
-    #left-icon {
+    /* #left-icon {
         position: absolute;
         right: 0px;
         height: 22px;
@@ -13,6 +13,23 @@
         top: 34%;
         left: 0px;
         height: 22px;
+    } */
+    @media(min-width:1024px) {
+        #left-icon {
+            position: absolute;
+            right: -50px;
+            height: 22px;
+            top: 4%;
+        }
+        #right-icon {
+            position: absolute;
+            top: 35%;
+            left: -60px;
+            height: 22px;
+        }
+        .ai-sarosh-stands-for {
+            font-size: 24px !important;
+        }
     }
 </style>
 @endsection
