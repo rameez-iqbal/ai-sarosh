@@ -201,7 +201,7 @@ class FrontEndController extends Controller
 
     public function getArticles()
     {
-        return Article::get(['id', 'title', 'sub_title', 'image', 'redirect_url', 'article_date']);
+        return Article::orderBy('created_at','asc')->get(['id', 'title', 'sub_title', 'image', 'redirect_url', 'article_date']);
     }
 
     public function gallery()
@@ -264,7 +264,7 @@ class FrontEndController extends Controller
 
     public function getReports()
     {
-        return Report::orderBy('created_at','desc')->get(['id', 'title', 'organization', 'description', 'report_file', 'image', 'library_type_id']);
+        return Report::latest()->get(['id', 'title', 'organization', 'description', 'report_file', 'image', 'library_type_id']);
     }
 
     public function videos()
