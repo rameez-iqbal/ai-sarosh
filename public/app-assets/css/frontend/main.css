@@ -153,9 +153,7 @@ body {
    background-color: var(--white);
    border-radius: 25px;
    box-shadow: -10px 13px 38.5px 0px rgba(0, 0, 0, 0.25);
-   padding: 30px 45px;    
-   /* min-width: 488px !important;
-   max-width: 488px !important; */
+   padding: 30px 45px;
 }
 
 .card-content {
@@ -655,7 +653,7 @@ a:hover {
 
 .set-reports-desc-width {
    width: 64%;
-   font-size: 25px;
+   font-size:25px;
 }
 
 .fs-md-39 {
@@ -673,7 +671,7 @@ a:hover {
 }
 
 .international-public-images {
-   /* height: 440px; */
+    height: 440px; 
    object-fit: cover;
    width: 100%;
 }
@@ -742,7 +740,7 @@ a:hover {
    font-size: 22px;
 }
 @media (min-width: 768px) and (max-width: 992px) {
-   
+
    .custom-card {
       margin-bottom: 10px;
    }
@@ -1084,8 +1082,8 @@ body {
 
    .card-text {
       font-size: 14px !important;
-   font-family: var(--font-family-main) !important;
-   font-weight: 500 !important;
+      font-family: var(--font-family-main) !important;
+      font-weight: 500 !important;
 
    }
 
@@ -1103,53 +1101,53 @@ body {
       line-height: 30px;
    }
 
-   
+
    .burger {
       display: block; /* Show the burger on small screens */
-  }
+   }
 
-  
 
-  
-  #social-links {
-   padding-top: 70px;
-  }
-  .nav-item {
-   font-size: 20px;
-  }
-  .navbar-nav .nav-item {
-   margin: 10px 0px 5px 0px;
-  }
-  #header {
-   position: fixed;
-    width: 100%;
-    z-index: 99;
-  }
-  #who-are-we {
-   margin-top: 0;
-}
-.proj-title {
-   font-size: 24px !important;
-}
-.pt-80 {
-   padding-top: 40px;
-   padding-bottom: 40px;
-}
-.set-sm-fs-24 {
+
+
+   #social-links {
+      padding-top: 70px;
+   }
+   .nav-item {
+      font-size: 20px;
+   }
+   .navbar-nav .nav-item {
+      margin: 10px 0px 5px 0px;
+   }
+   #header {
+      position: fixed;
+      width: 100%;
+      z-index: 99;
+   }
+   #who-are-we {
+      margin-top: 0;
+   }
+   .proj-title {
+      font-size: 24px !important;
+   }
+   .pt-80 {
+      padding-top: 40px;
+      padding-bottom: 40px;
+   }
+   .set-sm-fs-24 {
    font-size: 24px;
 }
 }
 @media(max-width:500px) {
    #header {
-     margin-top: -6%;
-  }
+      margin-top: -6%;
+   }
    .navbar {
-   margin-top: 15px;
+      margin-top: 15px;
    }
    .social-icons {
       justify-content: center !important;
 
    }
-   
-   
+
+
 }
