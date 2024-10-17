@@ -654,7 +654,8 @@ a:hover {
 }
 
 .set-reports-desc-width {
-   width: 65%;
+   width: 64%;
+   font-size: 25px;
 }
 
 .fs-md-39 {
@@ -1130,6 +1131,9 @@ body {
 .pt-80 {
    padding-top: 40px;
    padding-bottom: 40px;
+}
+.set-sm-fs-24 {
+   font-size: 24px;
 }
 }
 @media(max-width:500px) {

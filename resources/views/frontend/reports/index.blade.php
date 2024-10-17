@@ -32,7 +32,7 @@
                     :organization="$report['organization']"
                     :date="$report['date']"
                     imageCol="col-md-3"
-                    textCol="col-md-8"
+                    textCol="col-md-8 col-lg-8 col-xl-6"
                     :type="$report['type']"
                 />
             @endforeach
@@ -43,7 +43,7 @@
 @section('custom-js')
 <script>
     $(document).ready(function () {
-        $('.card-text').addClass('text-align-justify');
+        // $('.card-text').addClass('text-align-justify');
     });
 </script>
 @endsection
