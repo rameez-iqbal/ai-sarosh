@@ -563,6 +563,7 @@ a:hover {
 .custom-input-field {
    border-top: none;
    border-bottom: 1px solid #000;
+   border-left: none;
    border-right: none;
    background: inherit;
 }
